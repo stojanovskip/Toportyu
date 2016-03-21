@@ -1,7 +1,7 @@
 package com.company;
 
 public class Order {
-
+    
     private String content;
 
     public String getContent() {

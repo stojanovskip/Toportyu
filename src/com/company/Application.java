@@ -5,12 +5,12 @@ package com.company;
  */
 public class Application {
 
+    OrderParser orderParser = new OrderParser();
     ConsoleInput consoleInput = new ConsoleInput();
-    OrderStore orderStore =new OrderStore();
+    OrderStore orderStore = new OrderStore();
 
 
-    public void ReadSaveData()
-    {
-        orderStore.addOrder(consoleInput.ReadInput());
+    public void ReadSaveData() {
+        orderStore.addOrder(orderParser.parseOrder(consoleInput.ReadInput()));
     }
 }
