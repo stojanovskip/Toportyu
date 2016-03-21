@@ -1,7 +1,4 @@
-package com.company; /**
- * Created by Andras.Timar on 3/21/2016.
- */
-
+package com.company;
 import java.io.*;
 
 public class ConsoleInput {
