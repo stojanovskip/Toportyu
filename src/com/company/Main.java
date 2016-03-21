@@ -3,6 +3,10 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        ConsoleInput cp = new ConsoleInput();
+        String s = cp.ReadInput();
+        System.out.println(s);
+
     }
 }

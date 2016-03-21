@@ -10,15 +10,17 @@ public class ConsoleInput {
 
     public ConsoleInput() {
         br = new BufferedReader(new InputStreamReader(System.in));
-
-
     }
 
-    public String ReadInput() throws IOException {
+    public String ReadInput() {
 
         String s = "";
         System.out.println("Input new order: ");
-        s = br.readLine() + System.getProperty("line.separator");
+        try {
+            s = br.readLine() + System.getProperty("line.separator");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return s;
     }
