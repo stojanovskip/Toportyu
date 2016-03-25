@@ -5,20 +5,19 @@ import java.io.*;
 
 public class OrderStore {
 
-    Order order = new Order();
-    private List<String> OrderList = new ArrayList<String>();
+    private PrintWriter printWriter;
 
-    public void addOrder(Order newOrder) {
-        FileWriter write = null;
-        try {
-            write = new FileWriter("orders.txt", true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        PrintWriter print_line = new PrintWriter(write);
-        print_line.printf("%s" + "%n" + "%n", newOrder.getContent());
-        print_line.close();
+    public OrderStore(PrintWriter printWriter) {
+        this.printWriter = printWriter;
+    }
 
+    public void saveOrder(Order newOrder) {
+        printWriter.println(newOrder.getContent());
+        printWriter.flush();
+    }
+
+    public void close() {
+        printWriter.close();
     }
 
 }

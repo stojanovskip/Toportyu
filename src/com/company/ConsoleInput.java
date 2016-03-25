@@ -3,22 +3,20 @@ package com.company;
 import java.io.*;
 
 public class ConsoleInput {
-
     BufferedReader br;
+    Listener listener;
 
-    public ConsoleInput() {
+    public ConsoleInput(Listener listener) {
+        this.listener = listener;
         br = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public String ReadInput() {
-
-        String s = "";
+    public String ReadInput() throws IOException {
         System.out.println("Input new order: ");
-        try {
-            s = br.readLine() + System.getProperty("line.separator");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String s = br.readLine();
+
+        if (s.equals(":q")) listener.userWantsToQuit();
+        else listener.newOrderArrived(s);
 
         return s;
     }
