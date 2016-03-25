@@ -48,3 +48,6 @@ fabric.properties
 
 ### Intellij Patch ###
 *.iml
+
+#application output file
+orders.txt
