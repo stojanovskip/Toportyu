@@ -39,10 +39,10 @@ public class HttpInput {
                 op.write(responseMessage.getBytes());
                 op.close();
             } catch (Exception e) {
-                String responsemssage = e.getMessage();
-                httpExchange.sendResponseHeaders(500, responsemssage.length());
+                String responseMessage = e.getMessage();
+                httpExchange.sendResponseHeaders(500, responseMessage.length());
                 OutputStream op = httpExchange.getResponseBody();
-                op.write(responsemssage.getBytes());
+                op.write(responseMessage.getBytes());
                 op.close();
             }
         }
