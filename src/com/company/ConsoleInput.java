@@ -11,7 +11,7 @@ public class ConsoleInput {
         br = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public String ReadInput() throws IOException {
+    public String ReadInput() throws Exception {
         System.out.println("Input new order: ");
         String s = br.readLine();
 

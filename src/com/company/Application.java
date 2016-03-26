@@ -10,25 +10,23 @@ public class Application implements Listener {
     OrderParser orderParser;
     ConsoleInput consoleInput;
     OrderStore orderStore;
+    HttpInput httpInput;
 
     public Application() {
+
         orderParser = new OrderParser();
-        consoleInput = new ConsoleInput(this);
         try {
+            httpInput = new HttpInput(this);
             orderStore = new OrderStore(new PrintWriter(new FileWriter("orders.txt", true), true));
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void run() {
-        while (!interrupted) {
-            try {
-                consoleInput.ReadInput();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+
+        httpInput.start();
+
     }
 
     @Override
