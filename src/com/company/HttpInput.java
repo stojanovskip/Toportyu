@@ -39,7 +39,7 @@ public class HttpInput {
                 String message = httpExchange.getRequestURI().getQuery().split("message=")[1];
                 listener.newOrderArrived(message);
                 String responsemssage = "Order saved";
-                httpExchange.sendResponseHeaders(500, responsemssage.length());
+                httpExchange.sendResponseHeaders(200, responsemssage.length());
                 OutputStream op = httpExchange.getResponseBody();
                 op.write(responsemssage.getBytes());
                 op.close();
