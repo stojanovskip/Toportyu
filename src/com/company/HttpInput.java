@@ -17,7 +17,7 @@ public class HttpInput {
 
     public HttpInput(Listener listener) throws IOException {
         this.listener = listener;
-        httpServer = HttpServer.create(new InetSocketAddress(6421), 0);
+        httpServer = HttpServer.create(new InetSocketAddress(8000), 0);
         httpServer.createContext("/", new MyHandler());
         httpServer.setExecutor(null);
     }
