@@ -1,7 +1,6 @@
 package com.company;
 
 import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
 
 import java.io.*;
 
@@ -18,7 +17,7 @@ public class HttpPostHandler extends MyHttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
 
-        OutputStream op = httpExchange.getResponseBody();
+        op = httpExchange.getResponseBody();
         BufferedReader bufferedReader = null;
         try {
             if (httpExchange.getRequestMethod().equals("POST")) {
@@ -26,22 +25,21 @@ public class HttpPostHandler extends MyHttpHandler {
                 StringBuilder stringBuilder = new StringBuilder();
                 InputStream requestBody = httpExchange.getRequestBody();
                 bufferedReader = new BufferedReader(new InputStreamReader(requestBody));
-                char[] buffer = new char[128];
+                char[] charBuffer = new char[128];
                 int bytesToRead = -1;
-                while ((bytesToRead = bufferedReader.read(buffer)) > 0)
-                    stringBuilder.append(buffer, 0, bytesToRead);
+                while ((bytesToRead = bufferedReader.read(charBuffer)) > 0)
+                    stringBuilder.append(charBuffer, 0, bytesToRead);
 
                 listener.newOrderArrived(stringBuilder.toString());
                 String responseMessage = "Order saved";
                 httpExchange.sendResponseHeaders(200, responseMessage.length());
                 op.write(responseMessage.getBytes());
-            } else throw new Exception("Need to use POST");
+            } else throw new Exception("Need to use POST, this is POSThandler");
         } catch (Exception e) {
             String responseMessage = e.getMessage();
             httpExchange.sendResponseHeaders(500, responseMessage.length());
             op.write(responseMessage.getBytes());
-        }
-        finally {
+        } finally {
             op.close();
         }
 

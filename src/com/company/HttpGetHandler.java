@@ -3,7 +3,6 @@ package com.company;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * Created by Andras.Timar on 3/29/2016.
@@ -16,7 +15,7 @@ public class HttpGetHandler extends MyHttpHandler {
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
-        OutputStream op = httpExchange.getResponseBody();
+        op = httpExchange.getResponseBody();
         try
         {
             if(httpExchange.getRequestMethod().equals("GET"))
@@ -31,7 +30,7 @@ public class HttpGetHandler extends MyHttpHandler {
         catch(Exception ex)
         {
             String responseMessage = ex.getMessage();
-            httpExchange.sendResponseHeaders(200, responseMessage.length());
+            httpExchange.sendResponseHeaders(500, responseMessage.length());
             op.write(responseMessage.getBytes());
         }
         finally {
