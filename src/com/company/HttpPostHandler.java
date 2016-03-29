@@ -8,12 +8,11 @@ import java.io.*;
 /**
  * Created by Andras.Timar on 3/29/2016.
  */
-public class HttpPostHandler implements HttpHandler {
+public class HttpPostHandler extends MyHttpHandler {
 
-    private Listener listener;
 
     public HttpPostHandler(Listener listener) {
-        this.listener = listener;
+        super(listener);
     }
 
     @Override
