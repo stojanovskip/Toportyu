@@ -18,6 +18,7 @@ public class HttpInput {
         this.listener = listener;
         httpServer = HttpServer.create(new InetSocketAddress(8000), 0);
         httpServer.createContext("/posttolist",new HttpPostHandler(listener));
+        httpServer.createContext("/getmethod",new HttpGetHandler(listener));
         httpServer.setExecutor(null);
     }
 
