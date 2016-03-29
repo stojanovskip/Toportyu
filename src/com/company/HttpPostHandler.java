@@ -19,6 +19,7 @@ public class HttpPostHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
 
+        OutputStream op = httpExchange.getResponseBody();
         BufferedReader bufferedReader = null;
         try {
             if (httpExchange.getRequestMethod().equals("POST")) {
@@ -34,15 +35,14 @@ public class HttpPostHandler implements HttpHandler {
                 listener.newOrderArrived(stringBuilder.toString());
                 String responseMessage = "Order saved";
                 httpExchange.sendResponseHeaders(200, responseMessage.length());
-                OutputStream op = httpExchange.getResponseBody();
                 op.write(responseMessage.getBytes());
-                op.close();
             } else throw new Exception("Need to use POST");
         } catch (Exception e) {
             String responseMessage = e.getMessage();
             httpExchange.sendResponseHeaders(500, responseMessage.length());
-            OutputStream op = httpExchange.getResponseBody();
             op.write(responseMessage.getBytes());
+        }
+        finally {
             op.close();
         }
 
