@@ -5,5 +5,4 @@ package com.company;
  */
 interface Listener {
     void newOrderArrived(String order);
-
 }

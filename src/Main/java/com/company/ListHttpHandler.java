@@ -1,26 +1,26 @@
 package com.company;
 
 import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
 
 import java.io.*;
 
 /**
  * Created by Andras.Timar on 3/29/2016.
  */
-class HttpPostHandler extends MyHttpHandler {
+class ListHttpHandler implements HttpHandler {
+    private Listener listener;
 
-    HttpPostHandler(Listener listener) {
-        super(listener);
+    ListHttpHandler(Listener listener) {
+        this.listener = listener;
     }
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
-
-        outStream = httpExchange.getResponseBody();
+        OutputStream outStream = httpExchange.getResponseBody();
         BufferedReader bufferedReader;
         try {
             if (httpExchange.getRequestMethod().equals("POST")) {
-
                 StringBuilder stringBuilder = new StringBuilder();
                 InputStream requestBody = httpExchange.getRequestBody();
                 bufferedReader = new BufferedReader(new InputStreamReader(requestBody));
@@ -42,7 +42,8 @@ class HttpPostHandler extends MyHttpHandler {
             String responseMessage = e.getMessage();
             httpExchange.sendResponseHeaders(500, responseMessage.length());
             outStream.write(responseMessage.getBytes());
+        } finally {
+            outStream.close();
         }
-
     }
 }

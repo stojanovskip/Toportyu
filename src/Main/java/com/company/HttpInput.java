@@ -9,18 +9,18 @@ import java.net.InetSocketAddress;
  * Created by bandi on 26/03/16.
  */
 class HttpInput {
-    private HttpServer httpServer;
+    private final HttpServer httpServer;
+    private final int PORT = 6543;
 
     HttpInput(Listener listener) throws IOException {
-        int port = 8000;
-        httpServer = HttpServer.create(new InetSocketAddress(port), 0);
-        httpServer.createContext("/", new HttpPostHandler(listener));
-
+        httpServer = HttpServer.create(new InetSocketAddress(PORT), 0);
+        httpServer.createContext("/", new ListHttpHandler(listener));
         httpServer.setExecutor(null);
     }
 
     void start() {
         httpServer.start();
+        System.out.println("Server is up and listening in " + PORT);
     }
 
 }
