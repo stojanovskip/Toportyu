@@ -14,5 +14,4 @@ class OrderStore {
         printWriter.println(newOrder.getContent());
         printWriter.flush();
     }
-
 }
