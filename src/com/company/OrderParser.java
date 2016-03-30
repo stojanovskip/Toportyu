@@ -1,6 +1,5 @@
 package com.company;
 
-
 class OrderParser {
 
     Order parseOrder(String s) {

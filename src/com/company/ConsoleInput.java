@@ -1,36 +1,22 @@
 package com.company;
+
 import java.io.*;
 
-public class ConsoleInput {
+class ConsoleInput {
+    private final BufferedReader br;
+    private final Listener listener;
 
-    BufferedReader br;
-
-    public ConsoleInput()
-    {
+    ConsoleInput(Listener listener) {
+        this.listener = listener;
         br = new BufferedReader(new InputStreamReader(System.in));
     }
-    public String ReadInput()
-    {
-            String s = "";
 
-                System.out.println("Input new order: ");
-                try {
-                    s = br.readLine();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return s;
-    }
-    public String BoolInput()
-    {
-        String s = "";
+    void ReadInput() throws IOException {
+        System.out.println("Input new order: ");
+        String s = br.readLine();
 
-        System.out.println("Would you like to order more?(y/n)");
-        try {
-            s = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return s;
+        if (s.equals(":q")) listener.onQuitRequest();
+        else listener.newOrderArrived(s);
+
     }
 }

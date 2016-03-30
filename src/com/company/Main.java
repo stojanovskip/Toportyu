@@ -1,11 +1,14 @@
 package com.company;
 
-public class Main {
+import java.io.IOException;
 
-    public static void main(String[] args)
-    {
-        Application application = new Application();
-        application.ReadSaveData();
+class Main {
 
+    public static void main(String[] args) {
+        try {
+            new Application().run();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
