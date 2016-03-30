@@ -4,11 +4,9 @@ import java.io.*;
 public class OrderStore {
 
     Order order = new Order();
-    //List<String> OrderList= new ArrayList<String>();
 
     public void addOrder(String newOrder)
     {
-
         order.setContent(newOrder);
         FileWriter write = null;
         try {
@@ -19,7 +17,5 @@ public class OrderStore {
         PrintWriter print_line = new PrintWriter(write);
         print_line.printf("%s"+"%n"+"%n",order.getContent());
         print_line.close();
-
     }
-
 }

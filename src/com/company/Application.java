@@ -11,6 +11,9 @@ public class Application {
 
     public void ReadSaveData()
     {
-        orderStore.addOrder(consoleInput.ReadInput());
+      do{
+           orderStore.addOrder(consoleInput.ReadInput());
+        }while(consoleInput.BoolInput().toLowerCase().equals("y"));
     }
 }
+
