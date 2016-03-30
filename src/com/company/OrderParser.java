@@ -1,9 +1,9 @@
 package com.company;
 
 
-public class OrderParser {
+class OrderParser {
 
-    public Order parseOrder(String s) {
+    Order parseOrder(String s) {
         Order order = new Order();
         order.setContent(s);
         return order;

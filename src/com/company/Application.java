@@ -5,14 +5,12 @@ import java.io.*;
 /**
  * Created by Madi.Yessirkepov on 3/21/2016.
  */
-public class Application implements Listener {
-    public boolean interrupted = false;
-    OrderParser orderParser;
-    ConsoleInput consoleInput;
-    OrderStore orderStore;
-    HttpInput httpInput;
+class Application implements Listener {
+    private final OrderParser orderParser;
+    private OrderStore orderStore;
+    private HttpInput httpInput;
 
-    public Application() {
+    Application() {
 
         orderParser = new OrderParser();
         try {
@@ -23,7 +21,7 @@ public class Application implements Listener {
         }
     }
 
-    public void run() {
+    void run() {
 
         httpInput.start();
 
@@ -34,8 +32,4 @@ public class Application implements Listener {
         orderStore.saveOrder(orderParser.parseOrder(order));
     }
 
-    @Override
-    public void userWantsToQuit() {
-        interrupted = true;
-    }
 }

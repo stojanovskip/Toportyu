@@ -1,23 +1,18 @@
 package com.company;
 
-import java.util.*;
-import java.io.*;
+import java.io.PrintWriter;
 
-public class OrderStore {
+class OrderStore {
 
-    private PrintWriter printWriter;
+    private final PrintWriter printWriter;
 
-    public OrderStore(PrintWriter printWriter) {
+    OrderStore(PrintWriter printWriter) {
         this.printWriter = printWriter;
     }
 
-    public void saveOrder(Order newOrder) {
+    void saveOrder(Order newOrder) {
         printWriter.println(newOrder.getContent());
         printWriter.flush();
-    }
-
-    public void close() {
-        printWriter.close();
     }
 
 }
