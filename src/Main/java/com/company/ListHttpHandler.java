@@ -17,27 +17,27 @@ class ListHttpHandler implements HttpHandler {
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
-        ServerHandling serverHandling = new ServerHandling(httpExchange);
+        ServerHandler serverHandler = new ServerHandler(httpExchange);
         try {
-            if (serverHandling.isPost()) {
-                onPost(serverHandling);
+            if (serverHandler.isPost()) {
+                onPost(serverHandler);
             }
         } catch (Exception e) {
-            sendServerError(serverHandling, e);
+            sendServerError(serverHandler, e);
         }
     }
 
-    private void sendServerError(ServerHandling serverHandling, Exception e) throws IOException {
+    private void sendServerError(ServerHandler serverHandler, Exception e) throws IOException {
         try {
-            serverHandling.response(500, e.getMessage());
+            serverHandler.respond(500, e.getMessage());
         } catch (Exception e1) {
             throw new IOException(e1);
         }
     }
 
-    private void onPost(ServerHandling serverHandling) throws Exception {
-        String body = serverHandling.getRequestBody();
+    private void onPost(ServerHandler serverHandler) throws Exception {
+        String body = serverHandler.getRequestBody();
         listener.newOrderArrived(body);
-        serverHandling.response(200, body);
+        serverHandler.respond(200, body);
     }
 }

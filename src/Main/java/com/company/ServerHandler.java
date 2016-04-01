@@ -7,10 +7,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 
-class ServerHandling {
+class ServerHandler {
     private HttpExchange httpExchange;
 
-    ServerHandling(HttpExchange newHttpExchange) {
+    ServerHandler(HttpExchange newHttpExchange) {
         this.httpExchange = newHttpExchange;
     }
 
@@ -26,7 +26,7 @@ class ServerHandling {
         return stringBuilder.toString();
     }
 
-    void response(int responseType, String message) throws Exception {
+    void respond(int responseType, String message) throws Exception {
         OutputStream outStream = this.httpExchange.getResponseBody();
         httpExchange.sendResponseHeaders(responseType, message.length());
         outStream.write(message.getBytes());
