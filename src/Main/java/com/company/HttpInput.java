@@ -10,7 +10,7 @@ import java.net.InetSocketAddress;
  */
 class HttpInput {
     private final HttpServer httpServer;
-    private final int PORT = 6543;
+    private final int PORT = 8000;
 
     HttpInput(Listener listener) throws IOException {
         httpServer = HttpServer.create(new InetSocketAddress(PORT), 0);
