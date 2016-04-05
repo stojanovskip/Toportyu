@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+</script>
+</head>
+<body>
+	<div class="jumbotron text-centre">
+	<div class=" container text-centre">
+	<h1>Toportyu
+	<small>Listing the products</small></h1>
+	</div>
+	</div>
+	<div class="container">
+		<ul class="list-group" ng-controller="UserController as userCtrl">
+			<button ng-hide="loaded" class="button center" ng-click="userCtrl.load(); loaded=!loaded">
+				Load
+			</button>
+			<section ng-repeat="user in userCtrl.users">
+				<li class="list-group-item list-group-item-success" > UserID: {{user.userId}} </li>
+				<li class="list-group-item">CommentID: {{user.id}} </li>
+				<li class="list-group-item">Title: {{user.title}} </li>
+				<li class="list-group-item">Body: {{user.body}} </li>
+			</section>
+		</ul>
+	</div>
+	<script src="app.js" type="text/javascript"></script>
+</body>
+</html>
