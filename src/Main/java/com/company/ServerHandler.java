@@ -1,11 +1,14 @@
 package com.company;
 
+import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 class ServerHandler {
     private HttpExchange httpExchange;
@@ -26,8 +29,14 @@ class ServerHandler {
         return stringBuilder.toString();
     }
 
+    void respondJson(int statusCode, Object response) throws Exception {
+        httpExchange.getResponseHeaders().add("Content-Type","application/json");
+        respond(statusCode, new Gson().toJson(response));
+    }
+
     void respond(int responseType, String message) throws Exception {
         OutputStream outStream = this.httpExchange.getResponseBody();
+        httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin","*");
         httpExchange.sendResponseHeaders(responseType, message.length());
         outStream.write(message.getBytes());
         outStream.close();
@@ -36,6 +45,7 @@ class ServerHandler {
     boolean isPost() {
         return "POST".equals(httpExchange.getRequestMethod());
     }
+
     boolean isGet() {
         return "GET".equals(httpExchange.getRequestMethod());
     }

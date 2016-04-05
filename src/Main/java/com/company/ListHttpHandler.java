@@ -6,7 +6,9 @@ import com.sun.net.httpserver.HttpHandler;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.BufferedReader;
-import com.google.gson.Gson;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Andras.Timar on 3/29/2016.
  */
@@ -45,26 +47,37 @@ class ListHttpHandler implements HttpHandler {
         listener.newOrderArrived(body);
         serverHandler.respond(200, body);
     }
-    private void onGet(ServerHandler serverHandler) throws Exception {
-        String response="";
-        OrderParser orderparser = new OrderParser();
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("orders.txt"));
-        try {
-            Gson gson = new Gson();
-            String output = "";
-            String line;
-            while ( (line = bufferedReader.readLine()) != null ) {
-                Order order = orderparser.parseOrder(line);
-                output += gson.toJson(order);
 
-            }
-            serverHandler.respond(200, output);
+    private void onGet(ServerHandler serverHandler) throws Exception {
+        try {
+            serverHandler.respondJson(200, new Response(getOrders()));
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-  /*      String body = serverHandler.getRequestBody();
-        listener.newOrderArrived(body);
-        serverHandler.respond(200, body);
-  */  }
+    private List<Order> getOrders() throws IOException {
+        OrderParser orderparser = new OrderParser();
+        List<Order> orderList = new ArrayList<>();
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("orders.txt"));
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            Order order = orderparser.parseOrder(line);
+            orderList.add(order);
+        }
+
+        return orderList;
+    }
+
+    public static class Response {
+        private List<Order> orderList;
+
+        public Response(List<Order> orderList) {
+            this.orderList = orderList;
+        }
+
+        public List<Order> getOrderList() {
+            return orderList;
+        }
+    }
 }

@@ -2,7 +2,7 @@
 <html ng-app="myApp">
 <head>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js">
 </script>
 </head>
 <body>
@@ -18,7 +18,7 @@
 				Load
 			</button>
 			<section ng-repeat="order in orderCtrl.orders">
-				<li class="list-group-item list-group-item-success" > orderID: {{order.content}} </li>
+				<li class="list-group-item list-group-item-success" > Order: {{order.content}} </li>
 				
 			</section>
 		</ul>
