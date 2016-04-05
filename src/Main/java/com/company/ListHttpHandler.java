@@ -3,20 +3,17 @@ package com.company;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.BufferedReader;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Andras.Timar on 3/29/2016.
  */
 class ListHttpHandler implements HttpHandler {
-    private Listener listener;
+    private Interactor interactor;
 
-    ListHttpHandler(Listener listener) {
-        this.listener = listener;
+    ListHttpHandler(Interactor interactor) {
+        this.interactor = interactor;
     }
 
     @Override
@@ -44,13 +41,13 @@ class ListHttpHandler implements HttpHandler {
 
     private void onPost(ServerHandler serverHandler) throws Exception {
         String body = serverHandler.getRequestBody();
-        listener.newOrderArrived(body);
+        interactor.newOrderArrived(body);
         serverHandler.respond(200, body);
     }
 
     private void onGet(ServerHandler serverHandler) throws Exception {
         try {
-            serverHandler.respondJson(200, new Response(listener.currentOrdersRequested()));
+            serverHandler.respondJson(200, new Response(interactor.currentOrdersRequested()));
         } catch (IOException e) {
             e.printStackTrace();
         }

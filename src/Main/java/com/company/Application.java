@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-class Application implements Listener {
+class Application implements Interactor {
     private final OrderParser orderParser;
     private OrderStore orderStore;
     private HttpInput httpInput;

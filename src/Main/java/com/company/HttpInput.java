@@ -12,9 +12,9 @@ class HttpInput {
     private final HttpServer httpServer;
     private final int PORT = 8000;
 
-    HttpInput(Listener listener) throws IOException {
+    HttpInput(Interactor interactor) throws IOException {
         httpServer = HttpServer.create(new InetSocketAddress(PORT), 0);
-        httpServer.createContext("/orders", new ListHttpHandler(listener));
+        httpServer.createContext("/orders", new ListHttpHandler(interactor));
         httpServer.setExecutor(null);
     }
 
