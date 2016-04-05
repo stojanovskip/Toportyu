@@ -50,23 +50,10 @@ class ListHttpHandler implements HttpHandler {
 
     private void onGet(ServerHandler serverHandler) throws Exception {
         try {
-            serverHandler.respondJson(200, new Response(getOrders()));
+            serverHandler.respondJson(200, new Response(listener.currentOrdersRequested()));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private List<Order> getOrders() throws IOException {
-        OrderParser orderparser = new OrderParser();
-        List<Order> orderList = new ArrayList<>();
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("orders.txt"));
-        String line;
-        while ((line = bufferedReader.readLine()) != null) {
-            Order order = orderparser.parseOrder(line);
-            orderList.add(order);
-        }
-
-        return orderList;
     }
 
     public static class Response {

@@ -3,6 +3,7 @@ package com.company;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 class Application implements Listener {
     private final OrderParser orderParser;
@@ -22,5 +23,15 @@ class Application implements Listener {
     @Override
     public void newOrderArrived(String order) {
         orderStore.saveOrder(orderParser.parseOrder(order));
+    }
+
+    @Override
+    public List<Order> currentOrdersRequested() {
+        try {
+            return orderStore.getOrders();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
