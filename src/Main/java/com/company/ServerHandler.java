@@ -36,5 +36,8 @@ class ServerHandler {
     boolean isPost() {
         return "POST".equals(httpExchange.getRequestMethod());
     }
+    boolean isGet() {
+        return "GET".equals(httpExchange.getRequestMethod());
+    }
 }
 

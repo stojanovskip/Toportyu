@@ -3,8 +3,10 @@ package com.company;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
+import java.io.FileReader;
 import java.io.IOException;
-
+import java.io.BufferedReader;
+import com.google.gson.Gson;
 /**
  * Created by Andras.Timar on 3/29/2016.
  */
@@ -21,6 +23,9 @@ class ListHttpHandler implements HttpHandler {
         try {
             if (serverHandler.isPost()) {
                 onPost(serverHandler);
+            }
+            if (serverHandler.isGet()) {
+                onGet(serverHandler);
             }
         } catch (Exception e) {
             sendServerError(serverHandler, e);
@@ -40,4 +45,26 @@ class ListHttpHandler implements HttpHandler {
         listener.newOrderArrived(body);
         serverHandler.respond(200, body);
     }
+    private void onGet(ServerHandler serverHandler) throws Exception {
+        String response="";
+        OrderParser orderparser = new OrderParser();
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("orders.txt"));
+        try {
+            Gson gson = new Gson();
+            String output = "";
+            String line;
+            while ( (line = bufferedReader.readLine()) != null ) {
+                Order order = orderparser.parseOrder(line);
+                output += gson.toJson(order);
+
+            }
+            serverHandler.respond(200, output);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+  /*      String body = serverHandler.getRequestBody();
+        listener.newOrderArrived(body);
+        serverHandler.respond(200, body);
+  */  }
 }

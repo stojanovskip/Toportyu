@@ -13,15 +13,13 @@
 	</div>
 	</div>
 	<div class="container">
-		<ul class="list-group" ng-controller="UserController as userCtrl">
-			<button ng-hide="loaded" class="button center" ng-click="userCtrl.load(); loaded=!loaded">
+		<ul class="list-group" ng-controller="OrderController as orderCtrl">
+			<button ng-hide="loaded" class="button center" ng-click="orderCtrl.load(); loaded=!loaded">
 				Load
 			</button>
-			<section ng-repeat="user in userCtrl.users">
-				<li class="list-group-item list-group-item-success" > UserID: {{user.userId}} </li>
-				<li class="list-group-item">CommentID: {{user.id}} </li>
-				<li class="list-group-item">Title: {{user.title}} </li>
-				<li class="list-group-item">Body: {{user.body}} </li>
+			<section ng-repeat="order in orderCtrl.orders">
+				<li class="list-group-item list-group-item-success" > orderID: {{order.content}} </li>
+				
 			</section>
 		</ul>
 	</div>
