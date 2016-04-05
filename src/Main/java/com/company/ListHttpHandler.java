@@ -1,5 +1,6 @@
 package com.company;
 
+import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -41,7 +42,9 @@ class ListHttpHandler implements HttpHandler {
 
     private void onPost(ServerHandler serverHandler) throws Exception {
         String body = serverHandler.getRequestBody();
-        interactor.newOrderArrived(body);
+        Gson gson = new Gson();
+        Order o = gson.fromJson(serverHandler.getRequestBody(),Order.class);
+        interactor.newOrderArrived(o.getContent());
         serverHandler.respond(200, body);
     }
 
