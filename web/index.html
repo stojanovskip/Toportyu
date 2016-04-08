@@ -13,18 +13,12 @@
 			</div>
 		</div>
 		<div class="container" ng-controller="OrderController as orderCtrl">
-			<div class="form-group">		
-				<input ng-model="orderCtrl.orderToSend" type="text" class="form-control" value="text"></input>
-				<button class="button center" ng-click="orderCtrl.send()">
-					Submit
-				</button>
-			</div>
 			<ul class="list-group">
-				<button class="button center" ng-click="orderCtrl.load()">
-					{{orderCtrl.buttonText}}
+				<button ng-bind="buttonText" class="button center" ng-click="load()">
+					Loading text...
 				</button>
-				<section ng-repeat="order in orderCtrl.orders">
-					<li class="list-group-item list-group-item-success" > Order: {{order.content}} </li>
+				<section ng-repeat="order in orders">
+					<li class="list-group-item list-group-item-success"> Order: {{order.content}} </li>
 
 				</section>
 			</ul>
