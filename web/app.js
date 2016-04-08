@@ -7,7 +7,7 @@
 		$scope.orderToSend="";		
 		$scope.load=function(){
 
-			 var promise = $http.get('http://localhost:8000/orders').then(function(response){
+			 $http.get('http://localhost:8000/orders').then(function(response){
 				$scope.orders = response.data.orderList;
 				console.log(response.data);
 				$scope.state = "loaded";
