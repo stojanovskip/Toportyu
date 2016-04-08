@@ -1,6 +1,5 @@
 package com.company;
 
-import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -47,17 +46,13 @@ class ListHttpHandler implements HttpHandler {
     }
 
     private void onGet(ServerHandler serverHandler) throws Exception {
-        try {
-            serverHandler.respondJson(200, new Response(interactor.currentOrdersRequested()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        serverHandler.respondJson(200, new SendResponseList(interactor.currentOrdersRequested()));
     }
 
-    public static class Response {
+    public static class SendResponseList {
         private List<Order> orderList;
 
-        public Response(List<Order> orderList) {
+        public SendResponseList(List<Order> orderList) {
             this.orderList = orderList;
         }
 

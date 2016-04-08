@@ -3,35 +3,24 @@ package com.company;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
-class Application implements Interactor {
-    private final OrderParser orderParser;
-    private OrderStore orderStore;
+class Application {
+
     private HttpInput httpInput;
+    private Interactor interactor;
 
     Application() throws IOException {
-        orderParser = new OrderParser();
-        httpInput = new HttpInput(this);
-        orderStore = new OrderStore(new PrintWriter(new FileWriter("orders.txt", true), true));
+        try {
+            OrderParser orderParser = new OrderParser();
+            OrderStore orderStore = new OrderStore(new PrintWriter(new FileWriter("orders.txt", true), true), orderParser);
+            interactor = new Interactor(orderStore, orderParser);
+        } catch (Exception e) {
+        }
+        httpInput = new HttpInput(interactor);
     }
 
     void run() {
         httpInput.start();
     }
 
-    @Override
-    public void newOrderArrived(String order) {
-        orderStore.saveOrder(orderParser.parseOrder(order));
-    }
-
-    @Override
-    public List<Order> currentOrdersRequested() {
-        try {
-            return orderStore.getOrders();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }
