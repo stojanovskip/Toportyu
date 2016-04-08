@@ -14,8 +14,8 @@
 		</div>
 		<div class="container" ng-controller="OrderController as orderCtrl">
 			<ul class="list-group">
-				<button ng-bind="buttonText" class="button center" ng-click="load()">
-					Loading text...
+				<button ng-bind="state==='notLoaded'? 'Load' : 'Refresh'" class="button center" ng-click="load()">
+					
 				</button>
 				<section ng-repeat="order in orders">
 					<li class="list-group-item list-group-item-success"> Order: {{order.content}} </li>
