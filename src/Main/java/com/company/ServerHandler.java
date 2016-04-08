@@ -36,7 +36,6 @@ class ServerHandler {
 
     void respond(int responseType, String message) throws Exception {
         OutputStream outStream = this.httpExchange.getResponseBody();
-        httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin","*");
         httpExchange.sendResponseHeaders(responseType, message.length());
         outStream.write(message.getBytes());
         outStream.close();
