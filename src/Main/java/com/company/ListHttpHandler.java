@@ -42,9 +42,7 @@ class ListHttpHandler implements HttpHandler {
 
     private void onPost(ServerHandler serverHandler) throws Exception {
         String body = serverHandler.getRequestBody();
-        Gson gson = new Gson();
-        Order o = gson.fromJson(serverHandler.getRequestBody(),Order.class);
-        interactor.newOrderArrived(o.getContent());
+        interactor.newOrderArrived(body);
         serverHandler.respond(200, body);
     }
 

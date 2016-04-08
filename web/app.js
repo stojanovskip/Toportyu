@@ -13,14 +13,5 @@
 				store.buttonText = "Refresh";
 			})};
 		
-		this.send = function()
-		{
-			store.orderToSend={};
-			$http.post("http://localhost:8000/orders", store.orderToSend.content).then();
-   			
-		}
-
-
-
 		}]);
 })();
