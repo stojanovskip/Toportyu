@@ -2,8 +2,6 @@
 <html ng-app="myApp">
 <head>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js">
-	</script>
 </head>
 <body>
 	<div class="jumbotron text-centre">
@@ -13,16 +11,35 @@
 			</div>
 		</div>
 		<div class="container" ng-controller="OrderController as orderCtrl">
+		<pre>{{newOrder|json}}</pre>
 			<ul class="list-group">
-				<button ng-bind="state==='notLoaded'? 'Load' : 'Refresh'" class="button center" ng-click="load()">
-					
-				</button>
-				<section ng-repeat="order in orders">
-					<li class="list-group-item list-group-item-success"> Order: {{order.content}} </li>
+				<div class="container">
+					<form>
+						<fieldset class="form-group">
+							<label for="formGroupExampleInput">Add Order</label>
+							<input ng-model="newOrder.content" type="text" class="form-control" id="formGroupExampleInput" placeholder="Add your order here">
+						<button class="button center" ng-click="send()">
+							Send	
+						</button>
+						{{testmessage}}
+						</fieldset>
+					</form>
+				</div>
+				<div class="container">
+					<label for="formGroupExampleInput">List Orders</label>
+					<br/>
+					<button ng-bind="state==='notLoaded'? 'Load' : 'Refresh'" class="button center" ng-click="load()">
+						Load	
+					</button>
+					<section ng-repeat="order in orders">
+						<li class="list-group-item list-group-item-success"> Order: {{order.content}} </li>
 
-				</section>
+					</section>
+				</div>
 			</ul>
 		</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js">
+	</script>
 		<script src="app.js" type="text/javascript"></script>
 	</body>
 	</html>

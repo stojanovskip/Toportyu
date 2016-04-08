@@ -1,14 +1,13 @@
 package com.company;
 
 import com.google.gson.Gson;
+import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 class ServerHandler {
     private HttpExchange httpExchange;
@@ -34,6 +33,15 @@ class ServerHandler {
         respond(statusCode, new Gson().toJson(response));
     }
 
+    Headers getRequestHeaders() {
+        return httpExchange.getRequestHeaders();
+    }
+
+
+    Headers getResponseHeaders() {
+        return httpExchange.getResponseHeaders();
+    }
+
     void respond(int responseType, String message) throws Exception {
         OutputStream outStream = this.httpExchange.getResponseBody();
         httpExchange.sendResponseHeaders(responseType, message.length());
@@ -47,6 +55,10 @@ class ServerHandler {
 
     boolean isGet() {
         return "GET".equals(httpExchange.getRequestMethod());
+    }
+
+    boolean isOptions() {
+        return "OPTIONS".equals(httpExchange.getRequestMethod());
     }
 }
 
