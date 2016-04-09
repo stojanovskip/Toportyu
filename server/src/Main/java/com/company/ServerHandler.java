@@ -29,7 +29,7 @@ class ServerHandler {
     }
 
     void respondJson(int statusCode, Object response) throws Exception {
-        httpExchange.getResponseHeaders().add("Content-Type","application/json");
+        httpExchange.getResponseHeaders().add("Content-Type", "application/json");
         respond(statusCode, new Gson().toJson(response));
     }
 

@@ -25,7 +25,7 @@ class ListHttpHandler implements HttpHandler {
         try {
             if (serverHandler.isPost()) {
 
-                    onPost(serverHandler);
+                onPost(serverHandler);
 
             }
             if (serverHandler.isGet()) {
@@ -55,20 +55,16 @@ class ListHttpHandler implements HttpHandler {
         Headers requestHeaders = serverHandler.getRequestHeaders();
         String first = requestHeaders.getFirst("Content-type");
         try {
+            String body = serverHandler.getRequestBody();
             if (first.contains("text/plain;")) {
-                Order o = new OrderParser().parseOrder(serverHandler.getRequestBody());
-                interactor.newOrderArrived(o.getContent());
-                serverHandler.respond(200, o.getContent());
+                interactor.newOrderArrived(body);
             } else {
-                Gson gson = new Gson();
-                Order o = gson.fromJson(serverHandler.getRequestBody(), Order.class);
-                interactor.newOrderArrived(o.getContent());
-                serverHandler.respondJson(200, o);
+                interactor.newJsonOrderArrived(body);
             }
-        }
-        catch (Exception ex)
-        {
-            sendServerError(serverHandler,ex);
+            serverHandler.respondJson(200, body);
+
+        } catch (Exception ex) {
+            sendServerError(serverHandler, ex);
         }
 
     }

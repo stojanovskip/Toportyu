@@ -3,40 +3,44 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
 </head>
-<body>
-	<div class="jumbotron text-centre">
-		<div class=" container text-centre">
-			<h1>Toportyu
-				<small>Listing the products</small></h1>
-			</div>
-		</div>
-		<div class="container-fluid" ng-controller="OrderController as orderCtrl">
-			<ul class="list-group">
+<body class=layout-frontpage>
+	<div class="wrapper">
+		<div class="top_wrapper">
+			<nav class="navbar navbar-default navbar-inverse navbar-static-top main" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<h1><font color="white">Toportyu</font></h3>
+					</div>
+				</div>
+			</nav>
+			<div class="container-fluid" ng-controller="OrderController as orderCtrl">
 				<div class="container">
 					<form>
 						<fieldset class="form-group">
 							<label for="formGroupExampleInput">Add Order</label>
 							<input ng-model="newOrder.content" type="text" class="form-control" id="formGroupExampleInput" placeholder="Add your order here">
-						<button class="btn-custom" ng-click="send()">
-							Send	
-						</button>
+							<button class="btn-primary" ng-click="send()">
+								Send	
+							</button>
 						</fieldset>
 					</form>
 				</div>
 				<div class="container">
 					<label >List Orders</label>
 					<br/>
-					<button ng-bind="state==='notLoaded'? 'Load' : 'Refresh'" class="btn-custom" ng-click="load()">
+					<button ng-bind="state==='notLoaded'? 'Load' : 'Refresh'" class="btn-primary" ng-click="load()">
 						Load	
 					</button>
-					<section ng-cloak ng-show="orders.length!==0"  ng-repeat="order in orders">
-						<li ng-bind="order.content" class="list-group-item"> </li>
-					</section>
+					<ul  ng-cloak class="list-inline">
+						<section ng-show="orders.length!==0"  ng-repeat="order in orders">
+							<li ng-bind="order.content" class="list-group-item"> </li>
+						</section>
+					</ul>
 				</div>
-			</ul>
+			</div>
 		</div>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js">
-	</script>
+		</script>
 		<script src="app.js" type="text/javascript"></script>
 	</body>
 	</html>
