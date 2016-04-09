@@ -40,7 +40,6 @@ class ListHttpHandler implements HttpHandler {
     }
 
     private void onOptions(ServerHandler serverHandler) throws Exception {
-        System.out.println("!!!!!!!!!!!! opts");
         serverHandler.respond(200, "");
     }
 
@@ -55,17 +54,22 @@ class ListHttpHandler implements HttpHandler {
     private void onPost(ServerHandler serverHandler) throws Exception {
         Headers requestHeaders = serverHandler.getRequestHeaders();
         String first = requestHeaders.getFirst("Content-type");
-        if (first.contains("text/plain;")) {
-            Order o = new OrderParser().parseOrder(serverHandler.getRequestBody());
-            interactor.newOrderArrived(o.getContent());
-            serverHandler.respond(200, o.getContent());
-        } else {
-            Gson gson = new Gson();
-            Order o = gson.fromJson(serverHandler.getRequestBody(), Order.class);
-            interactor.newOrderArrived(o.getContent());
-            serverHandler.respondJson(200, o);
+        try {
+            if (first.contains("text/plain;")) {
+                Order o = new OrderParser().parseOrder(serverHandler.getRequestBody());
+                interactor.newOrderArrived(o.getContent());
+                serverHandler.respond(200, o.getContent());
+            } else {
+                Gson gson = new Gson();
+                Order o = gson.fromJson(serverHandler.getRequestBody(), Order.class);
+                interactor.newOrderArrived(o.getContent());
+                serverHandler.respondJson(200, o);
+            }
         }
-
+        catch (Exception ex)
+        {
+            sendServerError(serverHandler,ex);
+        }
 
     }
 

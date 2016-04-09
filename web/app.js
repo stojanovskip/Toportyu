@@ -18,6 +18,7 @@
 
 			$http.post('http://localhost:8000/orders',$scope.newOrder).then(function(response){
 					$scope.testmessage = "success";
+					$scope.orders.push($scope.newOrder);
 					$scope.newOrder = {};
 			}, function(response){
 				$scope.testmessage = "fail";

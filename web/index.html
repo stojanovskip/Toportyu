@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
 </head>
 <body>
 	<div class="jumbotron text-centre">
@@ -10,30 +10,27 @@
 				<small>Listing the products</small></h1>
 			</div>
 		</div>
-		<div class="container" ng-controller="OrderController as orderCtrl">
-		<pre>{{newOrder|json}}</pre>
+		<div class="container-fluid" ng-controller="OrderController as orderCtrl">
 			<ul class="list-group">
 				<div class="container">
 					<form>
 						<fieldset class="form-group">
 							<label for="formGroupExampleInput">Add Order</label>
 							<input ng-model="newOrder.content" type="text" class="form-control" id="formGroupExampleInput" placeholder="Add your order here">
-						<button class="button center" ng-click="send()">
+						<button class="btn-custom" ng-click="send()">
 							Send	
 						</button>
-						{{testmessage}}
 						</fieldset>
 					</form>
 				</div>
 				<div class="container">
-					<label for="formGroupExampleInput">List Orders</label>
+					<label >List Orders</label>
 					<br/>
-					<button ng-bind="state==='notLoaded'? 'Load' : 'Refresh'" class="button center" ng-click="load()">
+					<button ng-bind="state==='notLoaded'? 'Load' : 'Refresh'" class="btn-custom" ng-click="load()">
 						Load	
 					</button>
-					<section ng-repeat="order in orders">
-						<li class="list-group-item list-group-item-success"> Order: {{order.content}} </li>
-
+					<section ng-cloak ng-show="orders.length!==0"  ng-repeat="order in orders">
+						<li ng-bind="order.content" class="list-group-item"> </li>
 					</section>
 				</div>
 			</ul>
