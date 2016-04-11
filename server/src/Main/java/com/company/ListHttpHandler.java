@@ -70,18 +70,8 @@ class ListHttpHandler implements HttpHandler {
 
 
     private void onGet(ServerHandler serverHandler) throws Exception {
-        serverHandler.respondJson(200, new SendResponseList(interactor.currentOrdersRequested()));
+        serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
     }
 
-    public static class SendResponseList {
-        private List<Order> orderList;
 
-        public SendResponseList(List<Order> orderList) {
-            this.orderList = orderList;
-        }
-
-        public List<Order> getOrderList() {
-            return orderList;
-        }
-    }
 }
