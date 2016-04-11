@@ -1,7 +1,6 @@
 package com.company;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -11,9 +10,11 @@ class OrderStore {
 
     private final PrintWriter printWriter;
     private IOrderTransformer orderTransformer;
+	private IOProvider ioProvider;
 
-    OrderStore(PrintWriter printWriter, IOrderTransformer orderParser) {
-        this.printWriter = printWriter;
+    OrderStore(IOProvider ioProvider, IOrderTransformer orderParser) throws IOException {
+        this.ioProvider = ioProvider;
+		this.printWriter = ioProvider.createWriter();
         this.orderTransformer = orderParser;
     }
 
@@ -24,7 +25,7 @@ class OrderStore {
 
 	public List<Order> getOrders() throws IOException {
         List<Order> orderList = new ArrayList<>();
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("orders.txt"));
+        BufferedReader bufferedReader = new BufferedReader(ioProvider.createReader());
         String line;
 
         while ((line = bufferedReader.readLine()) != null) {

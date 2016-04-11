@@ -1,10 +1,8 @@
 package com.company;
 
-import com.google.gson.Gson;
-
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+
+import com.google.gson.Gson;
 
 class Application {
 
@@ -14,8 +12,9 @@ class Application {
 
     Application() throws IOException {
         try {
+        	IOProvider ioProvider = new FilesBasedIOProvider("orders.txt");
             IOrderTransformer orderParser = new OrderTransformer();
-            OrderStore orderStore = new OrderStore(new PrintWriter(new FileWriter("orders.txt", true), true), orderParser);
+            OrderStore orderStore = new OrderStore(ioProvider, orderParser);
             gson = new Gson();
             interactor = new Interactor(orderStore, orderParser, gson);
         } catch (Exception e) {
