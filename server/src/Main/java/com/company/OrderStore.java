@@ -18,7 +18,7 @@ class OrderStore {
     }
 
     void saveOrder(Order newOrder) {
-        printWriter.println(newOrder.getContent());
+        printWriter.println(orderParser.toString(newOrder));
         printWriter.flush();
     }
 
@@ -28,7 +28,7 @@ class OrderStore {
         String line;
 
         while ((line = bufferedReader.readLine()) != null) {
-            Order order = orderParser.parseOrder(line);
+            Order order = orderParser.parseOrderString(line);
             orderList.add(order);
         }
 

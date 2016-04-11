@@ -5,16 +5,18 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by Andras.Timar on 3/29/2016.
  */
 class ListHttpHandler implements HttpHandler {
     private Interactor interactor;
+    private OrderParser orderParser;
 
-    ListHttpHandler(Interactor interactor) {
+    ListHttpHandler(Interactor interactor, OrderParser orderParser) {
+        this.orderParser = orderParser;
         this.interactor = interactor;
+
     }
 
     @Override
@@ -56,9 +58,9 @@ class ListHttpHandler implements HttpHandler {
         try {
             String body = serverHandler.getRequestBody();
             if (first.contains("text/plain;")) {
-                interactor.newOrderArrived(body);
+                interactor.newOrderArrived(orderParser.parseOrderString(body));
             } else {
-                interactor.newJsonOrderArrived(body);
+                interactor.newOrderArrived(orderParser.parseOrderJson(body));
             }
             serverHandler.respondJson(200, body);
 

@@ -7,20 +7,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 class Application {
-
     private HttpInput httpInput;
-    private Interactor interactor;
-    private Gson gson;
+
+    private OrderParser orderParser;
 
     Application() throws IOException {
         try {
-            OrderParser orderParser = new OrderParser();
+            Interactor interactor;
+            Gson gson = new Gson();
+            orderParser = new OrderParser(gson);
             OrderStore orderStore = new OrderStore(new PrintWriter(new FileWriter("orders.txt", true), true), orderParser);
-            gson = new Gson();
-            interactor = new Interactor(orderStore, orderParser, gson);
+            interactor = new Interactor(orderStore, orderParser);
+            httpInput = new HttpInput(interactor, orderParser);
+
         } catch (Exception e) {
         }
-        httpInput = new HttpInput(interactor);
     }
 
     void run() {
