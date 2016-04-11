@@ -1,6 +1,7 @@
 package com.company;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -14,20 +15,8 @@ public class OrderStoreTest {
 	@Test
 	public void testSaveOrder() {
 		final Order originalOrder = new Order();
-		IOrderTransformer orderParser = new IOrderTransformer() {
-
-			@Override
-			public String toString(Order order) {
-				assertEquals(originalOrder, order);
-				return "asd";
-			}
-
-			@Override
-			public Order fromString(String s) {
-				throw new RuntimeException("Should not be called");
-			}
-			
-		};
+		IOrderTransformer orderParser = mock(IOrderTransformer.class);
+		when(orderParser.toString(originalOrder)).thenReturn("asd");
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
 		PrintWriter writer = new PrintWriter(stream);
 		OrderStore orderStore = new OrderStore(writer, orderParser);
