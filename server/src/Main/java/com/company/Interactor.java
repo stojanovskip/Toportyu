@@ -1,11 +1,11 @@
 package com.company;
 
-import com.google.gson.Gson;
-
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
+
+import javax.inject.Inject;
+
+import com.google.gson.Gson;
 
 /**
  * Created by Madi.Yessirkepov on 4/8/2016.
@@ -15,6 +15,7 @@ public class Interactor {
     private final OrderStore orderStore;
     private final Gson gson;
 
+    @Inject
     public Interactor(OrderStore orderStore, IOrderTransformer orderParser, Gson gson) throws Exception {
         this.orderParser = orderParser;
         this.orderStore = orderStore;

@@ -1,25 +1,15 @@
 package com.company;
 
-import java.io.IOException;
-
-import com.google.gson.Gson;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 class Application {
 
     private HttpInput httpInput;
-    private Interactor interactor;
-    private Gson gson;
 
-    Application() throws IOException {
-        try {
-        	IOProvider ioProvider = new FilesBasedIOProvider("orders.txt");
-            IOrderTransformer orderParser = new OrderTransformer();
-            OrderStore orderStore = new OrderStore(ioProvider, orderParser);
-            gson = new Gson();
-            interactor = new Interactor(orderStore, orderParser, gson);
-        } catch (Exception e) {
-        }
-        httpInput = new HttpInput(interactor);
+    Application() throws Exception {
+		Injector injector = Guice.createInjector(new ApplicationModule());
+        httpInput = injector.getInstance(HttpInput.class);
     }
 
     void run() {

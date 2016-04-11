@@ -6,12 +6,15 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 class OrderStore {
 
     private final PrintWriter printWriter;
     private IOrderTransformer orderTransformer;
 	private IOProvider ioProvider;
 
+	@Inject
     OrderStore(IOProvider ioProvider, IOrderTransformer orderParser) throws IOException {
         this.ioProvider = ioProvider;
 		this.printWriter = ioProvider.createWriter();
