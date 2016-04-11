@@ -10,25 +10,25 @@ import java.util.List;
 class OrderStore {
 
     private final PrintWriter printWriter;
-    private OrderParser orderParser;
+    private IOrderTransformer orderTransformer;
 
-    OrderStore(PrintWriter printWriter, OrderParser orderParser) {
+    OrderStore(PrintWriter printWriter, IOrderTransformer orderParser) {
         this.printWriter = printWriter;
-        this.orderParser = orderParser;
+        this.orderTransformer = orderParser;
     }
 
     void saveOrder(Order newOrder) {
-        printWriter.println(newOrder.getContent());
+        printWriter.println(orderTransformer.toString(newOrder));
         printWriter.flush();
     }
 
-    public List<Order> getOrders() throws IOException {
+	public List<Order> getOrders() throws IOException {
         List<Order> orderList = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(new FileReader("orders.txt"));
         String line;
 
         while ((line = bufferedReader.readLine()) != null) {
-            Order order = orderParser.parseOrder(line);
+            Order order = orderTransformer.fromString(line);
             orderList.add(order);
         }
 

@@ -13,7 +13,7 @@ public class OrderStoreTest {
 
 	@Test
 	public void testSaveOrder() {
-		OrderParser orderParser = new OrderParser();
+		IOrderTransformer orderParser = new OrderTransformer();
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
 		PrintWriter writer = new PrintWriter(stream);
 		OrderStore orderStore = new OrderStore(writer, orderParser);
@@ -29,7 +29,7 @@ public class OrderStoreTest {
 		Order order1 = new Order();
 		order1.setContent("test");
 
-		OrderParser orderParser = new OrderParser();
+		IOrderTransformer orderParser = new OrderTransformer();
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
 		PrintWriter writer = new PrintWriter(stream);
 		OrderStore orderStore = new OrderStore(writer, orderParser);

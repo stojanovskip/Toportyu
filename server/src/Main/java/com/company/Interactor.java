@@ -11,11 +11,11 @@ import java.util.List;
  * Created by Madi.Yessirkepov on 4/8/2016.
  */
 public class Interactor {
-    private final OrderParser orderParser;
+    private final IOrderTransformer orderParser;
     private final OrderStore orderStore;
     private final Gson gson;
 
-    public Interactor(OrderStore orderStore, OrderParser orderParser, Gson gson) throws Exception {
+    public Interactor(OrderStore orderStore, IOrderTransformer orderParser, Gson gson) throws Exception {
         this.orderParser = orderParser;
         this.orderStore = orderStore;
         this.gson = gson;
@@ -23,7 +23,7 @@ public class Interactor {
 
     //maybe boolean instead of 2 methods?
     public void newOrderArrived(String order) {
-        orderStore.saveOrder(orderParser.parseOrder(order));
+        orderStore.saveOrder(orderParser.fromString(order));
     }
 
     public void newJsonOrderArrived(String content) {

@@ -14,7 +14,7 @@ class Application {
 
     Application() throws IOException {
         try {
-            OrderParser orderParser = new OrderParser();
+            IOrderTransformer orderParser = new OrderTransformer();
             OrderStore orderStore = new OrderStore(new PrintWriter(new FileWriter("orders.txt", true), true), orderParser);
             gson = new Gson();
             interactor = new Interactor(orderStore, orderParser, gson);

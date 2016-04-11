@@ -8,8 +8,8 @@ public class OrderParserTest {
 
 	@Test
 	public void test() {
-		OrderParser orderParser = new OrderParser();
-		Order order = orderParser.parseOrder("test content");
+		IOrderTransformer orderParser = new OrderTransformer();
+		Order order = orderParser.fromString("test content");
 		assertEquals("test content", order.getContent());
 	}
 
