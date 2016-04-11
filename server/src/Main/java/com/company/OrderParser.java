@@ -9,12 +9,12 @@ class OrderParser {
         this.gson = gson;
     }
 
-    Order parseOrderJson(String body) {
+    Order parseJsonOrder(String body) {
         Order order = gson.fromJson(body, Order.class);
         return order;
     }
 
-    Order parseOrderString(String body) {
+    Order parseStringOrder(String body) {
         Order order = new Order();
         order.setContent(body);
         return order;

@@ -11,8 +11,8 @@ class Application {
 
     private OrderParser orderParser;
 
-    Application() throws IOException {
-        try {
+    Application() throws Exception {
+
             Interactor interactor;
             Gson gson = new Gson();
             orderParser = new OrderParser(gson);
@@ -20,8 +20,6 @@ class Application {
             interactor = new Interactor(orderStore, orderParser);
             httpInput = new HttpInput(interactor, orderParser);
 
-        } catch (Exception e) {
-        }
     }
 
     void run() {

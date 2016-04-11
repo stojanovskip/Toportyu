@@ -17,7 +17,6 @@ public class Interactor {
         this.orderStore = orderStore;
     }
 
-    //maybe boolean instead of 2 methods?
     public void newOrderArrived(Order order) {
         orderStore.saveOrder(order);
     }

@@ -58,9 +58,9 @@ class ListHttpHandler implements HttpHandler {
         try {
             String body = serverHandler.getRequestBody();
             if (first.contains("text/plain;")) {
-                interactor.newOrderArrived(orderParser.parseOrderString(body));
+                interactor.newOrderArrived(orderParser.parseStringOrder(body));
             } else {
-                interactor.newOrderArrived(orderParser.parseOrderJson(body));
+                interactor.newOrderArrived(orderParser.parseJsonOrder(body));
             }
             serverHandler.respondJson(200, body);
 

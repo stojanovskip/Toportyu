@@ -8,6 +8,8 @@ public class Main {
             new Application().run();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

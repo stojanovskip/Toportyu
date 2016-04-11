@@ -8,7 +8,7 @@
 		$scope.state= "notLoaded";
 		$scope.load=function(){
 
-			$http.get('http://localhost:8000/orders').then(function(response){
+			$http.get('/orders').then(function(response){
 				$scope.orders = response.data.orderList;
 				console.log(response.data);
 				$scope.state = "loaded";
@@ -16,7 +16,7 @@
 
 		$scope.send = function(){
 
-			$http.post('http://localhost:8000/orders',$scope.newOrder).then(function(response){
+			$http.post('/orders',$scope.newOrder).then(function(response){
 					$scope.testmessage = "success";
 					$scope.orders.push($scope.newOrder);
 					$scope.newOrder = {};

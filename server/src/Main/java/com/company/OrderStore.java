@@ -28,7 +28,7 @@ class OrderStore {
         String line;
 
         while ((line = bufferedReader.readLine()) != null) {
-            Order order = orderParser.parseOrderString(line);
+            Order order = orderParser.parseStringOrder(line);
             orderList.add(order);
         }
 
