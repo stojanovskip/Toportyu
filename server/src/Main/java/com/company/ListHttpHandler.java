@@ -11,10 +11,10 @@ import java.io.IOException;
  */
 class ListHttpHandler implements HttpHandler {
     private Interactor interactor;
-    private OrderParser orderParser;
+    private OrderTransformer orderTransformer;
 
-    ListHttpHandler(Interactor interactor, OrderParser orderParser) {
-        this.orderParser = orderParser;
+    ListHttpHandler(Interactor interactor, OrderTransformer orderTransformer) {
+        this.orderTransformer = orderTransformer;
         this.interactor = interactor;
 
     }
@@ -22,7 +22,6 @@ class ListHttpHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         ServerHandler serverHandler = new ServerHandler(httpExchange);
-        //serverHandler.setAllowCrossOrigin("POST, GET, OPTIONS");
         try {
             if (serverHandler.isPost()) {
 
@@ -44,12 +43,13 @@ class ListHttpHandler implements HttpHandler {
         serverHandler.respond(200, "");
     }
 
-    private void sendServerError(ServerHandler serverHandler, Exception e) throws IOException {
+    private void sendServerError(ServerHandler serverHandler, Exception e) {
         try {
             serverHandler.respond(500, e.getMessage());
         } catch (Exception e1) {
-            throw new IOException(e1);
+            e1.printStackTrace();
         }
+
     }
 
     private void onPost(ServerHandler serverHandler) throws Exception {
@@ -58,9 +58,9 @@ class ListHttpHandler implements HttpHandler {
         try {
             String body = serverHandler.getRequestBody();
             if (first.contains("text/plain;")) {
-                interactor.newOrderArrived(orderParser.parseStringOrder(body));
+                interactor.newOrderArrived(orderTransformer.parseStringOrder(body));
             } else {
-                interactor.newOrderArrived(orderParser.parseJsonOrder(body));
+                interactor.newOrderArrived(orderTransformer.parseJsonOrder(body));
             }
             serverHandler.respondJson(200, body);
 

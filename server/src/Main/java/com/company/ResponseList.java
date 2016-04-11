@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Andras.Timar on 4/11/2016.
  */
-public class ResponseList {
+class ResponseList {
     private List<Order> orderList;
 
     public ResponseList(List<Order> orderList) {

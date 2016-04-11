@@ -1,24 +1,20 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 class OrderStore {
 
     private final PrintWriter printWriter;
-    private OrderParser orderParser;
-
-    OrderStore(PrintWriter printWriter, OrderParser orderParser) {
-        this.printWriter = printWriter;
-        this.orderParser = orderParser;
+    private IOrderTransformer orderTransformer;
+    OrderStore(String path, OrderTransformer orderTransformer) throws IOException {
+        this.printWriter = new PrintWriter(new FileWriter(path),true);
+        this.orderTransformer = orderTransformer;
     }
 
     void saveOrder(Order newOrder) {
-        printWriter.println(orderParser.toString(newOrder));
+        printWriter.println(orderTransformer.toString(newOrder));
         printWriter.flush();
     }
 
@@ -28,7 +24,7 @@ class OrderStore {
         String line;
 
         while ((line = bufferedReader.readLine()) != null) {
-            Order order = orderParser.parseStringOrder(line);
+            Order order = orderTransformer.parseStringOrder(line);
             orderList.add(order);
         }
 

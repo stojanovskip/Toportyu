@@ -1,6 +1,5 @@
 package com.company;
 
-import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
@@ -12,11 +11,11 @@ import java.net.InetSocketAddress;
 class HttpInput {
     private final HttpServer httpServer;
     private final int PORT = 8000;
-    private OrderParser orderParser;
+    private OrderTransformer orderTransformer;
 
-    HttpInput(Interactor interactor, OrderParser orderParser) throws IOException {
+    HttpInput(Interactor interactor, OrderTransformer orderTransformer) throws IOException {
         httpServer = HttpServer.create(new InetSocketAddress(PORT), 0);
-        httpServer.createContext("/orders", new ListHttpHandler(interactor,orderParser));
+        httpServer.createContext("/orders", new ListHttpHandler(interactor, orderTransformer));
         httpServer.setExecutor(null);
     }
 
