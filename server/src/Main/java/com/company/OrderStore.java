@@ -21,8 +21,12 @@ class OrderStore {
 
     void saveOrder(Order newOrder) throws IOException {
         printWriter = ioprovider.createWriter();
-        printWriter.println(orderTransformer.toString(newOrder));
-        printWriter.close();
+        try {
+            printWriter.println(orderTransformer.toString(newOrder));
+        }
+        finally {
+            printWriter.close();
+        }
 
     }
 

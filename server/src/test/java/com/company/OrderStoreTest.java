@@ -38,27 +38,22 @@ public class OrderStoreTest {
     @Test
     public void getOrders() throws IOException {
         final Order origOrder = new Order();
+        final Order origOrder2 = new Order();
         IOrderTransformer orderTransformer = mock(IOrderTransformer.class);
-        when(orderTransformer.toString(origOrder)).thenReturn("testdata");
         when(orderTransformer.parseStringOrder("testdata")).thenReturn(origOrder);
-
-
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        PrintWriter printWriter = new PrintWriter(stream);
+        when(orderTransformer.parseStringOrder("testdata2")).thenReturn(origOrder2);
 
         IOProvider ioProvider = mock(IOProvider.class);
-        when(ioProvider.createWriter()).thenReturn(printWriter);
+        String newLine = System.getProperty("line.separator");
 
-        OrderStore orderStore = new OrderStore(orderTransformer, ioProvider);
-        orderStore.saveOrder(origOrder);
-
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(stream.toByteArray());
-        InputStreamReader reader = new InputStreamReader(inputStream);
+        Reader reader = new StringReader("testdata" + newLine + "testdata2");
         when(ioProvider.createReader()).thenReturn(reader);
 
-        List<Order> testlist = orderStore.getOrders();
-        assertEquals(1, testlist.size());
-        assertEquals(origOrder.getContent(), testlist.get(0).getContent());
-    }
+        OrderStore orderStore = new OrderStore(orderTransformer, ioProvider);
 
+        List<Order> testlist = orderStore.getOrders();
+        assertEquals(2, testlist.size());
+        assertEquals(origOrder.getContent(), testlist.get(0).getContent());
+        assertEquals(origOrder2.getContent(), testlist.get(1).getContent());
+    }
 }
