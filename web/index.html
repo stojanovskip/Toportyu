@@ -9,30 +9,26 @@
 			<nav class="navbar navbar-default navbar-inverse navbar-static-top main" role="navigation">
 				<div class="container">
 					<div class="navbar-header">
-						<h1><font color="white">Toportyu</font></h3>
+						<h1><font color="white">Toportyu</font></h1>
 					</div>
 				</div>
 			</nav>
 			<div class="container-fluid" ng-controller="OrderController as orderCtrl">
 				<div class="container">
-					<form>
-						<fieldset class="form-group">
-							<label for="formGroupExampleInput">Add Order</label>
-							<input ng-model="newOrder.content" type="text" class="form-control" id="formGroupExampleInput" placeholder="Add your order here">
-							<button class="btn-primary" ng-click="send()">
-								Send	
-							</button>
-						</fieldset>
-					</form>
+					<h3 for="formGroupExampleInput">Add Order</h3>
+					<input ng-model="newOrder.content" type="text" class="form-control" id="formGroupExampleInput" placeholder="Add your order here">
+					<button class="btn-primary btn-large" ng-click="send()">
+						Send	
+					</button>
+					<hr/>
 				</div>
 				<div class="container">
-					<label >List Orders</label>
-					<br/>
+					<h3>List Orders</h3>
 					<button ng-bind="state==='notLoaded'? 'Load' : 'Refresh'" class="btn-primary" ng-click="load()">
 						Load	
 					</button>
 					<ul  ng-cloak class="list-inline">
-						<section ng-show="orders.length!==0"  ng-repeat="order in orders">
+						<section  ng-repeat="order in orders">
 							<li ng-bind="order.content" class="list-group-item"> </li>
 						</section>
 					</ul>
