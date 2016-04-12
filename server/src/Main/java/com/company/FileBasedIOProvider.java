@@ -10,7 +10,6 @@ import java.io.*;
 public class FileBasedIOProvider implements IOProvider {
     final String path;
 
-    @Inject
     public FileBasedIOProvider()
     {
         this.path="default.txt";
@@ -27,6 +26,6 @@ public class FileBasedIOProvider implements IOProvider {
 
     @Override
     public PrintWriter createWriter() throws IOException {
-        return new PrintWriter(new FileWriter(path));
+        return new PrintWriter(new FileWriter(path,true));
     }
 }

@@ -6,7 +6,7 @@ import com.google.inject.Inject;
 class OrderTransformer implements IOrderTransformer{
     private Gson gson;
 
-    @Inject
+
     public OrderTransformer(Gson gson) {
         this.gson = gson;
     }

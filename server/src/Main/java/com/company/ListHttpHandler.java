@@ -24,9 +24,7 @@ class ListHttpHandler implements HttpHandler {
         ServerHandler serverHandler = new ServerHandler(httpExchange);
         try {
             if (serverHandler.isPost()) {
-
                 onPost(serverHandler);
-
             }
             if (serverHandler.isGet()) {
                 onGet(serverHandler);
@@ -69,7 +67,6 @@ class ListHttpHandler implements HttpHandler {
         }
 
     }
-
 
     private void onGet(ServerHandler serverHandler) throws Exception {
         serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
