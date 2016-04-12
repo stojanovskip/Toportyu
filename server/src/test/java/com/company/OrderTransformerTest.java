@@ -21,8 +21,7 @@ public class OrderTransformerTest {
     }
 
     @Test
-    public void testToJson() {
-
+    public void testFromJson() {
         String json = "{'content':'teststuff'}";
         assertEquals("teststuff", orderTransformer.parseJsonOrder(json).getContent());
     }

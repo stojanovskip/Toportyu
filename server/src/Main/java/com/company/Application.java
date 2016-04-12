@@ -5,16 +5,16 @@ import com.google.gson.Gson;
 class Application {
     private HttpInput httpInput;
 
-    private OrderTransformer orderTransformer;
+    private IOrderTransformer IOrderTransformer;
 
     Application() throws Exception {
-
+            FileBasedIOProvider fileBasedIOProvider = new FileBasedIOProvider();
             Interactor interactor;
             Gson gson = new Gson();
-            orderTransformer = new OrderTransformer(gson);
-            OrderStore orderStore = new OrderStore("orders.txt", orderTransformer);
-            interactor = new Interactor(orderStore, orderTransformer);
-            httpInput = new HttpInput(interactor, orderTransformer);
+            IOrderTransformer = new OrderTransformer(gson);
+            OrderStore orderStore = new OrderStore(IOrderTransformer, fileBasedIOProvider);
+            interactor = new Interactor(orderStore);
+            httpInput = new HttpInput(interactor, IOrderTransformer);
 
     }
 

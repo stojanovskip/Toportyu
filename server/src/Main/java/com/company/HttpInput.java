@@ -11,9 +11,9 @@ import java.net.InetSocketAddress;
 class HttpInput {
     private final HttpServer httpServer;
     private final int PORT = 8000;
-    private OrderTransformer orderTransformer;
+    private IOrderTransformer IOrderTransformer;
 
-    HttpInput(Interactor interactor, OrderTransformer orderTransformer) throws IOException {
+    HttpInput(Interactor interactor, IOrderTransformer orderTransformer) throws IOException {
         httpServer = HttpServer.create(new InetSocketAddress(PORT), 0);
         httpServer.createContext("/orders", new ListHttpHandler(interactor, orderTransformer));
         httpServer.setExecutor(null);

@@ -11,10 +11,10 @@ import java.io.IOException;
  */
 class ListHttpHandler implements HttpHandler {
     private Interactor interactor;
-    private OrderTransformer orderTransformer;
+    private IOrderTransformer IOrderTransformer;
 
-    ListHttpHandler(Interactor interactor, OrderTransformer orderTransformer) {
-        this.orderTransformer = orderTransformer;
+    ListHttpHandler(Interactor interactor, IOrderTransformer orderTransformer) {
+        this.IOrderTransformer = orderTransformer;
         this.interactor = interactor;
 
     }
@@ -58,9 +58,9 @@ class ListHttpHandler implements HttpHandler {
         try {
             String body = serverHandler.getRequestBody();
             if (first.contains("text/plain;")) {
-                interactor.newOrderArrived(orderTransformer.parseStringOrder(body));
+                interactor.newOrderArrived(IOrderTransformer.parseStringOrder(body));
             } else {
-                interactor.newOrderArrived(orderTransformer.parseJsonOrder(body));
+                interactor.newOrderArrived(IOrderTransformer.parseJsonOrder(body));
             }
             serverHandler.respondJson(200, body);
 
