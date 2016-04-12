@@ -1,5 +1,7 @@
 package com.company;
 
+import com.google.inject.Inject;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -8,7 +10,7 @@ import java.util.List;
  */
 class Interactor {
     private final OrderStore orderStore;
-
+    @Inject
     public Interactor(OrderStore orderStore) throws Exception {
         this.orderStore = orderStore;
     }

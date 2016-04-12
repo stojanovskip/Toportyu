@@ -1,5 +1,7 @@
 package com.company;
 
+import com.google.inject.Inject;
+
 import java.io.*;
 
 /**
@@ -8,10 +10,12 @@ import java.io.*;
 public class FileBasedIOProvider implements IOProvider {
     final String path;
 
+    @Inject
     public FileBasedIOProvider()
     {
-        this.path="orders.txt";
+        this.path="default.txt";
     }
+
     public FileBasedIOProvider(String path) {
         this.path = path;
     }

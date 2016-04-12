@@ -1,5 +1,7 @@
 package com.company;
 
+import com.google.inject.Inject;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +11,7 @@ class OrderStore {
     private final PrintWriter printWriter;
     private IOrderTransformer orderTransformer;
     private IOProvider ioprovider;
+    @Inject
     OrderStore(IOrderTransformer orderTransformer, IOProvider ioprovider) throws IOException {
         this.ioprovider = ioprovider;
         this.printWriter = ioprovider.createWriter();

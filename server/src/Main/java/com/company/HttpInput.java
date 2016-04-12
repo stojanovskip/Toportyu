@@ -1,5 +1,6 @@
 package com.company;
 
+import com.google.inject.Inject;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
@@ -13,6 +14,7 @@ class HttpInput {
     private final int PORT = 8000;
     private IOrderTransformer IOrderTransformer;
 
+    @Inject
     HttpInput(Interactor interactor, IOrderTransformer orderTransformer) throws IOException {
         httpServer = HttpServer.create(new InetSocketAddress(PORT), 0);
         httpServer.createContext("/orders", new ListHttpHandler(interactor, orderTransformer));
