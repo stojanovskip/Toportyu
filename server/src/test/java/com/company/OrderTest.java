@@ -12,7 +12,7 @@ public class OrderTest {
     public void setAndGetContent() throws Exception {
         Order o = new Order();
         o.setContent("test");
-        assertEquals("test",o.getContent());
+        assertEquals("test", o.getContent());
     }
 
 }

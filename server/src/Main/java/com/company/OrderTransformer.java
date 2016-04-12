@@ -3,7 +3,7 @@ package com.company;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 
-class OrderTransformer implements IOrderTransformer{
+class OrderTransformer implements IOrderTransformer {
     private Gson gson;
 
 

@@ -2,15 +2,12 @@ package com.company;
 
 import com.google.gson.Gson;
 import com.google.inject.AbstractModule;
-import com.google.inject.Binder;
-import com.google.inject.Module;
 
-import java.util.Iterator;
 
 /**
  * Created by Andras.Timar on 4/12/2016.
  */
-public class ApplicationModule extends AbstractModule{
+public class ApplicationModule extends AbstractModule {
 
     @Override
     protected void configure() {

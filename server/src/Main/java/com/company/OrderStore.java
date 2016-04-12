@@ -8,20 +8,22 @@ import java.util.List;
 
 class OrderStore {
 
-    private final PrintWriter printWriter;
+    private PrintWriter printWriter;
     private IOrderTransformer orderTransformer;
     private IOProvider ioprovider;
+
     @Inject
     OrderStore(IOrderTransformer orderTransformer, IOProvider ioprovider) throws IOException {
         this.ioprovider = ioprovider;
-        this.printWriter = ioprovider.createWriter();
         this.orderTransformer = orderTransformer;
     }
 
 
-    void saveOrder(Order newOrder) {
+    void saveOrder(Order newOrder) throws IOException {
+        printWriter = ioprovider.createWriter();
         printWriter.println(orderTransformer.toString(newOrder));
-        printWriter.flush();
+        printWriter.close();
+
     }
 
     public List<Order> getOrders() throws IOException {
@@ -34,7 +36,7 @@ class OrderStore {
             Order order = orderTransformer.parseStringOrder(line);
             orderList.add(order);
         }
-
+        bufferedReader.close();
 
         return orderList;
     }

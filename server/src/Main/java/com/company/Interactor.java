@@ -16,7 +16,11 @@ class Interactor {
     }
 
     public void newOrderArrived(Order order) {
-        orderStore.saveOrder(order);
+        try {
+            orderStore.saveOrder(order);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Order> currentOrdersRequested() throws IOException {
