@@ -12,7 +12,6 @@ import java.net.InetSocketAddress;
 class HttpInput {
     private final HttpServer httpServer;
     private final int PORT = 8000;
-    private IOrderTransformer IOrderTransformer;
 
     @Inject
     HttpInput(Interactor interactor, IOrderTransformer orderTransformer) throws IOException {
