@@ -15,10 +15,12 @@
 			<div id="midd">
 		
 					<h3 for="formGroupExampleInput"></h3>
+					<form>
 					<input ng-model="newOrder.content" type="text" class="form-control" id="formGroupExampleInput" placeholder="Add your order here">
 					<button class="btn-primary btn-large" ng-click="send()">
 						Send	
 					</button>
+					</form>
 					<button ng-bind="state==='notLoaded'? 'Load' : 'Refresh'" class="btn-primary" ng-click="load()">
 						Load	
 					</button>
