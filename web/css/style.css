@@ -4,7 +4,21 @@
     font-family: 'Diogenos'; /*a name to be used later*/
     src: url("DIOGENES.ttf");
 }
+::-webkit-input-placeholder {
+font-family: "Diogenos", Times, serif;
+}
 
+:-moz-placeholder { /* Firefox 18- */
+font-family: "Diogenos", Times, serif;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+font-family: "Diogenos", Times, serif;  
+}
+
+:-ms-input-placeholder {  
+font-family: "Diogenos", Times, serif;
+}
 
 #header{
     color:white;
@@ -27,6 +41,7 @@ input{
 	width: 50%;
 	vertical-align: center;
 	border-radius:10px;
+	font-family: "Diogenos", Times, serif;
 }
 .stufftomid
 {
