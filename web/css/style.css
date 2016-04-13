@@ -37,6 +37,14 @@ body{
 	 background-attachment: fixed;
 	 
 }
+#copyright{
+	
+	color:white;
+	text-align: center;
+	font-family: "Georgia", Times, serif;
+	font-size: 20 px;
+	margin-top: 90%;
+}
 
 
 
