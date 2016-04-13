@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
+	<link rel="stylesheet" type="text/css" href="toportyu.css" >
 </head>
-<body class=layout-frontpage>
-	<div class="wrapper">
-		<div class="top_wrapper">
-			<nav class="navbar navbar-default navbar-inverse navbar-static-top main" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<h1><font color="white">Toportyu</font></h1>
-					</div>
-				</div>
-			</nav>
-			<div class="container-fluid" ng-controller="OrderController as orderCtrl">
-				<div class="container">
-					<h3 for="formGroupExampleInput">Add Order</h3>
-					<input ng-model="newOrder.content" type="text" class="form-control" id="formGroupExampleInput" placeholder="Add your order here">
-					<button class="btn-primary" ng-click="send()">
-						Send	
-					</button>
-					<hr/>
-				</div>
-				<div class="container">
-					<h3>List Orders</h3>
-					<button ng-bind="state==='notLoaded'? 'Load' : 'Refresh'" class="btn-primary" ng-click="load()">
-						Load	
-					</button>
-					<ul  ng-cloak class="list-inline">
-						<section  ng-repeat="order in orders">
-							<li ng-bind="order.content" class="list-group-item"> </li>
-						</section>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js">
-		</script>
-		<script src="app.js" type="text/javascript"></script>
-	</body>
-	</html>
+<body>
+	<nav class="topbar">
+		<h1><font color="white">Toportyu</font></h1>
+	</div>
+</nav>
+<div class="container">
+
+</div>
+<div ng-controller="OrderController as orderCtrl">
+	<div class="container central">
+		<h3>Add Order</h3>
+		<input ng-model="newOrder.content" type="text" class="form-control" id="formGroupExampleInput" placeholder="Add your order here">
+		<button class="btn-primary" ng-click="send()">
+			Send	
+		</button>				
+	</div>
+	<hr/>
+	<div class="container central">
+		<h3>List Orders</h3>
+		<button ng-bind="state==='notLoaded'? 'Load' : 'Refresh'" class="btn-primary" ng-click="load()">
+			Load	
+		</button>
+		<ul class="list-group"  ng-cloak>
+			<section  ng-repeat="order in orders">
+				<li ng-bind="order.content" class="list-group-item"> </li>
+			</section>
+		</ul>
+	</div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js">
+</script>
+<script src="app.js" type="text/javascript"></script>
+</body>
+</html>

@@ -7,4 +7,110 @@
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
+    transition: 1s;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color:#0000A0;
+  border-color: #2e6da4;
+
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+
+}
+.central{
+	margin-left:30%;
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+.topbar
+{
+  margin:auto;
+  width:100%;
+  background-color:#2B1B17;
+  border-color: #080808;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+html, body{
+  min-height:100%;
+}
+
+body{
+      background-image: -webkit-linear-gradient(top, #edecec, #cecbc9);
+      margin:0;
+      padding: 0;
+     
+}
+input{
+	padding: 5px;
+	height: 20px;
+	width: 50%;
+	vertical-align: center;
+	border-radius:10px;
+}
+h1{
+  font-size: 2.5em;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+ul,
+ol {
+ 	padding: 0px;
+  margin-left: 0px;
+  margin-top: 0;
+  margin-bottom: 10px;
+
+}
+
+li {
+	border-radius: 3px;
+	padding: 5px; 
+	width: 58%; height: 30px;  margin: 0 0 1px 0;
+	list-style-type: none;
+	border-width: 1px;
+	border-color: black;
+	border-style: solid;
+	background-color:#fafafa;
+ }
+h3{
+	font-size: 1.5em;
+}
+.list-group {
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.list-group-item:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.list-group-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
