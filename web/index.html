@@ -15,7 +15,7 @@
 				<input ng-model="newOrder.content" placeholder="Add your order here">
 				<br/>
 				<div class="stufftomid">
-					<input ng-model="newOrder.cost" class="cost" placeholder="Add the cost of your order here">
+					<input ng-model="newOrder.cost" type="number" class="cost" placeholder="Add the cost here">
 					<button class="btn-primary btn-large" ng-click="send()">
 						Send	
 					</button>
@@ -29,7 +29,7 @@
 				<section  ng-repeat="order in orders">
 					<ul class = "list-group">
 						<li ng-bind="order.content" class="list-group-item"> </li>
-						<li ng-bind="order.cost" class="list-group-item"> </li>
+						<li ng-bind="order.cost+' Ft'"class="list-group-item"></li>
 					</ul>
 				</section>
 			</ul>

@@ -1,21 +1,29 @@
 
+
+@font-face {
+    font-family: 'Diogenos'; /*a name to be used later*/
+    src: url("DIOGENES.ttf");
+}
+
+
 #header{
     color:white;
     text-align:center;
-	font-family: "Georgia", Times, serif;
 	 font-size: 30px;
 	letter-spacing: 10px;
     padding:15px;
 
 }
 img{
-	alt="HTML5 Icon" style=width:128px;height:128px;
+	alt:"HTML5 Icon";
+	style=width:128px;height:128px;
 }
 
 
 input{
-	padding: 5px;
-	height: 20px;
+	font-size: 1em;
+	padding: 7px;
+	height: 30px;
 	width: 50%;
 	vertical-align: center;
 	border-radius:10px;
@@ -24,7 +32,7 @@ input{
 {
 	width:50%;
 	text-align: left;
-	padding-left: 24.4%;
+	padding-left: 24.2%;
 }
 .midd{
 	color: white;
@@ -45,6 +53,7 @@ input{
 }
 
 body{
+	font-family: "Diogenos", Times, serif;
 	background-image:  url("gr4.jpg");
 	background-size: cover;
 	 background-repeat: no-repeat;
@@ -55,17 +64,27 @@ body{
 	
 	color:white;
 	text-align: center;
-	font-family: "Georgia", Times, serif;
 	font-size: 20 px;
 	margin-top: 90%;
 }
 
 
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 .btn-primary {
+font-family: "Diogenos", Times, serif;
+font-size: 1.1em;
   border-radius: 30px;
-  width: 100px;
-  height: 30px;
+  width: 120px;
+  height: 40px;
   margin-top: 10px;
   margin-bottom:10px;
   color: #fff;
@@ -82,7 +101,7 @@ body{
 
 
 input.cost{
-	width: 10%;
+	width: 23%;
 }
 ul,
 ol {
@@ -94,7 +113,8 @@ ol {
 }
 
 li {
- border-radius: 3px;
+	overflow: auto;
+ 	border-radius: 3px;
 	padding: 1px; 
 	width: 58%; height: 8 %;  margin: 0 0 1px 0;
 	list-style-type: none;
@@ -115,6 +135,8 @@ li {
   position: relative;
   display: block;
   padding: 10px 15px;
+  margin-top:0;
+  margin-bottom: 0;
     margin-right: auto;
     margin-left: auto;
   background-color: #fff;
@@ -126,10 +148,22 @@ li {
 
 }
 .list-group-item:last-child {
-   border-radius: 10 px;
-    margin-bottom: 30 px;
+   border-radius: 10px;
+    margin-bottom: 30px;
 
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 
+blockquote.style1 {
+  font: 14px/20px italic Times, serif;
+  padding: 8px;
+  background-color: #faebbc;
+  border-top: 1px solid #e1cc89;
+  border-bottom: 1px solid #e1cc89;
+  margin: 5px;
+  background-image: url(images/openquote1.gif);
+  background-position: top left;
+  background-repeat: no-repeat;
+  text-indent: 23px;
+  }

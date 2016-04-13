@@ -22,7 +22,11 @@ class OrderTransformer implements IOrderTransformer {
         order.setContent(body);
         return order;
     }
-
+    @Override
+    public String toJson(Order order)
+    {
+        return gson.toJson(order);
+    }
     @Override
     public String toString(Order order) {
         return order.getContent();

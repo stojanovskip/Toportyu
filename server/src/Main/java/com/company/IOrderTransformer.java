@@ -9,4 +9,6 @@ public interface IOrderTransformer {
     Order parseStringOrder(String body);
 
     String toString(Order order);
+
+    String toJson(Order order);
 }
