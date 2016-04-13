@@ -22,7 +22,7 @@ class OrderStore {
     void saveOrder(Order newOrder) throws IOException {
         printWriter = ioprovider.createWriter();
         try {
-            printWriter.println(orderTransformer.toString(newOrder));
+            printWriter.println(orderTransformer.toJson(newOrder));
         }
         finally {
             printWriter.close();
@@ -37,7 +37,7 @@ class OrderStore {
         String line;
 
         while ((line = bufferedReader.readLine()) != null) {
-            Order order = orderTransformer.parseStringOrder(line);
+            Order order = orderTransformer.parseJsonOrder(line);
             orderList.add(order);
         }
         bufferedReader.close();
