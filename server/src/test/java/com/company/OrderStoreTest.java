@@ -21,7 +21,7 @@ public class OrderStoreTest {
         origOrder.setContent("testdata");
 
         IOrderTransformer orderTransformer = mock(IOrderTransformer.class);
-        when(orderTransformer.toString(origOrder)).thenReturn("testdata");
+        when(orderTransformer.toJson(origOrder)).thenReturn("testdata");
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         PrintWriter writer = new PrintWriter(stream);
@@ -32,7 +32,7 @@ public class OrderStoreTest {
         OrderStore orderStore = new OrderStore(orderTransformer, ioProvider);
         orderStore.saveOrder(origOrder);
         String string = new String(stream.toByteArray());
-        assertEquals("testdata" + System.getProperty("line.separator"), string);
+        assertEquals("testdata"+System.getProperty("line.separator"), string);
 
     }
 
@@ -41,8 +41,8 @@ public class OrderStoreTest {
         final Order origOrder = new Order();
         final Order origOrder2 = new Order();
         IOrderTransformer orderTransformer = mock(IOrderTransformer.class);
-        when(orderTransformer.parseStringOrder("testdata")).thenReturn(origOrder);
-        when(orderTransformer.parseStringOrder("testdata2")).thenReturn(origOrder2);
+        when(orderTransformer.parseJsonOrder("testdata")).thenReturn(origOrder);
+        when(orderTransformer.parseJsonOrder("testdata2")).thenReturn(origOrder2);
 
         IOProvider ioProvider = mock(IOProvider.class);
         String newLine = System.getProperty("line.separator");
@@ -67,7 +67,7 @@ public class OrderStoreTest {
         for (int i = 0; i < numOrders; i++) {
             resOrders[i] = new Order();
             resOrders[i].setContent("Message" + (i + 1));
-            when(transformOrder.parseStringOrder("Message" + (i + 1))).thenReturn(resOrders[i]);
+            when(transformOrder.parseJsonOrder("Message" + (i + 1))).thenReturn(resOrders[i]);
         }
 
         String endLine = System.getProperty("line.separator");
@@ -90,7 +90,7 @@ public class OrderStoreTest {
 
         List<Order> expectedString = new ArrayList<>();
         for (int i = 0; i < numOrders; i++) {
-            expectedString.add(transformOrder.parseStringOrder("Message" + (i + 1)));
+            expectedString.add(transformOrder.parseJsonOrder("Message" + (i + 1)));
         }
 
         List<Order> listOfOrders = testStore.getOrders();
