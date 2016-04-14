@@ -19,13 +19,14 @@ public class OrderTransformerTest {
         o.setContent("teststuff");
         assertEquals("teststuff", orderTransformer.toString(o));
     }
+
     @Test
-    public void fromString()
-    {
+    public void fromString() {
         String order = "testorder";
         Order o = orderTransformer.parseStringOrder(order);
-        assertEquals("testorder",o.getContent());
+        assertEquals("testorder", o.getContent());
     }
+
     @Test
     public void testFromJson() {
         String json = "{'content':'teststuff'}";

@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 class OrderTransformer implements IOrderTransformer {
     private Gson gson;
 
-
     public OrderTransformer(Gson gson) {
         this.gson = gson;
     }
@@ -22,11 +21,12 @@ class OrderTransformer implements IOrderTransformer {
         order.setContent(body);
         return order;
     }
+
     @Override
-    public String toJson(Order order)
-    {
+    public String toJson(Order order) {
         return gson.toJson(order);
     }
+
     @Override
     public String toString(Order order) {
         return order.getContent();

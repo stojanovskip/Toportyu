@@ -6,7 +6,6 @@
 		$scope.newOrder ={};
 		$scope.state= "notLoaded";
 		$scope.load=function(){
-
 			$http.get('/orders').then(function(response){
 				$scope.orders = response.data.orderList;
 				console.log(response.data);
@@ -14,7 +13,6 @@
 			})};
 
 		$scope.send = function(){
-
 			$http.post('/orders',$scope.newOrder).then(function(response){
 					$scope.orders.push($scope.newOrder);
 					$scope.newOrder = {};

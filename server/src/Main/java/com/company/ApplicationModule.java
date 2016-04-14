@@ -3,7 +3,6 @@ package com.company;
 import com.google.gson.Gson;
 import com.google.inject.AbstractModule;
 
-
 /**
  * Created by Andras.Timar on 4/12/2016.
  */

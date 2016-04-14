@@ -32,7 +32,7 @@ public class OrderStoreTest {
         OrderStore orderStore = new OrderStore(orderTransformer, ioProvider);
         orderStore.saveOrder(origOrder);
         String string = new String(stream.toByteArray());
-        assertEquals("testdata"+System.getProperty("line.separator"), string);
+        assertEquals("testdata" + System.getProperty("line.separator"), string);
 
     }
 

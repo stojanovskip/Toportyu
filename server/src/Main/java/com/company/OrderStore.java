@@ -23,8 +23,7 @@ class OrderStore {
         printWriter = ioprovider.createWriter();
         try {
             printWriter.println(orderTransformer.toJson(newOrder));
-        }
-        finally {
+        } finally {
             printWriter.close();
         }
 
