@@ -6,6 +6,8 @@ import com.sun.net.httpserver.HttpHandler;
 
 import java.io.IOException;
 
+import static java.lang.Integer.parseInt;
+
 /**
  * Created by Andras.Timar on 3/29/2016.
  */
@@ -16,7 +18,6 @@ class ListHttpHandler implements HttpHandler {
     ListHttpHandler(Interactor interactor, IOrderTransformer orderTransformer) {
         this.IOrderTransformer = orderTransformer;
         this.interactor = interactor;
-
     }
 
     @Override
@@ -25,11 +26,9 @@ class ListHttpHandler implements HttpHandler {
         try {
             if (serverHandler.isPost()) {
                 onPost(serverHandler);
-            }
-            if (serverHandler.isGet()) {
+            } else if (serverHandler.isGet()) {
                 onGet(serverHandler);
-            }
-            if (serverHandler.isOptions()) {
+            } else if (serverHandler.isOptions()) {
                 onOptions(serverHandler);
             }
         } catch (Exception e) {
@@ -47,7 +46,6 @@ class ListHttpHandler implements HttpHandler {
         } catch (Exception e1) {
             e1.printStackTrace();
         }
-
     }
 
     private void onPost(ServerHandler serverHandler) throws Exception {
@@ -69,8 +67,36 @@ class ListHttpHandler implements HttpHandler {
     }
 
     private void onGet(ServerHandler serverHandler) throws Exception {
-        serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
+        Thread thread = new Thread(new ThreadObject(serverHandler));
+        thread.start();
     }
 
+    class ThreadObject implements Runnable {
 
+        private final ServerHandler serverHandler;
+
+        public ThreadObject(ServerHandler serverHandler) {
+            this.serverHandler = serverHandler;
+        }
+
+        @Override
+        public void run() {
+            Headers requestHeaders = serverHandler.getRequestHeaders();
+            int currentLength = parseInt(requestHeaders.getFirst("CurrentLength"));
+            try {
+                try {
+                    while (currentLength == interactor.currentOrdersRequested().size()) {
+                        Thread.sleep(500);
+                    }
+                    serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                    serverHandler.respond(500, null);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
 }
