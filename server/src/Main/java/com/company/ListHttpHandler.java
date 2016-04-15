@@ -5,7 +5,6 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 import java.io.IOException;
-import java.util.Timer;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -72,15 +71,15 @@ class ListHttpHandler implements HttpHandler {
     }
 
     private void onGet(ServerHandler serverHandler) throws Exception {
-        Thread thread = new Thread(new ThreadObject(serverHandler));
+        Thread thread = new Thread(new AsyncPoller(serverHandler));
         thread.start();
     }
 
-    class ThreadObject implements Runnable {
+    class AsyncPoller implements Runnable {
 
         private final ServerHandler serverHandler;
 
-        public ThreadObject(ServerHandler serverHandler) {
+        public AsyncPoller(ServerHandler serverHandler) {
             this.serverHandler = serverHandler;
         }
 
@@ -92,16 +91,15 @@ class ListHttpHandler implements HttpHandler {
             try {
                 try {
                     int counter = 0;
-
-                    while (counter < 20&&currentLength == interactor.currentOrdersRequested().size()) {
-                    try {
-                        lock.lock();
+                    lock.lock();
+                    int currentLocalLength = interactor.currentOrdersRequested().size();
+                    lock.unlock();
+                    while (counter < 20 && currentLength == currentLocalLength) {
                         Thread.sleep(500);
-                        counter++;
-                    }
-                    finally {
+                        lock.lock();
+                        currentLocalLength = interactor.currentOrdersRequested().size();
                         lock.unlock();
-                    }
+                        counter++;
                     }
                     serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
                 } catch (IOException | InterruptedException e) {

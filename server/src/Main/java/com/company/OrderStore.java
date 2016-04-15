@@ -5,12 +5,15 @@ import com.google.inject.Inject;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 class OrderStore {
 
     private PrintWriter printWriter;
     private IOrderTransformer orderTransformer;
     private IOProvider ioprovider;
+    Lock lock = new ReentrantLock();
 
     @Inject
     OrderStore(IOrderTransformer orderTransformer, IOProvider ioprovider) throws IOException {
@@ -22,8 +25,10 @@ class OrderStore {
     void saveOrder(Order newOrder) throws IOException {
         printWriter = ioprovider.createWriter();
         try {
+            lock.lock();
             printWriter.println(orderTransformer.toJson(newOrder));
         } finally {
+            lock.unlock();
             printWriter.close();
         }
 
@@ -31,16 +36,17 @@ class OrderStore {
 
     public List<Order> getOrders() throws IOException {
         List<Order> orderList = new ArrayList<>();
-
         BufferedReader bufferedReader = new BufferedReader(ioprovider.createReader());
         String line;
 
-        while ((line = bufferedReader.readLine()) != null) {
-            Order order = orderTransformer.parseJsonOrder(line);
-            orderList.add(order);
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
+                Order order = orderTransformer.parseJsonOrder(line);
+                orderList.add(order);
+            }
+        } finally {
+            bufferedReader.close();
         }
-        bufferedReader.close();
-
         return orderList;
     }
 }

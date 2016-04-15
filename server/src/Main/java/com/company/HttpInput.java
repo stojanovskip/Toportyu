@@ -22,7 +22,7 @@ class HttpInput {
 
     void start() {
         httpServer.start();
-        System.out.println("Server is up and listening in " + PORT);
+        System.out.println("Server is up and listening on " + PORT);
     }
 
 }
