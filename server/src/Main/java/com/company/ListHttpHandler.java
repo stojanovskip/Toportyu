@@ -5,6 +5,9 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import static java.lang.Integer.parseInt;
 
@@ -14,6 +17,8 @@ import static java.lang.Integer.parseInt;
 class ListHttpHandler implements HttpHandler {
     private Interactor interactor;
     private IOrderTransformer IOrderTransformer;
+    Lock lock = new ReentrantLock();
+
 
     ListHttpHandler(Interactor interactor, IOrderTransformer orderTransformer) {
         this.IOrderTransformer = orderTransformer;
@@ -83,10 +88,20 @@ class ListHttpHandler implements HttpHandler {
         public void run() {
             Headers requestHeaders = serverHandler.getRequestHeaders();
             int currentLength = parseInt(requestHeaders.getFirst("CurrentLength"));
+
             try {
                 try {
-                    while (currentLength == interactor.currentOrdersRequested().size()) {
+                    int counter = 0;
+
+                    while (counter < 20&&currentLength == interactor.currentOrdersRequested().size()) {
+                    try {
+                        lock.lock();
                         Thread.sleep(500);
+                        counter++;
+                    }
+                    finally {
+                        lock.unlock();
+                    }
                     }
                     serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
                 } catch (IOException | InterruptedException e) {

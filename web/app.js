@@ -7,8 +7,6 @@
 		$scope.counter = 0;
 		$scope.state= "notLoaded";
 		$scope.load=function(){
-			$timeout(function(){
-				
 				$http({method: 'GET', url: '/orders', headers: {
     'CurrentLength': $scope.orders.length}
 					})
@@ -18,7 +16,7 @@
 				$scope.state = "loaded";
 				$scope.counter++;
 				$scope.load();
-			})},1)};
+			})};
 
 		$scope.send = function(){
 			$http.post('/orders',$scope.newOrder).then(function(response){
