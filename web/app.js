@@ -1,7 +1,7 @@
 (function()
 {
 	var app = angular.module("myApp",[]);
-	app.controller("OrderController", ['$http','$scope','$timeout',function($http,$scope,$timeout){
+	app.controller("OrderController", ['$http','$scope',function($http,$scope){
 		$scope.orders=[];
 		$scope.newOrder ={};
 		$scope.counter = 0;
@@ -27,8 +27,3 @@
 
 		}]);
 })();
-
-
-$http({method: 'GET', url: 'www.google.com/someapi', headers: {
-    'Authorization': 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='}
-});
