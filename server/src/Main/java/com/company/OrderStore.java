@@ -40,12 +40,14 @@ class OrderStore {
         String line;
 
         try {
+            lock.lock();
             while ((line = bufferedReader.readLine()) != null) {
                 Order order = orderTransformer.parseJsonOrder(line);
                 orderList.add(order);
             }
         } finally {
             bufferedReader.close();
+            lock.unlock();
         }
         return orderList;
     }

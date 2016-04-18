@@ -4,9 +4,10 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
+import java.net.Socket;
+import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
 import static java.lang.Integer.parseInt;
 
 /**
@@ -15,8 +16,7 @@ import static java.lang.Integer.parseInt;
 class ListHttpHandler implements HttpHandler {
     private Interactor interactor;
     private IOrderTransformer IOrderTransformer;
-    Lock lock = new ReentrantLock();
-
+    ArrayList<Socket> socketList = new ArrayList<Socket>();
 
     ListHttpHandler(Interactor interactor, IOrderTransformer orderTransformer) {
         this.IOrderTransformer = orderTransformer;
@@ -90,14 +90,10 @@ class ListHttpHandler implements HttpHandler {
             try {
                 try {
                     int counter = 0;
-                    lock.lock();
                     int currentLocalLength = interactor.currentOrdersRequested().size();
-                    lock.unlock();
                     while (counter < 20 && currentLength == currentLocalLength) {
                         Thread.sleep(500);
-                        lock.lock();
                         currentLocalLength = interactor.currentOrdersRequested().size();
-                        lock.unlock();
                         counter++;
                     }
                     serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
