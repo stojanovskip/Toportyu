@@ -4,10 +4,6 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
-import java.net.Socket;
-import java.util.ArrayList;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 import static java.lang.Integer.parseInt;
 
 /**
@@ -16,8 +12,6 @@ import static java.lang.Integer.parseInt;
 class ListHttpHandler implements HttpHandler {
     private Interactor interactor;
     private IOrderTransformer IOrderTransformer;
-    ArrayList<Socket> socketList = new ArrayList<Socket>();
-
     ListHttpHandler(Interactor interactor, IOrderTransformer orderTransformer) {
         this.IOrderTransformer = orderTransformer;
         this.interactor = interactor;

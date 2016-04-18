@@ -9,10 +9,10 @@ import java.util.List;
  * Created by Madi.Yessirkepov on 4/8/2016.
  */
 class Interactor {
-    private final OrderStoreFile orderStoreFile;
+    private final IOrderStore orderStoreFile;
     @Inject
-    public Interactor(OrderStoreFile orderStoreFile) throws Exception {
-        this.orderStoreFile = orderStoreFile;
+    public Interactor(IOrderStore orderStore) throws Exception {
+        this.orderStoreFile = orderStore;
     }
 
     public void newOrderArrived(Order order) {
