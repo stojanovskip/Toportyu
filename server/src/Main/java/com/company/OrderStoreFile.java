@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-class OrderStore {
+class OrderStoreFile implements IOrderStore {
 
     private PrintWriter printWriter;
     private IOrderTransformer orderTransformer;
@@ -16,13 +16,13 @@ class OrderStore {
     Lock lock = new ReentrantLock();
 
     @Inject
-    OrderStore(IOrderTransformer orderTransformer, IOProvider ioprovider) throws IOException {
+    OrderStoreFile(IOrderTransformer orderTransformer, IOProvider ioprovider) throws IOException {
         this.ioprovider = ioprovider;
         this.orderTransformer = orderTransformer;
     }
 
-
-    void saveOrder(Order newOrder) throws IOException {
+    @Override
+    public void saveOrder(Order newOrder) throws IOException {
         printWriter = ioprovider.createWriter();
         try {
             lock.lock();
@@ -34,6 +34,7 @@ class OrderStore {
 
     }
 
+    @Override
     public List<Order> getOrders() throws IOException {
         List<Order> orderList = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(ioprovider.createReader());

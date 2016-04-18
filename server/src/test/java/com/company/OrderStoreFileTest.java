@@ -13,7 +13,7 @@ import static org.mockito.Mockito.when;
 /**
  * Created by Andras.Timar on 4/12/2016.
  */
-public class OrderStoreTest {
+public class OrderStoreFileTest {
 
     @Test
     public void saveOrder() throws IOException {
@@ -29,8 +29,8 @@ public class OrderStoreTest {
         IOProvider ioProvider = mock(IOProvider.class);
         when(ioProvider.createWriter()).thenReturn(writer);
 
-        OrderStore orderStore = new OrderStore(orderTransformer, ioProvider);
-        orderStore.saveOrder(origOrder);
+        OrderStoreFile orderStoreFile = new OrderStoreFile(orderTransformer, ioProvider);
+        orderStoreFile.saveOrder(origOrder);
         String string = new String(stream.toByteArray());
         assertEquals("testdata" + System.getProperty("line.separator"), string);
 
@@ -50,9 +50,9 @@ public class OrderStoreTest {
         Reader reader = new StringReader("testdata" + newLine + "testdata2");
         when(ioProvider.createReader()).thenReturn(reader);
 
-        OrderStore orderStore = new OrderStore(orderTransformer, ioProvider);
+        OrderStoreFile orderStoreFile = new OrderStoreFile(orderTransformer, ioProvider);
 
-        List<Order> testlist = orderStore.getOrders();
+        List<Order> testlist = orderStoreFile.getOrders();
         assertEquals(2, testlist.size());
         assertEquals(origOrder.getContent(), testlist.get(0).getContent());
         assertEquals(origOrder2.getContent(), testlist.get(1).getContent());
@@ -78,7 +78,7 @@ public class OrderStoreTest {
         PrintWriter print = new PrintWriter(stream);
         when(ioProvider.createWriter()).thenReturn(print);
 
-        OrderStore testStore = new OrderStore(transformOrder, ioProvider);
+        OrderStoreFile testStore = new OrderStoreFile(transformOrder, ioProvider);
 
         for (int i = 0; i < numOrders; i++) {
             testStore.saveOrder(resOrders[i]);

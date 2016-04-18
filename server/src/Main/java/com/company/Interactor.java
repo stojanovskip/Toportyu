@@ -9,22 +9,22 @@ import java.util.List;
  * Created by Madi.Yessirkepov on 4/8/2016.
  */
 class Interactor {
-    private final OrderStore orderStore;
+    private final OrderStoreFile orderStoreFile;
     @Inject
-    public Interactor(OrderStore orderStore) throws Exception {
-        this.orderStore = orderStore;
+    public Interactor(OrderStoreFile orderStoreFile) throws Exception {
+        this.orderStoreFile = orderStoreFile;
     }
 
     public void newOrderArrived(Order order) {
         try {
-            orderStore.saveOrder(order);
+            orderStoreFile.saveOrder(order);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public List<Order> currentOrdersRequested() throws IOException {
-        return orderStore.getOrders();
+        return orderStoreFile.getOrders();
     }
 
 }
