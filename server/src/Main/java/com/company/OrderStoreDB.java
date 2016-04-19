@@ -36,8 +36,6 @@ public class OrderStoreDB implements IOrderStore {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
@@ -63,10 +61,7 @@ public class OrderStoreDB implements IOrderStore {
                     e.printStackTrace();
                 }
             }
-
-
             return orders;
-
         }
     }
 
@@ -90,7 +85,7 @@ public class OrderStoreDB implements IOrderStore {
                 }
             }
         }
-    return count;
+        return count;
 
     }
 }

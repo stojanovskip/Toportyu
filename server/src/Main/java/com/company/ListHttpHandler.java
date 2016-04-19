@@ -3,7 +3,9 @@ package com.company;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+
 import java.io.IOException;
+
 import static java.lang.Integer.parseInt;
 
 /**
@@ -12,6 +14,7 @@ import static java.lang.Integer.parseInt;
 class ListHttpHandler implements HttpHandler {
     private Interactor interactor;
     private IOrderTransformer IOrderTransformer;
+
     ListHttpHandler(Interactor interactor, IOrderTransformer orderTransformer) {
         this.IOrderTransformer = orderTransformer;
         this.interactor = interactor;
@@ -80,7 +83,6 @@ class ListHttpHandler implements HttpHandler {
         public void run() {
             Headers requestHeaders = serverHandler.getRequestHeaders();
             int currentLength = parseInt(requestHeaders.getFirst("CurrentLength"));
-
             try {
                 try {
                     int counter = 0;
@@ -90,6 +92,10 @@ class ListHttpHandler implements HttpHandler {
                         currentLocalLength = interactor.getNumberOfItems();
                         counter++;
                     }
+                    serverHandler.getResponseHeaders().add("Cache-Control","no-cache, no-store, must-revalidate");
+                    serverHandler.getResponseHeaders().add("Pragma","no-cache");
+                    serverHandler.getResponseHeaders().add("Expires","0");
+
                     serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
                 } catch (IOException | InterruptedException e) {
                     e.printStackTrace();

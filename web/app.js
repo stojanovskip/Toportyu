@@ -7,7 +7,7 @@
 		$scope.counter = 0;
 		$scope.state= "notLoaded";
 		$scope.load=function(){
-				$http({method: 'GET', url: '/orders', headers: {
+				$http({method: 'GET', url: '/orders/?r='+Math.random(), headers: {
     'CurrentLength': $scope.orders.length}
 					})
 				.then(function(response){
