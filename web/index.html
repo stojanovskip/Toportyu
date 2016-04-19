@@ -15,7 +15,7 @@
 				<input name="ordertext" ng-model="newOrder.content"  placeholder="Add your order here" required>
 				<br/>
 				<div class="stufftomid">
-					<input name="cost" ng-model="newOrder.cost" type="number" ng-minlength="4" min="0" max="999999" class="cost" placeholder="Add the cost here" required>
+					<input name="cost" ng-model="newOrder.cost" type="number" min="0" max="999999" class="cost" placeholder="Add the cost here" required>
 					<button class="btn-primary btn-large" ng-click="send()" ng-disabled="inputform.$valid">
 						Send	
 					</button>
