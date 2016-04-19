@@ -7,6 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+
 /**
  * Created by Andras.Timar on 4/18/2016.
  */
@@ -15,53 +17,46 @@ public class OrderStoreDB implements IOrderStore {
     private Connection connection;
 
     @Inject
-    public OrderStoreDB() {
-
-        try {
-            String username = "toportyu";
-            String password = "t0p0rtyu";
-            String url = "jdbc:mysql://sql.liligo.com";
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(url,username,password);
-            System.out.println("success");
-        } catch (SQLException e) {
-            System.out.println("Fail");
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
+    public OrderStoreDB(Connection connection) {
+        this.connection = connection;
     }
 
     @Override
     public void saveOrder(Order newOrder) throws IOException {
+        try {
+            Statement statement = connection.createStatement();
+            StringBuilder sql = new StringBuilder();
+            sql.append("insert into toportyu.orders(content,cost) values('");
+            sql.append(newOrder.getContent());
+            sql.append("',");
+            sql.append(newOrder.getCost());
+            sql.append(")");
+            System.out.println(sql.toString());
+            statement.execute(sql.toString());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
     @Override
     public List<Order> getOrders() throws IOException {
-        Statement statement = null;
         ResultSet rs = null;
         List<Order> orders = new ArrayList<Order>();
         try {
-            statement = connection.createStatement();
-            rs = statement.executeQuery("SELECT * FROM toportyu.Orders");
-            while(rs.next())
-            {
+            Statement statement = connection.createStatement();
+            rs = statement.executeQuery("SELECT * FROM toportyu.orders");
+            while (rs.next()) {
                 Order o = new Order();
-                o.setContent(rs.getString("order"));
+                o.setContent(rs.getString("content"));
                 o.setCost(rs.getInt("cost"));
                 orders.add(o);
             }
-
-            System.out.println("yay");
         } catch (SQLException e) {
-            System.out.println("fail");
             e.printStackTrace();
-        }
-        finally {
-            if(rs!=null)
-            {
+        } finally {
+            if (rs != null) {
                 try {
                     rs.close();
                 } catch (SQLException e) {
@@ -70,9 +65,32 @@ public class OrderStoreDB implements IOrderStore {
             }
 
 
-
             return orders;
 
         }
+    }
+
+    @Override
+    public int orderCount() {
+        ResultSet rs = null;
+        int count = 0;
+        try {
+            Statement statement = connection.createStatement();
+            rs = statement.executeQuery("select count(*) as num from toportyu.orders");
+            rs.next();
+            count = parseInt(rs.getString("num"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    return count;
+
     }
 }

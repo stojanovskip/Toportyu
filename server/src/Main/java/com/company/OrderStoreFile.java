@@ -13,7 +13,7 @@ class OrderStoreFile implements IOrderStore {
     private PrintWriter printWriter;
     private IOrderTransformer orderTransformer;
     private IOProvider ioprovider;
-    Lock lock = new ReentrantLock();
+    final Lock lock = new ReentrantLock();
 
     @Inject
     OrderStoreFile(IOrderTransformer orderTransformer, IOProvider ioprovider) throws IOException {
@@ -28,8 +28,8 @@ class OrderStoreFile implements IOrderStore {
             lock.lock();
             printWriter.println(orderTransformer.toJson(newOrder));
         } finally {
-            lock.unlock();
             printWriter.close();
+            lock.unlock();
         }
 
     }
@@ -39,7 +39,6 @@ class OrderStoreFile implements IOrderStore {
         List<Order> orderList = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(ioprovider.createReader());
         String line;
-
         try {
             lock.lock();
             while ((line = bufferedReader.readLine()) != null) {
@@ -51,5 +50,10 @@ class OrderStoreFile implements IOrderStore {
             lock.unlock();
         }
         return orderList;
+    }
+
+    @Override
+    public int orderCount() {
+        return 0;
     }
 }

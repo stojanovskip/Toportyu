@@ -11,4 +11,7 @@ public interface IOrderStore {
     void saveOrder(Order newOrder) throws IOException;
 
     List<Order> getOrders() throws IOException;
+
+    public int orderCount();
+
 }

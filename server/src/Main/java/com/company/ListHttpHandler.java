@@ -87,7 +87,7 @@ class ListHttpHandler implements HttpHandler {
                     int currentLocalLength = interactor.currentOrdersRequested().size();
                     while (counter < 20 && currentLength == currentLocalLength) {
                         Thread.sleep(500);
-                        currentLocalLength = interactor.currentOrdersRequested().size();
+                        currentLocalLength = interactor.getNumberOfItems();
                         counter++;
                     }
                     serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
