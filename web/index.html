@@ -11,12 +11,12 @@
 		</div>
 		<div class="midd">
 			<h3 for="formGroupExampleInput"></h3>
-			<form >
-				<input ng-model="newOrder.content" placeholder="Add your order here">
+			<form name = "inputForm">
+				<input name="ordertext" ng-model="newOrder.content"  placeholder="Add your order here" required>
 				<br/>
 				<div class="stufftomid">
-					<input ng-model="newOrder.cost" type="number" class="cost" placeholder="Add the cost here">
-					<button class="btn-primary btn-large" ng-click="send()">
+					<input name="cost" ng-model="newOrder.cost" type="number" ng-minlength="4" min="0" max="999999" class="cost" placeholder="Add the cost here" required>
+					<button class="btn-primary btn-large" ng-click="send()" ng-disabled="inputform.$valid">
 						Send	
 					</button>
 					</div>

@@ -19,6 +19,7 @@
 			})};
 
 		$scope.send = function(){
+			if($scope.inputForm.cost.$valid&&$scope.inputForm.ordertext.$valid)
 			$http.post('/orders',$scope.newOrder).then(function(response){
 					$scope.orders.push($scope.newOrder);
 					$scope.newOrder = {};

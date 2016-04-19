@@ -92,9 +92,6 @@ class ListHttpHandler implements HttpHandler {
                         currentLocalLength = interactor.getNumberOfItems();
                         counter++;
                     }
-                    serverHandler.getResponseHeaders().add("Cache-Control","no-cache, no-store, must-revalidate");
-                    serverHandler.getResponseHeaders().add("Pragma","no-cache");
-                    serverHandler.getResponseHeaders().add("Expires","0");
 
                     serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
                 } catch (IOException | InterruptedException e) {
