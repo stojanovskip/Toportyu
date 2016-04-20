@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name="orders")
 public class Order {
 
-    private long id;
+    private Long id;
     private double cost;
     private String content;
 
@@ -37,17 +37,14 @@ public class Order {
     }
 
     @Column(name = "cost")
-    public double getCost() {
-        return cost;
-    }
-
+    double getCost() {return cost;}
     public void setCost(double cost) {
         this.cost = cost;
     }
     @Override
     public String toString()
     {
-        return String.format("Order: id: "+id+", Content: "+content+", Cost: "+cost);
+        return String.format("Order: id - "+id+" , Content - "+content+" , Cost - "+cost+" ");
     }
 
 }
