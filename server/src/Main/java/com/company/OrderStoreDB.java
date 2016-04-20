@@ -2,6 +2,8 @@ package com.company;
 
 import com.google.inject.Inject;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,28 +16,18 @@ import static java.lang.Integer.parseInt;
  */
 public class OrderStoreDB implements IOrderStore {
 
-    private Connection connection;
 
+    private EntityManager entityManager;
     @Inject
-    public OrderStoreDB(Connection connection) {
-        this.connection = connection;
+    public OrderStoreDB(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     @Override
     public void saveOrder(Order newOrder) throws IOException {
-        try {
-            Statement statement = connection.createStatement();
-            StringBuilder sql = new StringBuilder();
-            sql.append("insert into toportyu.orders(content,cost) values('");
-            sql.append(newOrder.getContent());
-            sql.append("',");
-            sql.append(newOrder.getCost());
-            sql.append(")");
-            System.out.println(sql.toString());
-            statement.execute(sql.toString());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
+            entityManager.persist(newOrder);
+
     }
 
     @Override
@@ -43,12 +35,9 @@ public class OrderStoreDB implements IOrderStore {
         ResultSet rs = null;
         List<Order> orders = new ArrayList<Order>();
         try {
-            Statement statement = connection.createStatement();
-            rs = statement.executeQuery("SELECT * FROM toportyu.orders");
+            orders.add((Order) this.entityManager.createNamedQuery("SELECT * FROM toportyu.orders"));
             while (rs.next()) {
-                Order o = new Order();
-                o.setContent(rs.getString("content"));
-                o.setCost(rs.getInt("cost"));
+                Order o = new Order(rs.getString("content"),rs.getDouble("cost"));
                 orders.add(o);
             }
         } catch (SQLException e) {
@@ -70,8 +59,7 @@ public class OrderStoreDB implements IOrderStore {
         ResultSet rs = null;
         int count = 0;
         try {
-            Statement statement = connection.createStatement();
-            rs = statement.executeQuery("select count(*) as num from toportyu.orders");
+            rs = (ResultSet) this.entityManager.createNamedQuery("select count(*) as num from toportyu.orders");
             rs.next();
             count = parseInt(rs.getString("num"));
         } catch (SQLException e) {
@@ -86,6 +74,5 @@ public class OrderStoreDB implements IOrderStore {
             }
         }
         return count;
-
     }
 }

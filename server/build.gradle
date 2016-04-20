@@ -34,6 +34,8 @@ dependencies {
     compile files("${System.properties['java.home']}/../lib/tools.jar")
     compile 'com.google.inject:guice:3.0'
     compile 'mysql:mysql-connector-java:5.1.13'
+    compile 'org.hibernate:hibernate-core:5.1.0.Final'
+    compile 'org.hibernate:hibernate-entitymanager:5.1.0.Final'
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add

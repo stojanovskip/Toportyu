@@ -15,12 +15,12 @@ class OrderTransformer implements IOrderTransformer {
         return order;
     }
 
-    @Override
+    /*@Override
     public Order parseStringOrder(String body) {
-        Order order = new Order();
+        Order order = new Order(ord.getContent(),ord.getCost());
         order.setContent(body);
         return order;
-    }
+    }*/
 
     @Override
     public String toJson(Order order) {
