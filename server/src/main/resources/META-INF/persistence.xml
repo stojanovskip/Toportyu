@@ -4,12 +4,12 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
    <persistence-unit name="toportyu" transaction-type="RESOURCE_LOCAL">
-      <jta-data-source>Toportyu\toportyu\orders\</jta-data-source>
+   <jta-data-source>Toportyu\toportyu\orders\</jta-data-source>
       <provider>org.hibernate.ejb.HibernatePersistence</provider>
       <provider>com.objectdb.jpa.Provider</provider>
       <class>Order</class>
 	  <properties>
-         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+         <property name="javax.persistence.jdbc.driver" value="org.mysql.Driver"/>
          <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
          <property name="hibernate.connection.url" value="jdbc:mysql://sql.liligo.com/toportyu"/>
          <property name="hibernate.connection.username" value="toportyu"/>
