@@ -81,6 +81,10 @@ body{
     font-size: 20 px;
 	margin-top: 90%;
 }
+a{
+	color:white;
+	text-decoration:none;
+}
 
 input[type=number] {
     -moz-appearance:textfield;
