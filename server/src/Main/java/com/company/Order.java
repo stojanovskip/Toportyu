@@ -3,7 +3,7 @@ package com.company;
 import javax.persistence.*;
 
 @Entity
-@Table(name="order")
+@Table(name="orders")
 public class Order {
 
     private long id;
@@ -11,7 +11,7 @@ public class Order {
     private String content;
 
     @Id
-    @Column(name="order_id")
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId()
     {
@@ -27,7 +27,7 @@ public class Order {
         this.cost = cost;
     }
 
-    @Column(name="order_content")
+    @Column(name="content")
     String getContent() {
         return content;
     }
@@ -36,7 +36,7 @@ public class Order {
         this.content = content;
     }
 
-    @Column(name = "order_cost")
+    @Column(name = "cost")
     public double getCost() {
         return cost;
     }
