@@ -8,7 +8,7 @@
       <class>com.company.Order</class>
 	  <properties>
          <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-         <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+         <property name="hibernate.hbm2ddl.auto" value="none"/>
          <property name="hibernate.connection.url" value="jdbc:mysql://sql.liligo.com/toportyu"/>
          <property name="hibernate.connection.username" value="toportyu"/>
          <property name="hibernate.connection.password" value="t0p0rtyu"/>

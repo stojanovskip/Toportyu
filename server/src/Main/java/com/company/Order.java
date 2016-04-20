@@ -1,33 +1,29 @@
 package com.company;
 
+import com.google.inject.Inject;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name="orders")
+@Table(name = "orders")
 public class Order {
 
-    private long id;
+    private Long id;
     private double cost;
     private String content;
 
     @Id
-    @Column(name="id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId()
-    {
+    public Long getId() {
         return id;
     }
-    public void setId(Long id)
-    {
+
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Order(String content, double cost) {
-        this.content = content;
-        this.cost = cost;
-    }
-
-    @Column(name="content")
+    @Column(name = "content")
     String getContent() {
         return content;
     }
@@ -44,10 +40,10 @@ public class Order {
     public void setCost(double cost) {
         this.cost = cost;
     }
+
     @Override
-    public String toString()
-    {
-        return String.format("Order: id: "+id+", Content: "+content+", Cost: "+cost);
+    public String toString() {
+        return String.format("Order: id: " + id + ", Content: " + content + ", Cost: " + cost);
     }
 
 }

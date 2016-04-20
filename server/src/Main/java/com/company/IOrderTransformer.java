@@ -5,10 +5,10 @@ package com.company;
  */
 public interface IOrderTransformer {
     Order parseJsonOrder(String body);
-/*
-    Order parseStringOrder(String body);
-*/
+
     String toString(Order order);
+
+    Order parseStringOrder(String body);
 
     String toJson(Order order);
 }

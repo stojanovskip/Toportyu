@@ -14,13 +14,12 @@ class OrderTransformer implements IOrderTransformer {
         Order order = gson.fromJson(body, Order.class);
         return order;
     }
-
-    /*@Override
+    @Override
     public Order parseStringOrder(String body) {
-        Order order = new Order(ord.getContent(),ord.getCost());
+        Order order = new Order();
         order.setContent(body);
         return order;
-    }*/
+    }
 
     @Override
     public String toJson(Order order) {
