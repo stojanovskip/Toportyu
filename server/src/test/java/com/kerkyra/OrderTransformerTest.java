@@ -34,4 +34,14 @@ public class OrderTransformerTest {
         String json = "{'content':'teststuff'}";
         assertEquals("teststuff", orderTransformer.parseJsonOrder(json).getContent());
     }
+    @Test
+    public void testToJson()
+    {
+        Order o = new Order();
+        o.setContent("testcontent");
+        o.setCost(100);
+        o.setId((long) 1);
+
+        assertEquals("{\"id\":1,\"cost\":100.0,\"content\":\"testcontent\"}",orderTransformer.toJson(o));
+    }
 }
