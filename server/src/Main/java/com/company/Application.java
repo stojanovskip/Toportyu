@@ -6,10 +6,9 @@ import com.google.inject.Injector;
 class Application {
     private HttpInput httpInput;
 
-     Application() throws Exception {
-            Injector injector = Guice.createInjector(new ApplicationModule());
-            httpInput = injector.getInstance(HttpInput.class);
-
+    Application() throws Exception {
+        Injector injector = Guice.createInjector(new ApplicationModule());
+        httpInput = injector.getInstance(HttpInput.class);
     }
 
     void run() {

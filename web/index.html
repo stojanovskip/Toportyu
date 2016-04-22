@@ -16,15 +16,17 @@
 				<input name="ordertext" ng-model="newOrder.content"  placeholder="Add your order here" required>
 				<br/>
 				<div class="stufftomid">
-					<input name="cost" ng-model="newOrder.cost" type="number" min="0" max="999999" class="cost" placeholder="Add the cost here" required>
+					<input name="cost" ng-model="newOrder.cost" type="number" min="0" max="999999" class="cost" placeholder="Add the cost here">
 					<button class="btn-primary btn-large" ng-click="send()" ng-disabled="inputform.$valid">
 						Send	
 					</button>
-					</div>
+				</div>
 			</form>
-			<button class="btn-primary btn-large" ng-click="load()">
+			<div class="stufftomid">
+			<button class="btn-primary" id="loadbutton" ng-click="load()">
 						Load	
-					</button>
+			</button>
+			</div>
 			<ul ng-init="load()" ng-cloak class = "list-group">
 				<section  ng-repeat="order in orders">
 					<ul class = "list-group">

@@ -31,5 +31,4 @@ class HttpInput {
         httpServer.start();
         System.out.println("Server is up and listening on " + PORT);
     }
-
 }

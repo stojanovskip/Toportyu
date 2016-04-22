@@ -1,6 +1,5 @@
 package com.company;
 
-import com.google.inject.Inject;
 
 import javax.persistence.*;
 

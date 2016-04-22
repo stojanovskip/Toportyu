@@ -50,5 +50,5 @@ class OrderStoreFile implements IOrderStore {
         }
         return orderList;
     }
-    
+
 }

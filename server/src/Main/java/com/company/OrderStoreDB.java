@@ -25,7 +25,6 @@ public class OrderStoreDB implements IOrderStore {
         this.entityManager = entityManager;
     }
 
-
     @Override
     public void saveOrder(Order newOrder) throws IOException {
         EntityTransaction tx = entityManager.getTransaction();
@@ -39,11 +38,9 @@ public class OrderStoreDB implements IOrderStore {
     public List<Order> getOrders() throws IOException {
         List<Order> orders = new ArrayList<Order>();
         EntityTransaction tx = entityManager.getTransaction();
-
         tx.begin();
-        TypedQuery<Order> query = entityManager.createQuery("SELECT o FROM Order o",Order.class);
+        TypedQuery<Order> query = entityManager.createQuery("SELECT o FROM Order o", Order.class);
         orders = query.getResultList();
-
         tx.commit();
 
         return orders;

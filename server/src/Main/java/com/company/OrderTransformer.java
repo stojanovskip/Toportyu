@@ -14,6 +14,7 @@ class OrderTransformer implements IOrderTransformer {
         Order order = gson.fromJson(body, Order.class);
         return order;
     }
+
     @Override
     public Order parseStringOrder(String body) {
         Order order = new Order();

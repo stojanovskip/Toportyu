@@ -63,7 +63,6 @@ class ListHttpHandler implements HttpHandler {
         } catch (Exception ex) {
             sendServerError(serverHandler, ex);
         }
-
     }
 
     private void onGet(ServerHandler serverHandler) throws Exception {
