@@ -49,5 +49,17 @@ public class ServerHandlerTest {
         verify(outputStream).write("testMessage".getBytes());
         verify(outputStream).close();
     }
+    @Test
+    public void isPostTest(){
+        when(httpExchange.getRequestMethod()).thenReturn("POST");
+        assertEquals(true,serverHandler.isPost());
+    }
+
+    @Test
+    public void isGetTest(){
+        when(httpExchange.getRequestMethod()).thenReturn("GET");
+        assertEquals(true, serverHandler.isGet());
+    }
+
 }
 

@@ -49,11 +49,11 @@ public class ServerHandler {
         outStream.close();
     }
 
-    boolean isPost() {
+    public boolean isPost() {
         return "POST".equals(httpExchange.getRequestMethod());
     }
 
-    boolean isGet() {
+    public boolean isGet() {
         return "GET".equals(httpExchange.getRequestMethod());
     }
 
