@@ -49,12 +49,4 @@ public class OrderStoreDB implements IOrderStore {
         return orders;
     }
 
-
-    @Override
-    public int orderCount() {
-        int count = 0;
-        Query query = entityManager.createNativeQuery("SELECT * FROM orders");
-        count = query.getResultList().size();
-        return count;
-    }
 }

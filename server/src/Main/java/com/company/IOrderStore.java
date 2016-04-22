@@ -12,6 +12,5 @@ public interface IOrderStore {
 
     List<Order> getOrders() throws IOException;
 
-    public int orderCount();
 
 }

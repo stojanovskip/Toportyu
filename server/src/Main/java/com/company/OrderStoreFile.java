@@ -50,9 +50,5 @@ class OrderStoreFile implements IOrderStore {
         }
         return orderList;
     }
-
-    @Override
-    public int orderCount() {
-        return 0;
-    }
+    
 }

@@ -28,7 +28,4 @@ class Interactor {
         return orderStore.getOrders();
     }
 
-    public int getNumberOfItems() {
-        return orderStore.orderCount();
-    }
 }
