@@ -37,9 +37,4 @@ public class Order {
         this.cost = cost;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Order: id: " + id + ", Content: " + content + ", Cost: " + cost);
-    }
-
 }
