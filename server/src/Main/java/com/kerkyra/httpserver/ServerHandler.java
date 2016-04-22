@@ -33,12 +33,11 @@ public class ServerHandler {
         respond(statusCode, new Gson().toJson(response));
     }
 
-    Headers getRequestHeaders() {
+    public Headers getRequestHeaders() {
         return httpExchange.getRequestHeaders();
     }
 
-
-    Headers getResponseHeaders() {
+    public Headers getResponseHeaders() {
         return httpExchange.getResponseHeaders();
     }
 

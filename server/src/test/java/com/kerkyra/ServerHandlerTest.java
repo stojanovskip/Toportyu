@@ -2,17 +2,18 @@
 package com.kerkyra;
 
 import com.kerkyra.httpserver.ServerHandler;
+import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 /**
@@ -49,14 +50,35 @@ public class ServerHandlerTest {
         verify(outputStream).write("testMessage".getBytes());
         verify(outputStream).close();
     }
+
     @Test
-    public void isPostTest(){
-        when(httpExchange.getRequestMethod()).thenReturn("POST");
-        assertEquals(true,serverHandler.isPost());
+    public void getRequestHeadersTest() throws Exception {
+        Headers headerTest = new Headers();
+        headerTest.add("1", "2");
+
+        when(httpExchange.getRequestHeaders()).thenReturn(headerTest);
+
+        assertEquals(serverHandler.getRequestHeaders(), headerTest);
     }
 
     @Test
-    public void isGetTest(){
+    public void getResponseHeadersTest() throws Exception {
+        Headers headerTest = new Headers();
+        headerTest.add("1", "2");
+
+        when(httpExchange.getResponseHeaders()).thenReturn(headerTest);
+
+        assertEquals(serverHandler.getResponseHeaders(), headerTest);
+    }
+
+    @Test
+    public void isPostTest() {
+        when(httpExchange.getRequestMethod()).thenReturn("POST");
+        assertEquals(true, serverHandler.isPost());
+    }
+
+    @Test
+    public void isGetTest() {
         when(httpExchange.getRequestMethod()).thenReturn("GET");
         assertEquals(true, serverHandler.isGet());
     }

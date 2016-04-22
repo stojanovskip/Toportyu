@@ -42,6 +42,6 @@ public class OrderTransformerTest {
         o.setCost(100);
         o.setId((long) 1);
 
-        assertEquals("{\"id\":1,\"cost\":100.0,\"content\":\"testcontent\"}",orderTransformer.toJson(o));
+        assertEquals("{\"id\":1,\"cost\":100,\"content\":\"testcontent\"}",orderTransformer.toJson(o));
     }
 }
