@@ -67,40 +67,7 @@ class ListHttpHandler implements HttpHandler {
     }
 
     private void onGet(ServerHandler serverHandler) throws Exception {
-        Thread thread = new Thread(new AsyncPoller(serverHandler));
-        thread.start();
+        serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
     }
 
-    class AsyncPoller implements Runnable {
-
-        private final ServerHandler serverHandler;
-
-        public AsyncPoller(ServerHandler serverHandler) {
-            this.serverHandler = serverHandler;
-        }
-
-        @Override
-        public void run() {
-            Headers requestHeaders = serverHandler.getRequestHeaders();
-            int currentLength = parseInt(requestHeaders.getFirst("CurrentLength"));
-            try {
-                try {
-                    int counter = 0;
-                    int currentLocalLength = interactor.currentOrdersRequested().size();
-                    while (counter < 20 && currentLength == currentLocalLength) {
-                        Thread.sleep(500);
-                        currentLocalLength = interactor.getNumberOfItems();
-                        counter++;
-                    }
-                    serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
-                } catch (IOException | InterruptedException e) {
-                    e.printStackTrace();
-                    serverHandler.respond(500, null);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
 }

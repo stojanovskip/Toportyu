@@ -15,7 +15,6 @@
 				console.log(response.data);
 				$scope.state = "loaded";
 				$scope.counter++;
-				$scope.load();
 			})};
 
 		$scope.send = function(){

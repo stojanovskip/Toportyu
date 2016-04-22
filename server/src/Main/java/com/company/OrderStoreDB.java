@@ -15,12 +15,7 @@ import java.util.List;
  * Created by Andras.Timar on 4/18/2016.
  */
 
-@Entity
-@NamedQueries(
-        @NamedQuery(
-                name="Orders.findAll",
-                query="SELECT * FROM orders"
-        ))
+
 public class OrderStoreDB implements IOrderStore {
 
     private EntityManager entityManager;
@@ -46,7 +41,7 @@ public class OrderStoreDB implements IOrderStore {
         EntityTransaction tx = entityManager.getTransaction();
 
         tx.begin();
-        Query query = entityManager.createNativeQuery("SELECT * FROM orders");
+        TypedQuery<Order> query = entityManager.createQuery("SELECT o FROM Order o",Order.class);
         orders = query.getResultList();
 
         tx.commit();
