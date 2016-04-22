@@ -1,6 +1,7 @@
 
 package com.kerkyra;
 
+import com.google.gson.Gson;
 import com.kerkyra.httpserver.ServerHandler;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
@@ -8,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
@@ -24,10 +26,14 @@ public class ServerHandlerTest {
 
     private HttpExchange httpExchange;
     private ServerHandler serverHandler;
+    private OutputStream outputStream;
 
     @Before
     public void setUp() {
+        outputStream = mock(OutputStream.class);
         httpExchange = mock(HttpExchange.class);
+        when(httpExchange.getResponseBody()).thenReturn(outputStream);
+
         serverHandler = new ServerHandler(httpExchange);
     }
 
@@ -40,14 +46,25 @@ public class ServerHandlerTest {
     }
 
     @Test
-    public void respond() throws Exception {
-        OutputStream outputStream = mock(OutputStream.class);
-        when(httpExchange.getResponseBody()).thenReturn(outputStream);
+    public void respondJsonTest() throws Exception {
+        Headers headers = mock(Headers.class);
+        when(httpExchange.getResponseHeaders()).thenReturn(headers);
 
+        serverHandler.respondJson(200, "testMessage");
+
+        verify(headers).add("Content-Type", "application/json");
+        verifyRespondSent(200, new Gson().toJson("testMessage"));
+    }
+
+    @Test
+    public void respondTest() throws Exception {
         serverHandler.respond(200, "testMessage");
+        verifyRespondSent(200, "testMessage");
+    }
 
-        verify(httpExchange).sendResponseHeaders(200, "testMessage".length());
-        verify(outputStream).write("testMessage".getBytes());
+    private void verifyRespondSent(int statusCode, String message) throws IOException {
+        verify(httpExchange).sendResponseHeaders(statusCode, message.length());
+        verify(outputStream).write(message.getBytes());
         verify(outputStream).close();
     }
 
