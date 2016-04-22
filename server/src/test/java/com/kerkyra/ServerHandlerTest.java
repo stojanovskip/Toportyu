@@ -1,6 +1,7 @@
 
-package com.company;
+package com.kerkyra;
 
+import com.kerkyra.httpserver.ServerHandler;
 import com.sun.net.httpserver.HttpExchange;
 import org.junit.Before;
 import org.junit.Test;

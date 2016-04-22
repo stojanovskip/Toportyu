@@ -1,4 +1,4 @@
-package com.company;
+package com.kerkyra.datahandling;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

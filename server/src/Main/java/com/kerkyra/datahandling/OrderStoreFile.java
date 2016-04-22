@@ -1,4 +1,4 @@
-package com.company;
+package com.kerkyra.datahandling;
 
 import com.google.inject.Inject;
 
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-class OrderStoreFile implements IOrderStore {
+public class OrderStoreFile implements IOrderStore {
 
     private PrintWriter printWriter;
     private IOrderTransformer orderTransformer;
@@ -16,7 +16,7 @@ class OrderStoreFile implements IOrderStore {
     final Lock lock = new ReentrantLock();
 
     @Inject
-    OrderStoreFile(IOrderTransformer orderTransformer, IOProvider ioprovider) throws IOException {
+    public OrderStoreFile(IOrderTransformer orderTransformer, IOProvider ioprovider) throws IOException {
         this.ioprovider = ioprovider;
         this.orderTransformer = orderTransformer;
     }

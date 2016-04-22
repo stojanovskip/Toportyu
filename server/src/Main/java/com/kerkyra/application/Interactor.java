@@ -1,6 +1,8 @@
-package com.company;
+package com.kerkyra.application;
 
 import com.google.inject.Inject;
+import com.kerkyra.datahandling.IOrderStore;
+import com.kerkyra.datahandling.Order;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,7 +10,7 @@ import java.util.List;
 /**
  * Created by Madi.Yessirkepov on 4/8/2016.
  */
-class Interactor {
+public class Interactor {
     private final IOrderStore orderStore;
 
     @Inject

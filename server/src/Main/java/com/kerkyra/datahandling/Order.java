@@ -1,4 +1,4 @@
-package com.company;
+package com.kerkyra.datahandling;
 
 
 import javax.persistence.*;
@@ -23,11 +23,11 @@ public class Order {
     }
 
     @Column(name = "content")
-    String getContent() {
+    public String getContent() {
         return content;
     }
 
-    void setContent(String content) {
+    public void setContent(String content) {
         this.content = content;
     }
 

@@ -1,10 +1,9 @@
-package com.company;
+package com.kerkyra.datahandling;
 
 import com.google.inject.Inject;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
 
 import java.io.IOException;
 import javax.persistence.*;
@@ -36,7 +35,7 @@ public class OrderStoreDB implements IOrderStore {
 
     @Override
     public List<Order> getOrders() throws IOException {
-        List<Order> orders = new ArrayList<Order>();
+        List<Order> orders;
         EntityTransaction tx = entityManager.getTransaction();
         tx.begin();
         TypedQuery<Order> query = entityManager.createQuery("SELECT o FROM Order o", Order.class);

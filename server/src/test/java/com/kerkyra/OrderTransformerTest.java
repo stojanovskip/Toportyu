@@ -1,6 +1,8 @@
-package com.company;
+package com.kerkyra;
 
 import com.google.gson.Gson;
+import com.kerkyra.datahandling.Order;
+import com.kerkyra.datahandling.OrderTransformer;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

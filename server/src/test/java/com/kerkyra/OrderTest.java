@@ -1,5 +1,6 @@
-package com.company;
+package com.kerkyra;
 
+import com.kerkyra.datahandling.Order;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

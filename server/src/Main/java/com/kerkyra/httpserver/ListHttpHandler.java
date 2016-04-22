@@ -1,5 +1,7 @@
-package com.company;
+package com.kerkyra.httpserver;
 
+import com.kerkyra.datahandling.IOrderTransformer;
+import com.kerkyra.application.Interactor;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -13,7 +15,7 @@ import static java.lang.Integer.parseInt;
  */
 class ListHttpHandler implements HttpHandler {
     private Interactor interactor;
-    private IOrderTransformer IOrderTransformer;
+    private com.kerkyra.datahandling.IOrderTransformer IOrderTransformer;
 
     ListHttpHandler(Interactor interactor, IOrderTransformer orderTransformer) {
         this.IOrderTransformer = orderTransformer;

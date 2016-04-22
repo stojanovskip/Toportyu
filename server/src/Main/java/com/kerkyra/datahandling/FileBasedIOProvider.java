@@ -1,6 +1,4 @@
-package com.company;
-
-import com.google.inject.Inject;
+package com.kerkyra.datahandling;
 
 import java.io.*;
 

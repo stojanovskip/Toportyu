@@ -1,8 +1,8 @@
-package com.company;
+package com.kerkyra.datahandling;
 
 import com.google.gson.Gson;
 
-class OrderTransformer implements IOrderTransformer {
+public class OrderTransformer implements IOrderTransformer {
     private Gson gson;
 
     public OrderTransformer(Gson gson) {

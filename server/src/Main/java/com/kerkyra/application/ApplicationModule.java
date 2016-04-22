@@ -1,9 +1,10 @@
-package com.company;
+package com.kerkyra.application;
 
 import com.google.gson.Gson;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
+import com.kerkyra.datahandling.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

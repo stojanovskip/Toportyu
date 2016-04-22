@@ -1,6 +1,8 @@
-package com.company;
+package com.kerkyra.httpserver;
 
 import com.google.inject.Inject;
+import com.kerkyra.datahandling.IOrderTransformer;
+import com.kerkyra.application.Interactor;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.FileInputStream;
@@ -13,7 +15,7 @@ import static java.lang.Integer.parseInt;
 /**
  * Created by bandi on 26/03/16.
  */
-class HttpInput {
+public class HttpInput {
     private final HttpServer httpServer;
     private int PORT;
 
@@ -27,7 +29,7 @@ class HttpInput {
         httpServer.setExecutor(null);
     }
 
-    void start() {
+    public void start() {
         httpServer.start();
         System.out.println("Server is up and listening on " + PORT);
     }

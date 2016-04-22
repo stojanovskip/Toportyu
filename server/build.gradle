@@ -11,7 +11,7 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
-mainClassName = 'com.company.Main'
+mainClassName = 'com.kerkyra.Main'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -22,7 +22,7 @@ repositories {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'com.company.Main'
+        attributes 'Main-Class': 'com.kerkyra.Main'
     }
 }
 

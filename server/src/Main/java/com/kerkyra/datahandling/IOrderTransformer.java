@@ -1,4 +1,4 @@
-package com.company;
+package com.kerkyra.datahandling;
 
 /**
  * Created by bandi on 4/11/2016.

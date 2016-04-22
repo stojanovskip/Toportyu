@@ -1,4 +1,4 @@
-package com.company;
+package com.kerkyra.datahandling;
 
 import java.io.IOException;
 import java.util.List;
