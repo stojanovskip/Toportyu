@@ -57,8 +57,5 @@ public class ServerHandler {
         return "GET".equals(httpExchange.getRequestMethod());
     }
 
-    boolean isOptions() {
-        return "OPTIONS".equals(httpExchange.getRequestMethod());
-    }
 }
 

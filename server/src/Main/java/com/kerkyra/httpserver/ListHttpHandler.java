@@ -30,16 +30,10 @@ class ListHttpHandler implements HttpHandler {
                 onPost(serverHandler);
             } else if (serverHandler.isGet()) {
                 onGet(serverHandler);
-            } else if (serverHandler.isOptions()) {
-                onOptions(serverHandler);
             }
         } catch (Exception e) {
             sendServerError(serverHandler, e);
         }
-    }
-
-    private void onOptions(ServerHandler serverHandler) throws Exception {
-        serverHandler.respond(200, "");
     }
 
     private void sendServerError(ServerHandler serverHandler, Exception e) {
@@ -50,7 +44,7 @@ class ListHttpHandler implements HttpHandler {
         }
     }
 
-    private void onPost(ServerHandler serverHandler) throws Exception {
+    public void onPost(ServerHandler serverHandler) throws Exception {
         Headers requestHeaders = serverHandler.getRequestHeaders();
         String first = requestHeaders.getFirst("Content-type");
         try {

@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Order {
 
     private Long id;
-    private double cost;
+    private int cost;
     private String content;
 
     @Id
@@ -32,8 +32,8 @@ public class Order {
     }
 
     @Column(name = "cost")
-    double getCost() {return cost;}
-    public void setCost(double cost) {
+    public int getCost() {return cost;}
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
