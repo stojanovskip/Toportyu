@@ -22,7 +22,7 @@ public class HttpInput {
     @Inject
     HttpInput(Interactor interactor, IOrderTransformer orderTransformer) throws IOException {
         Properties properties = new Properties();
-        properties.load(new FileInputStream("src\\Main\\resources\\port.config"));
+        properties.load(new FileInputStream("src/Main/resources/port.config"));
         PORT = parseInt(properties.getProperty("port"));
         httpServer = HttpServer.create(new InetSocketAddress(PORT), 0);
         httpServer.createContext("/orders", new ListHttpHandler(interactor, orderTransformer));

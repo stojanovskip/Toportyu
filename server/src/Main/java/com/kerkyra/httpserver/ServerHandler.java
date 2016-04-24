@@ -14,7 +14,10 @@ public class ServerHandler {
 
     public ServerHandler(HttpExchange newHttpExchange) {
         this.httpExchange = newHttpExchange;
+        this.requestMethod  = httpExchange.getRequestMethod();
     }
+    String requestMethod;
+
 
     public String getRequestBody() throws Exception {
         StringBuilder stringBuilder = new StringBuilder();
@@ -49,11 +52,11 @@ public class ServerHandler {
     }
 
     public boolean isPost() {
-        return "POST".equals(httpExchange.getRequestMethod());
+        return "POST".equals(requestMethod);
     }
 
     public boolean isGet() {
-        return "GET".equals(httpExchange.getRequestMethod());
+        return "GET".equals(requestMethod);
     }
 
 }

@@ -62,7 +62,7 @@ class ListHttpHandler implements HttpHandler {
     }
 
     private void onGet(ServerHandler serverHandler) throws Exception {
-        serverHandler.respondJson(200, new ResponseList(interactor.currentOrdersRequested()));
+        serverHandler.respondJson(200, interactor.currentOrdersRequested());
     }
 
 }
