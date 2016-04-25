@@ -17,33 +17,24 @@ buildscript {
     }
 }
 
-
-
-apply plugin: 'spring-boot'
 apply plugin: 'java'
+apply plugin: 'spring-boot'
 apply plugin: 'idea'
-apply plugin: 'com.kerkyra.model'
-mainClassName = 'com.kerkyra.com.kerkyra.model.Main'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
-// In this section you declare the dependencies for your production and test code
-dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.13'
-	compile 'com.google.code.gson:gson:1.7.2'
-    compile files("${System.properties['java.home']}/../lib/tools.jar")
-    compile 'com.google.inject:guice:3.0'
-    compile 'mysql:mysql-connector-java:5.1.13'
-    compile 'org.hibernate:hibernate-core:5.1.0.Final'
-    compile 'org.hibernate:hibernate-entitymanager:5.1.0.Final'
-    compile 'org.springframework.boot:spring-boot-starter-com.kerkyra.web'
-    compile 'org.springframework.boot:spring-boot-starter-tomcat'
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-    compile 'org.springframework.boot:spring-boot-starter-web'
 
-    testCompile "org.mockito:mockito-core:1.+"
-    testCompile 'junit:junit:4.12'
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile('org.springframework:spring-test:4.2.5.RELEASE')
-    
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-tomcat")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("mysql:mysql-connector-java:5.1.34")
+    compile("org.mockito:mockito-all:1.10.19")
 }
+

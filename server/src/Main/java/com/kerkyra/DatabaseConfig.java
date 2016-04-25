@@ -5,27 +5,31 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate3.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+
+import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * Created by Andras.Timar on 4/25/2016.
+ * Created by csaba.juhasz on 21/04/2016.
  */
-@EnableJpaRepositories("com.kerkyra.repository")
+@EnableJpaRepositories("com.toportyu.repository")
 @Configuration
 public class DatabaseConfig {
 
     @Bean
-    public DriverManagerDataSource dataSource() {
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
+
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jbdc:mysql://sql.liligo.com");
+        dataSource.setUrl("jdbc:mysql://sql.liligo.com");
         dataSource.setUsername("toportyu");
         dataSource.setPassword("t0p0rtyu");
 
         return dataSource;
     }
+
     @Bean
     public LocalSessionFactoryBean sessionFactory() throws Exception {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
@@ -39,6 +43,7 @@ public class DatabaseConfig {
         sessionFactoryBean.afterPropertiesSet();
         return sessionFactoryBean;
     }
+
     @Bean
     public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
         HibernateTransactionManager txManager = new HibernateTransactionManager();
