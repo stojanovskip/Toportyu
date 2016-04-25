@@ -17,7 +17,7 @@ public class ApplicationModule extends AbstractModule {
     protected void configure() {
         bind(IOProvider.class).toInstance(new FileBasedIOProvider("orders.txt"));
         bind(IOrderTransformer.class).toInstance(new OrderTransformer(new Gson()));
-        bind(IOrderStore.class).to(OrderStoreFile.class);
+        bind(IOrderStore.class).to(OrderStoreDB.class);
     }
 
     @Singleton

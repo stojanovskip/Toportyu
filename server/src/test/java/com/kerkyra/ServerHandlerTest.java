@@ -91,12 +91,14 @@ public class ServerHandlerTest {
     @Test
     public void isPostTest() {
         when(httpExchange.getRequestMethod()).thenReturn("POST");
+        ServerHandler serverHandler = new ServerHandler(httpExchange);
         assertEquals(true, serverHandler.isPost());
     }
 
     @Test
     public void isGetTest() {
         when(httpExchange.getRequestMethod()).thenReturn("GET");
+        ServerHandler serverHandler = new ServerHandler(httpExchange);
         assertEquals(true, serverHandler.isGet());
     }
 
