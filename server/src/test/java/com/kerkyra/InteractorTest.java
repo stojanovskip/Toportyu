@@ -1,6 +1,5 @@
 package com.kerkyra;
 
-import com.kerkyra.application.Interactor;
 import com.kerkyra.datahandling.IOrderStore;
 import com.kerkyra.datahandling.Order;
 import org.junit.Before;

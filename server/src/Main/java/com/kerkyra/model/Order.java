@@ -1,6 +1,8 @@
-package com.kerkyra.datahandling;
+package com.kerkyra.model;
 
-
+/**
+ * Created by Andras.Timar on 4/25/2016.
+ */
 import javax.persistence.*;
 
 @Entity
@@ -13,7 +15,6 @@ public class Order {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

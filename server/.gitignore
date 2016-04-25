@@ -52,7 +52,7 @@ fabric.properties
 ### Intellij Patch ###
 *.iml
 
-#application output file
+#com.kerkyra.model output file
 orders.txt
 
 ### Gradle ###

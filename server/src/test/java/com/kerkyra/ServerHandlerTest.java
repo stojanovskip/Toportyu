@@ -52,7 +52,7 @@ public class ServerHandlerTest {
 
         serverHandler.respondJson(200, "testMessage");
 
-        verify(headers).add("Content-Type", "application/json");
+        verify(headers).add("Content-Type", "com/kerkyra/model/json");
         verifyRespondSent(200, new Gson().toJson("testMessage"));
     }
 
