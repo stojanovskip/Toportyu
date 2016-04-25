@@ -15,7 +15,7 @@ import static java.lang.Integer.parseInt;
  */
 class ListHttpHandler implements HttpHandler {
     private Interactor interactor;
-    private com.kerkyra.datahandling.IOrderTransformer IOrderTransformer;
+    private IOrderTransformer IOrderTransformer;
 
     ListHttpHandler(Interactor interactor, IOrderTransformer orderTransformer) {
         this.IOrderTransformer = orderTransformer;
