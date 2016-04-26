@@ -20,6 +20,7 @@ import com.kerkyra.Application;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -48,5 +49,11 @@ import static org.mockito.Mockito.when;
     public void getOrders() throws Exception {
         Assert.assertEquals(2, ((List<Order>)orderService.getOrders()).size());
     }
-
+    @Test
+    public void insertOrder()
+    {
+        Order newOrder = new Order();
+        orderService.insertOrder(newOrder);
+        verify(orderRepository).save(newOrder);
+    }
 }
