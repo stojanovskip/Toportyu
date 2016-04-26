@@ -1,13 +1,11 @@
 package com.kerkyra.repository;
 
 import com.kerkyra.model.Order;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
 
 /**
  * Created by Andras.Timar on 4/25/2016.
  */
-public interface OrderRepository extends org.springframework.data.repository.Repository<Order, Long> {
-
-    public List<Order> findAll();
+public interface OrderRepository extends CrudRepository<Order, Long> {
 }

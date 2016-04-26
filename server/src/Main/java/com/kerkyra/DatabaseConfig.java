@@ -1,8 +1,11 @@
 package com.kerkyra;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
@@ -14,18 +17,22 @@ import java.util.Properties;
 /**
  * Created by csaba.juhasz on 21/04/2016.
  */
-@EnableJpaRepositories("com.toportyu.repository")
+@EnableJpaRepositories("com.kerkyra.repository")
 @Configuration
+//@PropertySource("classpath:/src/main/resources/application.properties")
 public class DatabaseConfig {
-
+    //@Autowired
+    //Environment env;
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://sql.liligo.com");
+        dataSource.setUrl("jdbc:mysql://sql.liligo.com/toportyu");
         dataSource.setUsername("toportyu");
         dataSource.setPassword("t0p0rtyu");
+
+
 
         return dataSource;
     }

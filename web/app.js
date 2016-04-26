@@ -11,7 +11,7 @@
 				'CurrentLength': $scope.orders.length}
 			})
 			.then(function(response){
-				$scope.orders = response.data.orderList;
+				$scope.orders = response.data;
 				console.log(response.data);
 				$scope.state = "loaded";
 				$scope.counter++;
