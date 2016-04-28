@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -27,12 +26,11 @@ import static org.mockito.Mockito.when;
  * Created by Andras.Timar on 4/26/2016.
 */
  @ContextConfiguration(classes = Application.class)
- @RunWith(SpringJUnit4ClassRunner.class)
+ //@RunWith(SpringJUnit4ClassRunner.class)
  public class OrderServiceTest {
 
     @Mock
     OrderRepository orderRepository;
-
 
     @InjectMocks
     @Autowired
