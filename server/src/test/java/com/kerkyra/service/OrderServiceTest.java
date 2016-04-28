@@ -33,7 +33,9 @@ import static org.mockito.Mockito.when;
     @Mock
     OrderRepository orderRepository;
 
+
     @InjectMocks
+    @Autowired
     OrderService orderService;
 
     @Before
