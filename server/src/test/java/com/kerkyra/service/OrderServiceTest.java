@@ -25,6 +25,7 @@ public class OrderServiceTest {
 
     @InjectMocks
     OrderService orderService;
+
     private List<Order> orders;
 
     @Before
