@@ -11,8 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderService implements IOrderService {
 
-    @Autowired
     OrderRepository orderRepository;
+
+    @Autowired
+    public OrderService (OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
 
     @Override
     public Iterable<Order> getOrders() {

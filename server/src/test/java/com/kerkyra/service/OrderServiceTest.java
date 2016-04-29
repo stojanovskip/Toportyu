@@ -1,13 +1,18 @@
 package com.kerkyra.service;
 
+import com.kerkyra.Application;
 import com.kerkyra.model.Order;
 import com.kerkyra.repository.OrderRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,19 +23,20 @@ import static org.mockito.Mockito.when;
 /**
  * Created by Andras.Timar on 4/26/2016.
  */
+
 public class OrderServiceTest {
 
     @Mock
     OrderRepository orderRepository;
 
-    @InjectMocks
-    OrderService orderService;
+    IOrderService orderService;
 
     private List<Order> orders;
 
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
+        orderService = new OrderService(orderRepository);
         orders = new ArrayList<>();
         orders.add(new Order());
         orders.add(new Order());
