@@ -20,17 +20,17 @@ import java.util.Properties;
 @EnableJpaRepositories("com.kerkyra.repository")
 @Configuration
 public class DatabaseConfig {
+
+    @Autowired
+    Environment environment;
+
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://sql.liligo.com/toportyu");
-        dataSource.setUsername("toportyu");
-        dataSource.setPassword("t0p0rtyu");
-
-
-
+        dataSource.setDriverClassName(environment.getProperty("spring.datasource.driverClassName"));
+        dataSource.setUrl(environment.getProperty("spring.datasource.url"));
+        dataSource.setUsername(environment.getProperty("spring.datasource.username"));
+        dataSource.setPassword(environment.getProperty("spring.datasource.password"));
         return dataSource;
     }
 
@@ -39,11 +39,6 @@ public class DatabaseConfig {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
 
-        Properties hibernateProperties = new Properties();
-        hibernateProperties.put("hibernate.show_sql", true);
-        hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-
-        sessionFactoryBean.setHibernateProperties(hibernateProperties);
         sessionFactoryBean.afterPropertiesSet();
         return sessionFactoryBean;
     }
