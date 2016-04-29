@@ -3,6 +3,7 @@ package com.kerkyra.model;
 /**
  * Created by Andras.Timar on 4/25/2016.
  */
+
 import javax.persistence.*;
 
 @Entity
@@ -33,7 +34,10 @@ public class Order {
     }
 
 
-    public int getCost() {return cost;}
+    public int getCost() {
+        return cost;
+    }
+
     public void setCost(int cost) {
         this.cost = cost;
     }

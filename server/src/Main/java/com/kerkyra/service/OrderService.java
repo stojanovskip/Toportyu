@@ -18,9 +18,9 @@ public class OrderService implements IOrderService {
     public Iterable<Order> getOrders() {
         return orderRepository.findAll();
     }
+
     @Override
-    public void insertOrder(Order order)
-    {
+    public void insertOrder(Order order) {
         orderRepository.save(order);
     }
 }

@@ -16,13 +16,12 @@ public class OrderController {
     OrderService orderService;
 
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
-    public Iterable<Order> getAllOrders(){
-    return orderService.getOrders();
+    public Iterable<Order> getAllOrders() {
+        return orderService.getOrders();
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertOrder(@RequestBody Order order)
-    {
+    public void insertOrder(@RequestBody Order order) {
         orderService.insertOrder(order);
     }
 }
