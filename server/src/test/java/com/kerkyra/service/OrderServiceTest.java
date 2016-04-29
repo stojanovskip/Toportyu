@@ -32,11 +32,12 @@ import static org.mockito.Mockito.when;
 
     @InjectMocks
     OrderService orderService;
+    private List<Order> orders;
 
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
-        List<Order> orders = new ArrayList<>();
+        orders = new ArrayList<>();
         orders.add(new Order());
         orders.add(new Order());
         when(orderRepository.findAll()).thenReturn(orders);
@@ -44,7 +45,10 @@ import static org.mockito.Mockito.when;
 
     @Test
     public void getOrders() throws Exception {
-        Assert.assertEquals(2, ((List<Order>)orderService.getOrders()).size());
+        List<Order> ordersBack = (List<Order>) orderService.getOrders();
+        Assert.assertEquals(2, ordersBack.size());
+        Assert.assertEquals(orders.get(0).getContent(),ordersBack.get(0).getContent());
+        Assert.assertEquals(orders.get(1).getContent(),ordersBack.get(1).getContent());
     }
     @Test
     public void insertOrder()
