@@ -19,10 +19,7 @@ import java.util.Properties;
  */
 @EnableJpaRepositories("com.kerkyra.repository")
 @Configuration
-//@PropertySource("classpath:/src/main/resources/application.properties")
 public class DatabaseConfig {
-    //@Autowired
-    //Environment env;
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
