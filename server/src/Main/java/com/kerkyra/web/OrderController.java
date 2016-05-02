@@ -6,10 +6,9 @@ import com.kerkyra.service.OrderService;
 import com.kerkyra.service.TripService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Andras.Timar on 4/25/2016.
@@ -25,6 +24,10 @@ public class OrderController {
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
     public Iterable<Order> getAllOrders() {
         return orderService.getOrders();
+    }
+    @RequestMapping(value = "/orders/byTrip/{id}", method = RequestMethod.GET)
+    public Iterable<Order> getOrdersById(@PathVariable long id) {
+        return orderService.getOrdersByTrip(id);
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -58,4 +58,5 @@ public class Order {
     public void setTrip(Trip trip) {
         this.trip = trip;
     }
+
 }
