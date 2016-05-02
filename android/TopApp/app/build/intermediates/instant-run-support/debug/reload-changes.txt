@@ -1,0 +1,3 @@
+CHANGED,C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
+CHANGED,C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\kerkyra\topapp\MainActivity$1$override.class
+CHANGED,C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\kerkyra\topapp\MainActivity$override.class

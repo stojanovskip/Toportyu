@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\andras.timar\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.3.0\support-annotations-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.3.0_5e80bb51dca8767c39f7a7cdd276a0c6599ccffc\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_a7b2856b7db7328694a79b80bb53ed60bbcd8c96\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-core\1.0.1.RELEASE\e68f0e8e4b636ee30c4de58953be38d9b72a5e3b\spring-android-core-1.0.1.RELEASE.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e68f0e8e4b636ee30c4de58953be38d9b72a5e3b">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-core-1.0.1.RELEASE_c220422d3aa1bd90b7617ca682d63df6b1292cc5\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.3.0_a5997f8faad729160874fe51db3ca16612b046f4\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a647c0a49b0c5d235b0fc9009770174b8508c7fe">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_7cc9fa7286445407dc9b17361d654c300487aa3a\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-rest-template\1.0.1.RELEASE\e132d929bd181941f79b0d63edafb8a86ae6fd33\spring-android-rest-template-1.0.1.RELEASE.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e132d929bd181941f79b0d63edafb8a86ae6fd33">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-rest-template-1.0.1.RELEASE_b8167568b95b6d1d0a16883c87db9adf551a33a8\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.3.0_4c0ad7b5c643ffe3ec8f2c560dd3a06468877915\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.3.2\c75edc740a6d8cb1cef6fa82fa594e0bce561916\jackson-databind-2.3.2.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c75edc740a6d8cb1cef6fa82fa594e0bce561916">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-databind-2.3.2_3ebfd088a97a60e44a15fb0406aeffcafb619e84\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.3.0\f5e853a20b60758922453d56f9ae1e64af5cb3da\jackson-annotations-2.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-annotations-2.3.0_7cac8b2fd6dddfd4277c05bb0548536c1bc9ea32\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.3.2\559b70ac8a0d5cad611da4223137a920147201ba\jackson-core-2.3.2.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="559b70ac8a0d5cad611da4223137a920147201ba">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.3.2_fa33d4c12f26c41864f5ee7bc77060b329a31248\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.3.0_a318cd54ecdb4ea26c0cc90b0d38be6d96f26341\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.3.0_ffceff34ab19fcd18935c0154a6f158471395a4a\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.3.0_fe76f3c5688ede46c69bb1346654849089d38e3e\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4b81fe6da5032b3daafc92611380c6ae919adae9">
+        <dex dex="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_736295a6cd28cdc86dc08830e91d57d06985c2bf\classes.dex" />
+    </item>
+
+</items>

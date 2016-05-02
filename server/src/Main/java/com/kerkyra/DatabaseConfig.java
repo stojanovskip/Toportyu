@@ -9,7 +9,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+
 import javax.sql.DataSource;
+import java.util.Properties;
 
 @EnableJpaRepositories("com.kerkyra.repository")
 @Configuration
@@ -33,6 +35,11 @@ public class DatabaseConfig {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
 
+        Properties hibernateProperties = new Properties();
+        hibernateProperties.put("hibernate.ddl-auto", environment.getProperty("spring.jpa.hibernate.ddl-auto"));
+
+        sessionFactoryBean.setHibernateProperties(hibernateProperties);
+        sessionFactoryBean.afterPropertiesSet();
         sessionFactoryBean.afterPropertiesSet();
         return sessionFactoryBean;
     }
