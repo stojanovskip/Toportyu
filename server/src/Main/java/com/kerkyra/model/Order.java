@@ -20,7 +20,6 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @Cascade(CascadeType.PERSIST)
     private Trip trip;
 
     private int cost;
