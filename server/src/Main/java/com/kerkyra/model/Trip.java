@@ -1,5 +1,7 @@
 package com.kerkyra.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class Trip {
     private Long id;
 
     @OneToMany
+    @JsonIgnore
     private List<Order> orders;
 
     private String name;
