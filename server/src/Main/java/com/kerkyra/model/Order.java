@@ -4,11 +4,20 @@ package com.kerkyra.model;
  * Created by Andras.Timar on 4/25/2016.
  */
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "orders")
 public class Order {
+
+
+    @ManyToOne
+    @Cascade(CascadeType.PERSIST)
+    private Trip trip;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,4 +51,11 @@ public class Order {
         this.cost = cost;
     }
 
+    public Trip getTrip() {
+        return trip;
+    }
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
+    }
 }
