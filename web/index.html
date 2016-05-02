@@ -16,7 +16,7 @@
 				<input name="ordertext" ng-model="newOrder.content"  placeholder="Add your order here" required>
 				<br/>
 				<div class="stufftomid">
-					<input name="cost" ng-model="newOrder.cost" type="number" min="0" max="999999" class="cost" placeholder="Add the cost here">
+					<input name="cost" ng-model="newOrder.cost" type="number" step="any" min="0" max="999999" class="cost" placeholder="Add the cost here">
 					<button class="btn-primary btn-large" ng-click="send()" ng-disabled="inputform.$valid">
 						Send	
 					</button>
@@ -36,6 +36,13 @@
 				</section>
 			</ul>
 		</div>
+		<div class="styled-select">
+   <select>
+	  <option>Trips</option>
+      <option>Trip 1</option>
+      <option>Trip 2</option>
+   </select>
+</div>
 		<p id="copyright"> © 2016 MMAP. All rights reserved.</p>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js">
 		</script>
