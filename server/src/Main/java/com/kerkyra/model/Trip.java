@@ -13,6 +13,7 @@ import java.util.List;
 public class Trip {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @OneToMany
