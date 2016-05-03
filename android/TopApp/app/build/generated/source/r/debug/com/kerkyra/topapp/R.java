@@ -1674,9 +1674,9 @@ containing a value of this type.
         public static final int chronometer=0x7f0c0060;
         public static final int collapseActionView=0x7f0c001e;
         public static final int contentPanel=0x7f0c0032;
-        public static final int contentText=0x7f0c0055;
+        public static final int contentText=0x7f0c0053;
         public static final int content_label=0x7f0c0051;
-        public static final int costText=0x7f0c0052;
+        public static final int costText=0x7f0c0055;
         public static final int custom=0x7f0c0038;
         public static final int customPanel=0x7f0c0037;
         public static final int decor_content_parent=0x7f0c0040;
@@ -1690,7 +1690,7 @@ containing a value of this type.
         public static final int home=0x7f0c0004;
         public static final int homeAsUp=0x7f0c000e;
         public static final int icon=0x7f0c002a;
-        public static final int id_label=0x7f0c0053;
+        public static final int id_label=0x7f0c0052;
         public static final int ifRoom=0x7f0c001f;
         public static final int image=0x7f0c0027;
         public static final int info=0x7f0c0064;

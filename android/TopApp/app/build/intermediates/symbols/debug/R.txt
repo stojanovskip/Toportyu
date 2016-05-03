@@ -483,9 +483,9 @@ int id checkbox 0x7f0c003a
 int id chronometer 0x7f0c0060
 int id collapseActionView 0x7f0c001e
 int id contentPanel 0x7f0c0032
-int id contentText 0x7f0c0055
+int id contentText 0x7f0c0053
 int id content_label 0x7f0c0051
-int id costText 0x7f0c0052
+int id costText 0x7f0c0055
 int id custom 0x7f0c0038
 int id customPanel 0x7f0c0037
 int id decor_content_parent 0x7f0c0040
@@ -499,7 +499,7 @@ int id expanded_menu 0x7f0c0039
 int id home 0x7f0c0004
 int id homeAsUp 0x7f0c000e
 int id icon 0x7f0c002a
-int id id_label 0x7f0c0053
+int id id_label 0x7f0c0052
 int id ifRoom 0x7f0c001f
 int id image 0x7f0c0027
 int id info 0x7f0c0064

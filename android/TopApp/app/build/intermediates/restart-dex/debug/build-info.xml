@@ -4,11 +4,11 @@
     api-level="23"
     density="hdpi"
     format="7"
-    timestamp="9713223610130" >
+    timestamp="12520335659090" >
 
     <task
         name="javac"
-        duration="158" />
+        duration="118" />
     <task
         name="instant-run-dex"
         duration="0" />
@@ -20,32 +20,22 @@
         duration="2" />
 
     <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
         type="DEX" />
 
-    <build timestamp="8131836087717" >
+    <build timestamp="11937495323432" >
         <artifact
             location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="9429865027317" >
+    <build timestamp="12206833437471" >
         <artifact
             location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\res\resources-debug.ap_"
             type="RESOURCES" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-            type="DEX" />
     </build>
-    <build
-        timestamp="9624669686377"
-        verifier="METHOD_ADDED" >
+    <build timestamp="12520335659090" >
         <artifact
             location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
-            type="DEX" />
-    </build>
-    <build timestamp="9713223610130" >
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
             type="DEX" />
     </build>
 

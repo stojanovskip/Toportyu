@@ -44,12 +44,12 @@
         "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
-        "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
         "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",

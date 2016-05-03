@@ -16,16 +16,16 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp"
-        android:layout_below="@+id/costText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <TextView
         android:id="@+id/id_label"
         android:text="@string/cost_label"
+        android:layout_below="@+id/contentText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/costText"
-        android:layout_toStartOf="@+id/costText" />
+        android:layout_toLeftOf="@+id/contentText"
+        android:layout_toStartOf="@+id/contentText" />
     <Button
         android:id="@+id/send_button"
         android:text="@string/send_button_text"
@@ -43,6 +43,7 @@
         android:inputType="number"
         android:layout_alignTop="@+id/id_label"
         android:layout_toRightOf="@+id/content_label"
+        android:layout_below="@+id/contentText"
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp"
         android:layout_alignParentRight="true"
@@ -54,7 +55,6 @@
         android:ems="10"
         android:hint="Add order here"
         android:id="@+id/contentText"
-        android:layout_below="@+id/costText"
         android:layout_alignLeft="@+id/costText"
         android:layout_alignStart="@+id/costText" />
     <ListView
@@ -81,10 +81,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tripSpinner"
-        android:layout_alignTop="@+id/send_button"
-        android:layout_alignLeft="@+id/contentText"
-        android:layout_alignStart="@+id/contentText"
-        android:spinnerMode="dropdown" />
-
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/costText"
+        android:layout_alignLeft="@+id/costText"
+        android:layout_alignStart="@+id/costText" />
 
 </RelativeLayout>
