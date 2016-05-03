@@ -12,5 +12,5 @@ public interface IOrderService {
 
     void insertOrder(Order order);
 
-    List<Order> getOrdersByTrip(long tripID);
+    List<Order> getOrdersByTrip(Long tripID);
 }

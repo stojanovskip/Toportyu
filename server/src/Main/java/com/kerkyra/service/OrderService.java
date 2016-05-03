@@ -31,8 +31,7 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public List<Order> getOrdersByTrip(long tripID) {
+    public List<Order> getOrdersByTrip(Long tripID) {
         return orderRepository.findOrderById(tripID);
-
     }
 }

@@ -12,6 +12,6 @@ import java.util.List;
  */
 public interface OrderRepository extends CrudRepository<Order, Long> {
 
-    @Query(value = "SELECT o FROM Order o WHERE o.trip_id = ?1")
-    List<Order> findOrderById(Long id);
+    @Query(value = "SELECT o FROM Order o WHERE o.trip.id = ?1")
+    List<Order> findOrderById(Long tripID);
 }
