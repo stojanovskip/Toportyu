@@ -220,11 +220,12 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="action_refresh">Refresh</string>
     <string name="app_name">TopApp</string>
-    <string name="content_label">The Order: </string>
-    <string name="cost_label">The cost is: </string>
+    <string name="content_label">The order: </string>
+    <string name="cost_label">The cost: </string>
     <string name="load_button_text">Load</string>
     <string name="send_button_text">Send</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="trip_label">Choose Trip: </string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
