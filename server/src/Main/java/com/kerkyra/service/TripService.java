@@ -13,6 +13,7 @@ public class TripService implements ITripService {
 
     TripRepository tripRepository;
 
+
     @Autowired
     public TripService (TripRepository tripRepository) {
         this.tripRepository = tripRepository;
