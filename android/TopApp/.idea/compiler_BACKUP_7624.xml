@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <resourceExtensions />
+<<<<<<< HEAD
     <wildcardResourcePatterns>
       <entry name="!?*.java" />
       <entry name="!?*.form" />
@@ -13,6 +14,9 @@
       <entry name="!?*.clj" />
       <entry name="!?*.aj" />
     </wildcardResourcePatterns>
+=======
+    <wildcardResourcePatterns />
+>>>>>>> tripDB
     <annotationProcessing>
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />

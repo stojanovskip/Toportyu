@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TopApp</string>
+    <string name="content_label">The Order: </string>
+    <string name="cost_label">The cost is: </string>
+    <string name="action_refresh">Refresh</string>
+    <string name="send_button_text">Send</string>
+    <string name="load_button_text">Load</string>
+
+</resources>
