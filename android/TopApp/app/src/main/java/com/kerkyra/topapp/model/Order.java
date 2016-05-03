@@ -1,4 +1,4 @@
-package com.kerkyra.topapp;
+package com.kerkyra.topapp.model;
 
 /**
  * Created by Andras.Timar on 4/29/2016.

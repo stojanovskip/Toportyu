@@ -4,39 +4,49 @@
     api-level="23"
     density="hdpi"
     format="7"
-    timestamp="8712201306710" >
+    timestamp="9713223610130" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="158" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="10" />
     <task
         name="verifier"
-        duration="0" />
+        duration="2" />
 
     <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\res\resources-debug.ap_"
-        type="RESOURCES" />
+        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+        type="DEX" />
 
     <build timestamp="8131836087717" >
         <artifact
             location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="8630783273868" >
+    <build timestamp="9429865027317" >
+        <artifact
+            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\res\resources-debug.ap_"
+            type="RESOURCES" />
+        <artifact
+            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="9624669686377"
+        verifier="METHOD_ADDED" >
         <artifact
             location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
             type="DEX" />
     </build>
-    <build timestamp="8712201306710" >
+    <build timestamp="9713223610130" >
         <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\res\resources-debug.ap_"
-            type="RESOURCES" />
+            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

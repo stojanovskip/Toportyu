@@ -3,12 +3,15 @@ package com.kerkyra.topapp;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
+
+import com.kerkyra.topapp.model.Order;
+import com.kerkyra.topapp.model.Trip;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -21,13 +24,14 @@ import static java.lang.Integer.parseInt;
 
 public class MainActivity extends AppCompatActivity {
 
-    final String url = "http://10.248.70.234:8000/orders";
+    final String url = "http://10.248.70.234:8000/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        new LoadOrdersTask().execute();
+        new LoadTripsTask().execute();
         View loadButton = findViewById(R.id.load_button);
         if (loadButton != null) {
             loadButton.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                restTemplate.postForObject(url,order, Order.class);
+                restTemplate.postForObject(url+"orders",order, Order.class);
                 return order;
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);
@@ -90,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                ResponseEntity<Order[]> responseEntity = restTemplate.getForEntity(url, Order[].class);
+                ResponseEntity<Order[]> responseEntity = restTemplate.getForEntity(url+"orders", Order[].class);
                 return responseEntity.getBody();
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);
@@ -112,6 +116,39 @@ public class MainActivity extends AppCompatActivity {
              }
         }
     }
+
+    private class LoadTripsTask extends AsyncTask<Void,Void,Trip[]>
+    {
+        @Override
+        protected Trip[] doInBackground(Void... params) {
+            try {
+                RestTemplate restTemplate = new RestTemplate();
+                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                ResponseEntity<Trip[]> responseEntity = restTemplate.getForEntity(url+"trips", Trip[].class);
+                return responseEntity.getBody();
+            } catch (Exception e) {
+                Log.e("MainActivity", e.getMessage(), e);
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Trip[] trips) {
+            if (trips != null) {
+                Arrays.sort(trips, new Comparator<Trip>(){
+                    public int compare(Trip t1, Trip t2){
+                        return (t1.getId()).compareTo(t2.getId());
+                    }
+                });
+
+                Spinner spinner = (Spinner) findViewById(R.id.tripSpinner);
+                ArrayAdapter<Trip> adapter = new ArrayAdapter<Trip>(MainActivity.this,android.R.layout.simple_list_item_1,trips);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinner.setAdapter(adapter);
+            }
+        }
+    }
+
 }
 
 

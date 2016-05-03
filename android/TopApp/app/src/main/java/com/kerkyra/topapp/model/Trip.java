@@ -1,4 +1,4 @@
-package com.kerkyra.topapp;
+package com.kerkyra.topapp.model;
 
 /**
  * Created by Andras.Timar on 5/3/2016.
@@ -21,5 +21,11 @@ public class Trip {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString()
+    {
+        return String.format("ID: "+id+" Name: "+name);
     }
 }
