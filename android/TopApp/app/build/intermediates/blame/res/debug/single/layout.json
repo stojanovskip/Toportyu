@@ -128,12 +128,12 @@
         "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
-        "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_bar_up_container.xml"
-    },
-    {
         "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
         "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
         "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\Toportyu\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",

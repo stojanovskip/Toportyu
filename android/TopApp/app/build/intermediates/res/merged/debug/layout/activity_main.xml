@@ -40,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/costText"
+        android:inputType="number"
         android:layout_alignTop="@+id/id_label"
         android:layout_toRightOf="@+id/content_label"
         android:layout_marginLeft="40dp"
@@ -50,8 +51,8 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
         android:ems="10"
+        android:hint="Add order here"
         android:id="@+id/contentText"
         android:layout_below="@+id/costText"
         android:layout_alignLeft="@+id/costText"

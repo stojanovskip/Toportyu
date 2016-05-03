@@ -7,6 +7,7 @@ public class Order {
     private Long id;
     private String content;
     private int cost;
+    private Trip trip;
 
     public String getContent() {
         return content;
@@ -35,6 +36,14 @@ public class Order {
     @Override
     public String toString()
     {
-        return String.format(id+" | "+content+"  cost: "+cost);
+        return String.format(content+"  cost: "+cost+" tripID: "+trip.getId());
+    }
+
+    public Trip getTrip() {
+        return trip;
+    }
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
     }
 }

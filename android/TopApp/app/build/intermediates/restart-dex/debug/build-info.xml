@@ -4,7 +4,7 @@
     api-level="23"
     density="hdpi"
     format="7"
-    timestamp="5987070276137" >
+    timestamp="8712201306710" >
 
     <task
         name="javac"
@@ -14,168 +14,29 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="39" />
+        duration="0" />
     <task
         name="verifier"
-        duration="10" />
+        duration="0" />
 
     <artifact
         location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\res\resources-debug.ap_"
         type="RESOURCES" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_736295a6cd28cdc86dc08830e91d57d06985c2bf\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.3.0_a318cd54ecdb4ea26c0cc90b0d38be6d96f26341\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-core-1.0.1.RELEASE_c220422d3aa1bd90b7617ca682d63df6b1292cc5\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.3.0_4c0ad7b5c643ffe3ec8f2c560dd3a06468877915\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.3.0_5e80bb51dca8767c39f7a7cdd276a0c6599ccffc\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.3.0_fe76f3c5688ede46c69bb1346654849089d38e3e\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.3.0_ffceff34ab19fcd18935c0154a6f158471395a4a\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-annotations-2.3.0_7cac8b2fd6dddfd4277c05bb0548536c1bc9ea32\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-rest-template-1.0.1.RELEASE_b8167568b95b6d1d0a16883c87db9adf551a33a8\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_7cc9fa7286445407dc9b17361d654c300487aa3a\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_a7b2856b7db7328694a79b80bb53ed60bbcd8c96\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.3.2_fa33d4c12f26c41864f5ee7bc77060b329a31248\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-databind-2.3.2_3ebfd088a97a60e44a15fb0406aeffcafb619e84\classes.dex"
-        type="DEX" />
-    <artifact
-        location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.3.0_a5997f8faad729160874fe51db3ca16612b046f4\classes.dex"
-        type="DEX" />
 
-    <build timestamp="3128474650376" >
+    <build timestamp="8131836087717" >
         <artifact
             location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="5987070276137" >
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\res\resources-debug.ap_"
-            type="RESOURCES" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_736295a6cd28cdc86dc08830e91d57d06985c2bf\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.3.0_a318cd54ecdb4ea26c0cc90b0d38be6d96f26341\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-core-1.0.1.RELEASE_c220422d3aa1bd90b7617ca682d63df6b1292cc5\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.3.0_4c0ad7b5c643ffe3ec8f2c560dd3a06468877915\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.3.0_5e80bb51dca8767c39f7a7cdd276a0c6599ccffc\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.3.0_fe76f3c5688ede46c69bb1346654849089d38e3e\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.3.0_ffceff34ab19fcd18935c0154a6f158471395a4a\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-annotations-2.3.0_7cac8b2fd6dddfd4277c05bb0548536c1bc9ea32\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-rest-template-1.0.1.RELEASE_b8167568b95b6d1d0a16883c87db9adf551a33a8\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_7cc9fa7286445407dc9b17361d654c300487aa3a\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_a7b2856b7db7328694a79b80bb53ed60bbcd8c96\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.3.2_fa33d4c12f26c41864f5ee7bc77060b329a31248\classes.dex"
-            type="DEX" />
+    <build timestamp="8630783273868" >
         <artifact
             location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
             type="DEX" />
+    </build>
+    <build timestamp="8712201306710" >
         <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-databind-2.3.2_3ebfd088a97a60e44a15fb0406aeffcafb619e84\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.3.0_a5997f8faad729160874fe51db3ca16612b046f4\classes.dex"
-            type="DEX" />
+            location="C:\Users\andras.timar\Documents\GitHub\Toportyu\android\TopApp\app\build\intermediates\res\resources-debug.ap_"
+            type="RESOURCES" />
     </build>
 
 </instant-run>
