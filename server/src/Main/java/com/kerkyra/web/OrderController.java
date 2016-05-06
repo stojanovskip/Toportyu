@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by Andras.Timar on 4/25/2016.
  */
@@ -20,8 +22,15 @@ public class OrderController {
         return orderService.getOrders();
     }
 
+    @RequestMapping(value = "/orders/byTrip/{id}", method = RequestMethod.GET)
+    public List<Order> getOrdersById(@PathVariable Long id) {
+        return orderService.getOrdersByTrip(id);
+    }
+
     @RequestMapping(value = "/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void insertOrder(@RequestBody Order order) {
         orderService.insertOrder(order);
     }
+
+
 }

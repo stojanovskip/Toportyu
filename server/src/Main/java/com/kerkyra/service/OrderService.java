@@ -5,6 +5,8 @@ import com.kerkyra.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Andras.Timar on 4/25/2016.
  */
@@ -26,5 +28,10 @@ public class OrderService implements IOrderService {
     @Override
     public void insertOrder(Order order) {
         orderRepository.save(order);
+    }
+
+    @Override
+    public List<Order> getOrdersByTrip(Long tripID) {
+        return orderRepository.findOrderById(tripID);
     }
 }

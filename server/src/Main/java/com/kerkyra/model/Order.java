@@ -13,6 +13,10 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @ManyToOne
+    private Trip trip;
+
     private int cost;
     private String content;
 
@@ -40,6 +44,14 @@ public class Order {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public Trip getTrip() {
+        return trip;
+    }
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
     }
 
 }
