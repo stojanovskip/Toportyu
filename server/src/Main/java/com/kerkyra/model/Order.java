@@ -7,7 +7,7 @@ package com.kerkyra.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "`order`")
 public class Order {
 
     @Id

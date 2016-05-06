@@ -6,15 +6,11 @@ import javax.persistence.*;
  * Created by Andras.Timar on 5/2/2016.
  */
 @Entity
-@Table(name="trips")
 public class Trip {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-
-
     private String name;
     public Long getId() {
         return id;
