@@ -22,8 +22,8 @@ public class OrderController {
         return orderService.getOrders();
     }
 
-    @RequestMapping(value = "/orders/byTrip/{id}", method = RequestMethod.GET)
-    public List<Order> getOrdersById(@PathVariable Long id) {
+    @RequestMapping(value = "/trips/{id}/orders", method = RequestMethod.GET)
+    public List<Order> getOrdersByTrip(@PathVariable Long id) {
         return orderService.getOrdersByTrip(id);
     }
 
