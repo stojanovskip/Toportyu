@@ -28,8 +28,9 @@ public class OrderController {
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertOrder(@RequestBody Order order) {
+    public Order insertOrder(@RequestBody Order order) {
         orderService.insertOrder(order);
+        return order;
     }
 
 
