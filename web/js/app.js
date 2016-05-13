@@ -6,5 +6,5 @@ var app = angular.module("myApp", []);
 require("./OrderController.js");
 require("./orderService.js");
 require("./TripController.js");
-require("./tripService.js");
+require("./tripService.js").install(app);
 require("./currentState.js").install(app);

@@ -1,6 +1,4 @@
-var angular = require("angular");
-var app = angular.module("myApp");
-app.factory("tripService", function ($http) {
+function tripServiceFactory($http) {
     return {
         getTrips: function () {
             return $http.get("/trips");
@@ -9,4 +7,10 @@ app.factory("tripService", function ($http) {
             return $http.post("/trips", newTrip);
         }
     };
-});
+}
+
+tripServiceFactory.install = function(app) {
+	app.factory("tripService", tripServiceFactory);
+};
+
+module.exports = tripServiceFactory;
