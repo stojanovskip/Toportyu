@@ -1,3 +1,37 @@
-
 #node modules
 node_modules/
+#bundle_js
+target/
+
+# User-specific stuff:
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/copyright/profiles_settings.xml
+.idea/compiler.xml
+.idea/misc.xml
+.idea/compiler.xml
+.idea/web.iml
+.idea/
+
+## File-based project format:
+*.iws
+*.ipr
+*.iml
+
+# Sensitive or high-churn files:
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+
+# Gradle:
+.idea/gradle.xml
+.idea/libraries
+
+# Mongo Explorer plugin:
+.idea/mongoSettings.xml
