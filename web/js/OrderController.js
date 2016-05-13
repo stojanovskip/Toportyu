@@ -1,21 +1,18 @@
-var angular = require("angular");
-var app = angular.module("myApp");
-app.controller("OrderController", function ($scope, orderService, currentState) {
+function OrderController($scope, orderService, currentState) {
     $scope.orders = [];
     $scope.newOrder = {};
     $scope.showOrders = false;
 
     $scope.getOrders = function () {
-        orderService.ordersByTrip($scope.selectedTrip).then(function (response) {
-            $scope.orders = response.data;
-            console.log($scope.orders);
+        return orderService.ordersByTrip($scope.selectedTrip).then(function(orders) {
+            $scope.orders = orders;
         });
     };
 
     $scope.saveOrder = function () {
-    	if($scope.newOrder.cost != null&&$scope.newOrder.content!=null){
+        if($scope.newOrder.cost != null&&$scope.newOrder.content!=null){
             $scope.newOrder.trip = $scope.selectedTrip;
-            orderService.saveOrder($scope.newOrder).then(function () {
+            return orderService.saveOrder($scope.newOrder).then(function () {
                 $scope.orders.push($scope.newOrder);
                 $scope.newOrder = {};
             })
@@ -31,4 +28,10 @@ app.controller("OrderController", function ($scope, orderService, currentState) 
             $scope.showOrders = true;
         }
     });
-});
+}
+
+OrderController.install = function(app) {
+    app.controller("OrderController", OrderController);
+};
+
+module.exports = OrderController;
