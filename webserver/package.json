@@ -22,5 +22,13 @@
     "serve-static": "^1.10.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.5",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-webpack": "^1.7.0"
   }
 }
