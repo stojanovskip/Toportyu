@@ -1,6 +1,4 @@
-var angular = require("angular");
-var app = angular.module("myApp");
-app.factory("currentState", function () {
+function currentStateFactory() {
     var currentTrip = null;
     return {
         getCurrentTrip: function () {
@@ -10,4 +8,10 @@ app.factory("currentState", function () {
             currentTrip = selectedTrip;
         }
     };
-});
+}
+
+currentStateFactory.install = function(app) {
+	app.factory("currentState", currentStateFactory);
+};
+
+module.exports = currentStateFactory;
