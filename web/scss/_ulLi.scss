@@ -1,0 +1,19 @@
+@import 'fontsColors';
+
+ul,
+ol {
+  padding: 0px;
+  margin: 0 0 10px 0;
+}
+
+li {
+  background-color: $grayC;
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 58%;
+  height: 8%;
+  margin: 0 0 1px 0;
+  padding: 1px;
+  list-style-type: none;
+  overflow: auto;
+}

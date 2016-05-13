@@ -1,0 +1,20 @@
+@mixin transform($scale) {
+  -webkit-transform: $scale;
+  -moz-transform: $scale;
+  -ms-transform: $scale;
+  -o-transform: $scale;
+}
+
+#fb {
+  @extend .butHover;
+  margin-top: 96px;
+  margin-left: 96%;
+  margin-bottom: -10px;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+}
+
+#fb:hover {
+  @include transform(1.1);
+}

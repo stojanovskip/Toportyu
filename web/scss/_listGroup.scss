@@ -1,0 +1,24 @@
+@import 'fontsColors';
+
+.list-group {
+  margin: 3% auto 1% auto;
+}
+
+.list-group-item {
+  color: black;
+
+  position: relative;
+  display: block;
+  margin: 0 auto 0 auto;
+  padding: 10px 15px;
+  border: 1px solid $dGrayC;
+}
+
+.list-group-item:first-child {
+  border-radius: 10px;
+}
+
+.list-group-item:last-child {
+  border-radius: 10px;
+  margin-bottom: 30px;
+}

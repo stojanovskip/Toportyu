@@ -1,0 +1,19 @@
+@import 'fontsColors';
+
+input {
+  font-size: $normalS;
+  font-family: $greekF;
+  padding: 7px;
+  height: 30px;
+  width: 50%;
+  vertical-align: center;
+  border-radius: 10px;
+}
+
+input.nameTrip {
+  width: 23%;
+}
+
+input.cost {
+  width: 31%;
+}

@@ -1,0 +1,46 @@
+@import "fontsColors";
+
+.butDesign {
+  font-family: $greekF;
+  font-size: 0.9vw;
+
+  width: 3.2vw;
+  height: 3.2vw;
+
+  border: none;
+  border-radius: 1.7vw;
+}
+
+.butHover {
+  background-color: $opacityC;
+  font-weight: bold;
+}
+
+.butFocus {
+  outline: none;
+}
+
+#addButton {
+  @extend .butDesign;
+}
+
+#addButton:hover {
+  @extend .butHover;
+}
+
+#addButton:focus {
+  @extend .butFocus;
+}
+
+#okButton {
+  @extend .butDesign;
+}
+
+#okButton:hover {
+  @extend .butHover;
+}
+
+#okButton:focus {
+  @extend .butFocus;
+}
+

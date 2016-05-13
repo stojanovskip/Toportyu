@@ -1,0 +1,27 @@
+@import 'fontsColors';
+
+::-webkit-input-placeholder {
+  font-family: $greekF;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  font-family: $greekF;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  font-family: $greekF;
+}
+
+:-ms-input-placeholder {
+  font-family: $greekF;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

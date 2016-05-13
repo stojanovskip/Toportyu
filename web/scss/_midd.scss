@@ -1,0 +1,20 @@
+@import "fontsColors";
+
+.midd {
+  color: $primaryC;
+  background-color: $opacityC;
+  font-size: $normalS;
+  text-align: center;
+  margin: 2% auto 1% auto;
+  width: 65%;
+  height: 100%;
+  border: solid $grayC;
+  padding: 3%;
+}
+
+.stuffToMid {
+  text-align: left;
+  width: 50%;
+  padding-left: 24.2%;
+  z-index: -1;
+}

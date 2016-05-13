@@ -1,0 +1,23 @@
+@import "fontsColors";
+@import 'ulLi';
+@import 'addOkButtons';
+@import 'fb';
+@import 'listGroup';
+@import 'copyright';
+@import 'inputs';
+@import 'sendLoadButtons';
+@import 'moz';
+@import 'body';
+@import 'header';
+@import 'midd';
+@import 'select';
+
+@font-face {
+  font-family: 'DIOGENES';
+  src: url("../fonts/DIOGENES.ttf");
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+

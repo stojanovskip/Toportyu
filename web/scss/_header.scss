@@ -1,0 +1,30 @@
+@import 'fontsColors';
+
+#header {
+  color: $primaryC;
+  text-align: center;
+  font-size: 1.6vw;
+  letter-spacing: 10px;
+  margin-top: -90px;
+  padding-bottom: 60px;
+}
+
+a {
+  color: $primaryC;
+  text-decoration: none;
+}
+
+img {
+  alt: "Toportyu Icon";
+  margin-top: 0px;
+  margin-bottom: 50px;
+  width: 100px;
+  height: 100px;
+}
+
+#type {
+  color: $primaryC;
+  font-size: 1.5vw;
+  padding-left: 27%;
+  font-family: $greetingF;
+}

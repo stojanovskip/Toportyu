@@ -1,0 +1,14 @@
+@import 'fontsColors';
+
+#sendButton {
+  font-family: $greekF;
+  font-size: $normalS;
+  border-radius: 30px;
+  width: 120px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: $primaryC;
+  background-color: $navyC;
+  border-color: $navyC;
+}

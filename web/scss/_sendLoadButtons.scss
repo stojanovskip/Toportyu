@@ -1,0 +1,39 @@
+@import 'fontsColors';
+
+.drawButton {
+  font-family: $greekF;
+  font-size: $normalS;
+  border-radius: 30px;
+  width:  6.5vw;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  matgin-left: 20px;
+  color: $primaryC;
+  background-color: $navyC;
+  border-color: $navyC;
+}
+
+.focButton {
+  outline: none;
+}
+
+#loadButton {
+  @extend .drawButton;
+  display: table;
+  margin-top: -50px;
+  margin-left: 34vw;
+}
+
+#loadButton:focus {
+  @extend .focButton;
+}
+
+#sendButton {
+  @extend .drawButton;
+}
+
+#sendButton:focus {
+  @extend .focButton;
+}
+
