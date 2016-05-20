@@ -1,6 +1,7 @@
 var angular = require("angular");
 var app = angular.module("KerkyraApp");
-app.controller("TripController", function ($scope, tripService, currentState) {
+
+function TripController($scope, tripService, currentState) {
     $scope.trips = [];
     $scope.newTrip = {};
     $scope.selectedTrip = null;
@@ -32,4 +33,10 @@ app.controller("TripController", function ($scope, tripService, currentState) {
     $scope.addPressed = function () {
         $scope.showNewTrip = true;
     };
-});
+};
+
+TripController.install = function(app){
+    app.controller("TripController", TripController);
+};
+
+module.exports=TripController;
