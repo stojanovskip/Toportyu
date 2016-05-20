@@ -1,5 +1,5 @@
 var angular = require("angular");
-var app = angular.module("Kerkyra");
+var app = angular.module("KerkyraApp");
 app.factory("orderService", function ($http) {
     return {
         ordersByTrip: function (selectedTrip) {

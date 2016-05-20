@@ -1,11 +1,13 @@
+var path = require("path");
+
 // Karma configuration
-// Generated on Fri May 20 2016 10:49:29 GMT+0200 (Central Europe Daylight Time)
+// Generated on Fri May 13 2016 15:16:50 GMT+0200 (Central Europe Daylight Time)
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '../web',
 
 
     // frameworks to use
@@ -15,7 +17,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../web/**/*.spec.js'
+        //path.join(__dirname, "../webserver/node_modules/angular/angular.js"),
+        //path.join(__dirname, "../webserver/node_modules/angular-mocks/angular-mocks.js"),
+        '**/*.spec.js'
     ],
 
 
@@ -27,17 +31,23 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        '../web/**/*.js': ['webpack']
+        '**/*.js': ['webpack']
     },
 
-    resolve: {
-        root: [
-            path.join(__dirname, '../web')
-        ],
-        modulesDirectories: [path.join(__dirname, "../webserver/node_modules")]
-    },
-    resolveLoader: {
-        modulesDirectories: [path.join(__dirname, "../webserver/node_modules")]
+    webpack: {
+        // karma watches the test entry points
+        // (you don't need to specify the entry option)
+        // webpack watches dependencies
+        resolve: {
+            root: [
+                path.join(__dirname, '../web')
+            ],
+            modulesDirectories: [path.join(__dirname, "../webserver/node_modules")]
+        },
+        resolveLoader: {
+            modulesDirectories: [path.join(__dirname, "../webserver/node_modules")]
+        }
+        // webpack configuration
     },
 
     // test results reporter to use

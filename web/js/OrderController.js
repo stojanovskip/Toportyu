@@ -1,5 +1,5 @@
 var angular = require("angular");
-var app = angular.module("Kerkyra");
+var app = angular.module("KerkyraApp");
 app.controller("OrderController", function ($scope, orderService, currentState) {
     $scope.orders = [];
     $scope.newOrder = {};

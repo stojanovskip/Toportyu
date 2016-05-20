@@ -1,11 +1,11 @@
 var angular = require("angular");
-var app = angular.module("Kerkyra");
+var app = angular.module("KerkyraApp");
 app.controller("TripController", function ($scope, tripService, currentState) {
     $scope.trips = [];
     $scope.newTrip = {};
     $scope.selectedTrip = null;
     $scope.showNewTrip = false;
-    
+
     $scope.loadTrips = function () {
         tripService.getTrips().then(function (response) {
             $scope.trips = response.data;
