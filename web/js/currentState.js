@@ -1,5 +1,5 @@
 var angular = require("angular");
-var app = angular.module("myApp");
+var app = angular.module("Kerkyra");
 app.factory("currentState", function () {
     var currentTrip = null;
     return {
