@@ -22,14 +22,15 @@ public class OrderController {
         return orderService.getOrders();
     }
 
-    @RequestMapping(value = "/orders/byTrip/{id}", method = RequestMethod.GET)
-    public List<Order> getOrdersById(@PathVariable Long id) {
+    @RequestMapping(value = "/trips/{id}/orders", method = RequestMethod.GET)
+    public List<Order> getOrdersByTrip(@PathVariable Long id) {
         return orderService.getOrdersByTrip(id);
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertOrder(@RequestBody Order order) {
+    public Order insertOrder(@RequestBody Order order) {
         orderService.insertOrder(order);
+        return order;
     }
 
 

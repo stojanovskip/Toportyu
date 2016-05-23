@@ -17,8 +17,9 @@ public class TripController {
     TripService tripService;
 
     @RequestMapping(value = "/trips", method = RequestMethod.POST)
-    public void insertTrip(@RequestBody Trip t) {
+    public Trip insertTrip(@RequestBody Trip t) {
         tripService.insertTrip(t);
+        return t;
     }
 
     @RequestMapping(value = "/trips", method = RequestMethod.GET)
