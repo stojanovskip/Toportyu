@@ -1,4 +1,4 @@
-function currentStateFactory(){
+currentStateFactory = function() {
     var currentTrip = null;
     return {
         getCurrentTrip: function () {
@@ -10,8 +10,8 @@ function currentStateFactory(){
     };
 }
 
-currentStateFactory.install = function(app){
-	app.factory("currentState",currentStateFactory);
+currentStateFactory.install = function (app) {
+    app.factory('currentState', currentStateFactory);
 };
 
 module.exports = currentStateFactory;

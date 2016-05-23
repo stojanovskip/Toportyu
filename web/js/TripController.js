@@ -1,6 +1,3 @@
-var angular = require("angular");
-var app = angular.module("KerkyraApp");
-
 function TripController($scope, tripService, currentState) {
     $scope.trips = [];
     $scope.newTrip = {};
@@ -8,18 +5,18 @@ function TripController($scope, tripService, currentState) {
     $scope.showNewTrip = false;
 
     $scope.loadTrips = function () {
-        tripService.getTrips().then(function (response) {
-            $scope.trips = response.data;
-            if ($scope.selectedTrip != null) {
+        tripService.getTrips().then(function (trips) {
+            $scope.trips = trips;
+            if ($scope.selectedTrip !== null) {
                 $scope.selectedTrip = $scope.trips[$scope.trips.length - 1];
             }
         });
     };
     $scope.saveTrip = function () {
-        if ($scope.newTrip.name != null) {
-            tripService.saveTrip($scope.newTrip).then(function (response) {
-                $scope.trips.push(response.data);
-                $scope.selectedTrip = response.data;
+        if ($scope.newTrip.name !== undefined) {
+            tripService.saveTrip($scope.newTrip).then(function (savedTrip) {
+                $scope.trips.push(savedTrip);
+                $scope.selectedTrip = savedTrip;
                 $scope.newTrip = {};
                 $scope.onChangeTrip();
             });
@@ -33,10 +30,10 @@ function TripController($scope, tripService, currentState) {
     $scope.addPressed = function () {
         $scope.showNewTrip = true;
     };
+}
+
+TripController.install = function (app) {
+    app.controller('TripController', TripController);
 };
 
-TripController.install = function(app){
-    app.controller("TripController", TripController);
-};
-
-module.exports=TripController;
+module.exports = TripController;

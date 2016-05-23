@@ -1,6 +1,6 @@
-var currentStateFactory = require("./currentState");
+var currentStateFactory = require('./currentState');
 
-describe("currentState", function () {
+describe('currentState', function () {
 
     var currentState;
 
@@ -8,13 +8,13 @@ describe("currentState", function () {
         currentState = currentStateFactory();
     });
 
-    it("should store added trip", function () {
+    it('should store added trip', function () {
         currentState.setCurrentTrip('test');
         expect(currentState.getCurrentTrip()).toBe('test');
     });
 
-    it("should return null initially", function(){
+    it('should return null initially', function () {
         expect(currentState.getCurrentTrip()).toBe(null);
-    })
+    });
 
 });
