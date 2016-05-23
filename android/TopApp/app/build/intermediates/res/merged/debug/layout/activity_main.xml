@@ -7,8 +7,18 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.kerkyra.topapp.MainActivity">
+    tools:context=".activities.MainActivity">
 
+    <EditText
+        android:id="@+id/editText0"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+        <requestFocus />
+    </EditText>
     <TextView
         android:id="@+id/content_label"
         android:text="@string/content_label"
@@ -35,6 +45,15 @@
         android:layout_toRightOf="@+id/content_label"
         android:layout_toEndOf="@+id/content_label" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Trip"
+        android:onClick="openNewTripWindow"
+        android:id="@+id/new_trip_button"
+        android:layout_below="@+id/tripSpinner"
+        android:layout_alignRight="@+id/tripSpinner"
+        android:layout_alignEnd="@+id/tripSpinner" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -36,7 +36,7 @@ public class Order {
     @Override
     public String toString()
     {
-        return String.format(content+"  cost: "+cost+" tripID: "+trip.getId());
+        return String.format(content+"  cost: "+cost);
     }
 
     public Trip getTrip() {
