@@ -32,6 +32,42 @@
   @extend .butFocus;
 }
 
+#loginButton {
+
+  border-style: solid;
+  border-width: 0px 0px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  color: #FFFFFF;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  padding: 19px 39px 18px;
+  font-size: 18px;
+
+  border-color: #326E99;
+  background-color: #3F8ABF;
+
+  margin-left: 87vw;
+  margin-top: -26vw;
+  position: absolute;
+}
+
+#loginButton:hover {
+  @extend .butHover;
+}
+
+#loginButton:focus {
+  @extend .butFocus;
+}
+
 #okButton {
   @extend .butDesign;
 }
@@ -43,4 +79,18 @@
 #okButton:focus {
   @extend .butFocus;
 }
+
+#submitButton{
+  background: #2b87db;
+  border-radius: 28px;
+  font-family: Arial, serif;
+  color: #eaffff;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+#submitButton:hover{
+  background: #1f97fd;
+}
+
 

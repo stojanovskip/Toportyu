@@ -1,0 +1,28 @@
+@import 'fontsColors';
+
+.g-signin2{
+  text-align: center;
+  margin-top: -6px;
+  margin-left: 94%;
+  margin-bottom: 0px;
+  z-index: 1;
+}
+#signOut{
+  margin-top: 2px;
+  margin-left: 94%;
+  margin-bottom: -10px;
+  color: gray;
+  width: 120px;
+  height: 36px;
+  background-color: $primaryC;
+  text-decoration: none;
+  z-index: 1;
+  position: relative;
+  font-family: "Serif";
+  font-align: center;
+  }
+
+#google {
+	width:22px;
+	height:25px;
+}
