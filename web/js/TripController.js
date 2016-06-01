@@ -12,6 +12,18 @@ function TripController($scope, tripService, currentState) {
             }
         });
     };
+    $scope.enterAdd = function(keyEvent) {
+        if (keyEvent.which === 13) {
+            if ($scope.newTrip.name !== undefined) {
+                tripService.saveTrip($scope.newTrip).then(function (savedTrip) {
+                    $scope.trips.push(savedTrip);
+                    $scope.selectedTrip = savedTrip;
+                    $scope.newTrip = {};
+                    $scope.onChangeTrip();
+                });
+            }
+        }
+    }
     $scope.saveTrip = function () {
         if ($scope.newTrip.name !== undefined) {
             tripService.saveTrip($scope.newTrip).then(function (savedTrip) {
@@ -22,6 +34,7 @@ function TripController($scope, tripService, currentState) {
             });
         }
     };
+
     $scope.onChangeTrip = function () {
         currentState.setCurrentTrip($scope.selectedTrip);
     };

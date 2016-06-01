@@ -14,8 +14,8 @@
 
 <div class="midd" ng-app="Kerkyra">
     <form id="tripAdder" ng-controller="TripController">
-        <button id="addButton" ng-click="addPressed()">ADD</button>
-        <input class="nameTrip" ng-model="newTrip.name" ng-show="showNewTrip">
+        <button id="addButton" ng-click="addPressed()" >ADD</button>
+        <input class="nameTrip" ng-model="newTrip.name" ng-show="showNewTrip" ng-keypress="enterAdd($event)">
         <button id="okButton" ng-click="saveTrip()" ng-show="showNewTrip">OK</button>
 
         <select id="selectTrip" ng-options="trip.name for trip in trips" ng-model="selectedTrip"
@@ -29,7 +29,7 @@
             <br/>
             <div class="stuffToMid">
                 <input name="cost" ng-model="newOrder.cost" type="number" min="0" max="999999" class="cost"
-                       placeholder="Add the cost here">
+                       placeholder="Add the cost here" >
                 <button id="sendButton" ng-click="saveOrder()" ng-disabled="inputform.$valid">
                     Send
                 </button>
