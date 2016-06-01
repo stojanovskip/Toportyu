@@ -21,7 +21,7 @@ input.cost {
 
 .modalDialog {
   position: fixed;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
   top: 0;
   right: 0;
   bottom: 0;
@@ -40,18 +40,15 @@ input.cost {
  }
 
 .modalDialog > div {
-  width: 400px;
+  width: 300px;
   position: relative;
   margin: 10% auto;
-  padding: 5px 20px 13px 20px;
+  padding: 5px 5px 5px 5px;
   border-radius: 10px;
-  background: #fff;
-  background: -moz-linear-gradient(#fff, #999);
-  background: -webkit-linear-gradient(#fff, #999);
-  background: -o-linear-gradient(#fff, #999);
+  background:  #e1e1e1;
 }
 .close {
-  color: grey;
+  color: black;
   line-height: 25px;
   position: absolute;
   right: 10px;
@@ -62,4 +59,27 @@ input.cost {
   font-weight: bold;
 }
 
-.close:hover { color:black; }
+.close:hover { color:grey; }
+
+#user{
+  font-family: Ariel, serif;
+  margin-top: 10vw;
+  border: 1.2px solid #cccccc;
+  font-size: 0.9vw;
+  position: relative;
+  left: 20%;
+  right: 20%;
+  height: 2vw;
+  border-radius: 8px;
+}
+#pass{
+  border: 1.2px solid #cccccc;
+  border-radius: 8px;
+  font-size: 0.9vw;
+  margin-top: 5%;
+  margin-bottom: 7%;
+  position: relative;
+  left: 20%;
+  right: 20%;
+  height: 2vw;
+}
