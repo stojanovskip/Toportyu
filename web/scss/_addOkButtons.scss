@@ -79,20 +79,6 @@
 }
 
 #submitButton{
-  /*
-  margin-left: 19%;
-  margin-right: -20%;
-  background: #2349db;
-  height: 2vw;
-  margin-top:5%;
-  width: 10vw;
-  border-radius: 28px;
-  font-family: Arial, serif;
-  color: #eaffff;
-  font-size: 15px;
-  text-decoration: none;
-  position: relative;
-*/
   box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
   color: #FFFFFF;
   border-radius: 6px;
@@ -114,6 +100,7 @@
   left: 20%;
   right: 20%;
   width: 55%;
+  margin-bottom: 10%;
   position: relative;
 }
 #submitButton:hover{
