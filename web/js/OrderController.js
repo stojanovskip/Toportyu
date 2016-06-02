@@ -20,7 +20,7 @@ function OrderController ($scope, orderService, currentState) {
             });
         }
     };
-
+    
     $scope.$watch(function () {
         return currentState.getCurrentTrip();
     }, function (selectedTrip) {

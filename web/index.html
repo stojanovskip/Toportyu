@@ -19,12 +19,18 @@
     <div id="openModal" class="modalDialog">
 
      <div>
-         <h1 id="titlelogin">Log In</h1>
+             <h1 id="titlelogin">Log In</h1>
+             <hr width="100%">
          <a href="#close" title="Close" class="close">X</a>
          <br/>
-         <input id="user" placeholder="Username">
-         <input id="pass" type="password" placeholder="Password">
-        <a href="loggedin.html" > <button id="submitButton">Log in</button></a>
+         <form name="someForm">
+         <input id="user" ng-model="user" name="user" placeholder="Username" pattern=".{3,}"   required title="3 characters minimum">
+         <input id="pass" ng-model="pass" name="pass" type="password" placeholder="Password" pattern=".{3,}"   required title="3 characters minimum">
+         </form>
+         <div ng-if="someForm.pass.$touched" ><div ng-if="!someForm.pass.$valid" id="passwrong" > Password too short </div></div>
+         <div ng-if="someForm.user.$touched" ><div ng-if="!someForm.user.$valid" id="userwrong" > Username too short </div></div>
+         <a href="loggedin.html" > <button id="submitButton" name="button" ng-disabled="!someForm.$valid" >Log in</button></a>
+
      </div>
     </div>
 <div class="midd" ng-app="Kerkyra">
