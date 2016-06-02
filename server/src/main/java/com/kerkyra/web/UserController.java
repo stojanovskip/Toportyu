@@ -1,4 +1,4 @@
-package com.kerkyra.web;
+/*package com.kerkyra.web;
 
 import com.kerkyra.model.User;
 import com.kerkyra.service.UserService;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by Petar.Stojanovski on 6/2/2016.
- */
+ *//*
 @RestController
 public class UserController {
     @Autowired
@@ -26,4 +26,4 @@ public class UserController {
     public Iterable<User> getUsers(){
         return userService.getUsers();
     }
-}
+}*/

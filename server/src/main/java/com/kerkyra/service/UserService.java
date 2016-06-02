@@ -1,18 +1,19 @@
-package com.kerkyra.service;
+/*package com.kerkyra.service;
 
+import com.kerkyra.SessionManager;
 import com.kerkyra.model.User;
 import com.kerkyra.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
+/*
  * Created by Petar.Stojanovski on 6/2/2016.
- */
+ *//*
 @Service
 public class UserService implements IUserService{
 
+    private SessionManager sessionManager = new SessionManager();
     private final UserRepository userRepository;
-
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -27,4 +28,4 @@ public class UserService implements IUserService{
     public Iterable<User> getUsers() {
         return userRepository.findAll();
     }
-}
+}*/
