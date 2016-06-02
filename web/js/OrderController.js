@@ -1,11 +1,11 @@
-function OrderController ($scope, orderService, currentState) {
+function OrderController ($scope, OrderService, CurrentState) {
     $scope.orders = [];
     $scope.newOrder = {};
     $scope.showOrders = false;
 
     $scope.getOrders = function () {
-        if (currentState.getCurrentTrip() !== null) {
-            return orderService.ordersByTrip(currentState.getCurrentTrip()).then(function (orders) {
+        if (CurrentState.getCurrentTrip() !== null) {
+            return OrderService.ordersByTrip(CurrentState.getCurrentTrip()).then(function (orders) {
                 $scope.orders = orders;
             });
         }
@@ -13,8 +13,8 @@ function OrderController ($scope, orderService, currentState) {
 
     $scope.saveOrder = function () {
         if ($scope.newOrder.cost !== undefined && $scope.newOrder.content !== undefined) {
-            $scope.newOrder.trip = currentState.getCurrentTrip();
-            return orderService.saveOrder($scope.newOrder).then(function (respondedOrder) {
+            $scope.newOrder.trip = CurrentState.getCurrentTrip();
+            return OrderService.saveOrder($scope.newOrder).then(function (respondedOrder) {
                 $scope.orders.push(respondedOrder);
                 $scope.newOrder = {};
             });
@@ -22,7 +22,7 @@ function OrderController ($scope, orderService, currentState) {
     };
 
     $scope.$watch(function () {
-        return currentState.getCurrentTrip();
+        return CurrentState.getCurrentTrip();
     }, function (selectedTrip) {
         if (selectedTrip !== null) {
             $scope.getOrders();

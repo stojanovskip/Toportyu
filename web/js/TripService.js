@@ -14,7 +14,7 @@ function TripServiceFactory($http) {
 }
 
 TripServiceFactory.install = function (app) {
-    app.factory('tripService', TripServiceFactory);
+    app.factory('TripService', TripServiceFactory);
 };
 
 module.exports = TripServiceFactory;

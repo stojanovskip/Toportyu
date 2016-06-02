@@ -6,8 +6,7 @@ describe('TripController', function () {
 
     beforeEach(function () {
         $scope = {
-            $watch: function () {
-            }
+            $watch: function () {}
         };
         tripService = {
             getTrips: function () {
@@ -29,11 +28,13 @@ describe('TripController', function () {
         $scope.loadTrips();
         expect(tripService.getTrips).toHaveBeenCalled();
     });
+
     it('should update $scope.trips', function () {
         Promise.resolve($scope.loadTrips()).then(function () {
             expect($scope.orders.length).not.toBe(0);
         });
     });
+
     it('should not call tripService.saveTrip when no new trip', function () {
         $scope.saveTrip();
         expect(tripService.saveTrip).not.toHaveBeenCalled();

@@ -13,7 +13,7 @@ OrderServiceFactory = function ($http) {
 };
 
 OrderServiceFactory.install = function (app) {
-    app.factory('orderService', OrderServiceFactory);
+    app.factory('OrderService', OrderServiceFactory);
 };
 
 module.exports = OrderServiceFactory;

@@ -6,15 +6,14 @@ describe('OrderController', function () {
 
     beforeEach(function () {
         $scope = {
-            $watch: function () {
-            }
+            $watch: function () {}
         };
         orderService = {
             ordersByTrip: function () {
                 return Promise.resolve([1, 2, 3,]);
             },
             saveOrder : function() {
-                return Promise.resolve([1,2,3]);
+                return Promise.resolve([1, 2 ,3]);
             }
         };
         currentState = {
@@ -50,6 +49,7 @@ describe('OrderController', function () {
         $scope.saveOrder();
         expect(orderService.saveOrder).toHaveBeenCalled();
     });
+
     it('saveOrder should push saved order to $scope.orders', function (done) {
         $scope.newOrder.cost = 100;
         $scope.newOrder.content = 'test';

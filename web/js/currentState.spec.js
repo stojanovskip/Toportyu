@@ -1,6 +1,6 @@
-var currentStateFactory = require('./currentState');
+var currentStateFactory = require('./CurrentState');
 
-describe('currentState', function () {
+describe('CurrentState', function () {
 
     var currentState;
 

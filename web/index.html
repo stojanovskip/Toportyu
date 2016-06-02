@@ -10,7 +10,7 @@
     <a href="http://localhost:3000/"><h1> ∙ TOPORTYU ∙ </h1></a>
     <a href="http://kerkyra.co.hu/"><img id="image" src="images/sign.png"></a>
 </div>
-<text id="type">TO ADD YOUR ORDER CHOOSE A TRIP OR ADD A NEW ONE</text>
+<text ng-controller="OrderController" ng-show="!showOrders" id="type">TO ADD YOUR ORDER CHOOSE A TRIP OR ADD A NEW ONE</text>
 
 <div class="midd" ng-app="Kerkyra">
     <form id="tripAdder" ng-controller="TripController">
@@ -24,8 +24,8 @@
         </select>
     </form>
     <div ng-controller="OrderController" ng-show="showOrders">
-        <form name="inputForm">
-            <input name="ordertext" ng-model="newOrder.content" placeholder="Add your order here" required>
+        <form name="inputForm" class ="orderInput">
+            <input name="orderText" ng-model="newOrder.content" placeholder="Add your order here" required>
             <br/>
             <div class="stuffToMid">
                 <input name="cost" ng-model="newOrder.cost" type="number" min="0" max="999999" class="cost"
@@ -41,7 +41,7 @@
             </button>
         <ul ng-cloak class="list-group">
             <section ng-repeat="order in orders">
-                <ul class="list-group">
+                <ul id="orderList" class="list-group">
                     <li ng-bind="order.content" class="list-group-item"></li>
                     <li ng-bind="order.cost+' Ft'" class="list-group-item"></li>
                 </ul>
