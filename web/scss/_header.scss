@@ -1,6 +1,6 @@
 @import 'fontsColors';
 
-#header {
+.header{
   color: $primaryC;
   text-align: center;
   font-size: 1.6vw;
@@ -8,20 +8,17 @@
   margin-top: -90px;
   padding-bottom: 60px;
 }
-
-a {
+#mainText{
   color: $primaryC;
   text-decoration: none;
 }
-
-img {
+#image{
   alt: "Toportyu Icon";
   margin-top: 0px;
   margin-bottom: 50px;
   width: 100px;
   height: 100px;
 }
-
 #type {
   color: $primaryC;
   font-size: 1.5vw;
