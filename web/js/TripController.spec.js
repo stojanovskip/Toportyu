@@ -3,7 +3,6 @@ var TripController = require('./TripController');
 describe('TripController', function () {
     var tripController;
     var $scope, tripService, currentState;
-
     beforeEach(function () {
         $scope = {
             $watch: function () {}
@@ -16,8 +15,12 @@ describe('TripController', function () {
                 return Promise.resolve([1, 2, 3]);
             }
         };
-        currentState = {};
+        currentState = {
+            getCurrentUser : function(){},
+            setCurrentUser : function(){}
 
+        };
+        $scope.newOrder = {};
         spyOn(tripService, 'getTrips').and.callThrough();
         spyOn(tripService, 'saveTrip').and.callThrough();
 

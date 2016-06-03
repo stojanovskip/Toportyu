@@ -18,7 +18,10 @@ describe('OrderController', function () {
         };
         currentState = {
             getCurrentTrip : function(){},
-            setCurrentTrip : function(){}
+            setCurrentTrip : function(){},
+            getCurrentUser : function(){},
+            setCurrentUser : function(){}
+
         };
 
         spyOn(orderService, 'ordersByTrip').and.callThrough();

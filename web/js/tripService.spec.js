@@ -19,14 +19,14 @@ describe('TripService', function (){
 
     it('should call get of $http correctly', function(done){
        TripService.getTrips().then(function(){
-            expect($httpMock.get).toHaveBeenCalledWith('/trips');
+            expect($httpMock.get).toHaveBeenCalledWith('/api/trips');
             done();
        });
     });
 
     it('should call post of $http correctly', function(done) {
        TripService.saveTrip().then(function(){
-            expect($httpMock.post).toHaveBeenCalledWith('/trips', undefined);
+            expect($httpMock.post).toHaveBeenCalledWith('/api/trips', undefined);
             done();
        });
     });
