@@ -17,6 +17,9 @@ public class Order {
     @ManyToOne
     private Trip trip;
 
+    @ManyToOne
+    private User user;
+
     private int cost;
     private String content;
 
@@ -54,4 +57,11 @@ public class Order {
         this.trip = trip;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
