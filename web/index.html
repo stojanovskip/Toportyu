@@ -6,13 +6,10 @@
 </head>
 <body ng-cloak>
 <div id="header">
-    </br>
-    </br>
-    </br>
-    </br>
-    <a href="http://localhost:3000/"><h1> ∙ TOPORTYU ∙ </h1></a>
+    <a href="http://localhost:3000/"><h1 id="toportyu"> ∙ TOPORTYU ∙ </h1></a>
     <a href="http://kerkyra.co.hu/"><img id="image" src="images/sign.png"></a>
 </div>
+<!-- Log In Page -->
 <a href="#openModal">
     <button  id="loginButton">Log in</button>
 </a>
@@ -22,7 +19,7 @@
              <h1 id="titlelogin">Log In</h1>
              <hr width="100%">
          <a href="#close" title="Close" class="close">X</a>
-         <br/>
+         <img id="fat" alt="" src="images/fat.png"/>
          <form name="someForm">
          <input id="user" ng-model="user" name="user" placeholder="Username" pattern=".{3,}"   required title="3 characters minimum">
          <input id="pass" ng-model="pass" name="pass" type="password" placeholder="Password" pattern=".{3,}"   required title="3 characters minimum">
@@ -33,6 +30,8 @@
 
      </div>
     </div>
+<!-- End of Log In page-->
+
 <div class="midd" ng-app="Kerkyra">
     <form id="tripAdder" ng-controller="TripController">
         <select id="selectTrip" ng-options="trip.name for trip in trips" ng-model="selectedTrip"
