@@ -12,7 +12,7 @@
 </div>
 <text ng-controller="OrderController" ng-show="!showOrders" id="type">TO ADD YOUR ORDER CHOOSE A TRIP OR ADD A NEW ONE</text>
 
-<div class="midd" ng-app="Kerkyra">
+<div ng-controller="AuthController" class="midd" ng-app="Kerkyra">
     <form id="tripAdder" ng-controller="TripController">
         <button id="addButton" ng-click="addPressed()">ADD</button>
         <input class="nameTrip" ng-model="newTrip.name" ng-show="showNewTrip">
@@ -35,7 +35,6 @@
                 </button>
             </div>
         </form>
-
             <button id="loadButton" ng-click="getOrders()">
                 Load
             </button>
@@ -48,6 +47,22 @@
             </section>
         </ul>
     </div>
+    <div ng-show="!loggedIn">
+        <form name="loginForm" class ="orderInput">
+            <input name="orderText" ng-model="user.name" placeholder="name" required>
+            <br/>
+            <div class="stuffToMid">
+                <input name="cost" ng-model="user.password"
+                       placeholder="password">
+                <button id="loginButton" ng-click="login()" ng-disabled="inputform.$valid">
+                    login
+                </button>
+            </div>
+        </form>
+    </div>
+    <button id="logoutButton" ng-click="logout()" ng-disabled="inputform.$valid">
+        logout
+    </button>
 </div>
 <p id="copyright"> © 2016 MMAP. All rights reserved.</p>
 

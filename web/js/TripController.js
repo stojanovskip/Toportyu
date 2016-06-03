@@ -6,6 +6,7 @@ function TripController($scope, TripService, CurrentState) {
     };
     $scope.selectedTrip = null;
     $scope.showNewTrip = false;
+    $scope.showOrders = false;
 
     $scope.loadTrips = function () {
         TripService.getTrips().then(function (trips) {
@@ -17,6 +18,7 @@ function TripController($scope, TripService, CurrentState) {
     };
     $scope.saveTrip = function () {
         if ($scope.newTrip.name !== null) {
+            $scope.newOrder.user = CurrentState.getCurrentUser();
             TripService.saveTrip($scope.newTrip).then(function (savedTrip) {
                 $scope.trips.push(savedTrip);
                 $scope.selectedTrip = savedTrip;
@@ -25,6 +27,13 @@ function TripController($scope, TripService, CurrentState) {
             });
         }
     };
+    $scope.$watch(function () {
+        return CurrentState.getCurrentUser();
+    }, function (currentUser) {
+        if (currentUser !== null) {
+            $scope.showOrders = true;
+        }
+    });
     $scope.onChangeTrip = function () {
         CurrentState.setCurrentTrip($scope.selectedTrip);
     };
