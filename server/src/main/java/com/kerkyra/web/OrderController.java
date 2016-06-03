@@ -22,23 +22,23 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    @RequestMapping(value = "/orders", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/orders", method = RequestMethod.GET)
     public Iterable<Order> getAllOrders() {
         return orderService.getOrders();
     }
 
-    @RequestMapping(value = "/trips/{id}/orders", method = RequestMethod.GET)
-    public List<Order> getOrdersByTrip(@CookieValue("sessionID") long sessionID, @PathVariable Long id)
-    {
+    @RequestMapping(value = "/api/trips/{id}/orders", method = RequestMethod.GET)
+    public List<Order> getOrdersByTrip(@CookieValue("sessionID") long sessionID, @PathVariable Long id) {
         return orderService.getOrdersByTrip(id);
     }
 
-    @RequestMapping(value = "/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> insertOrder(@CookieValue("sessionID") long sessionID, @RequestBody Order order) {
-       if(authenticationService.getUser(sessionID)!=null){
-        orderService.insertOrder(order);
-        return new ResponseEntity<Object>(order, HttpStatus.OK);}
-        return new ResponseEntity<Object>(null,HttpStatus.UNAUTHORIZED);
+        if (authenticationService.getUser(sessionID) != null) {
+            orderService.insertOrder(order);
+            return new ResponseEntity<Object>(order, HttpStatus.OK);
+        }
+        return new ResponseEntity<Object>(null, HttpStatus.UNAUTHORIZED);
     }
 
 

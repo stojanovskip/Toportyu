@@ -19,15 +19,16 @@ public class TripController {
     @Autowired
     AuthenticationService authenticationService;
 
-    @RequestMapping(value = "/trips", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/trips", method = RequestMethod.POST)
     public ResponseEntity<?> insertTrip(@CookieValue("sessionID") long sessionID, @RequestBody Trip t) {
-        if(authenticationService.getUser(sessionID)!=null){
-        tripService.insertTrip(t);
-        return new ResponseEntity<Object>(t, HttpStatus.OK);}
-        return new ResponseEntity<Object>(null,HttpStatus.UNAUTHORIZED);
+        if (authenticationService.getUser(sessionID) != null) {
+            tripService.insertTrip(t);
+            return new ResponseEntity<Object>(t, HttpStatus.OK);
+        }
+        return new ResponseEntity<Object>(null, HttpStatus.UNAUTHORIZED);
     }
 
-    @RequestMapping(value = "/trips", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/trips", method = RequestMethod.GET)
     public Iterable<Trip> getTrips() {
         return tripService.getTrips();
     }

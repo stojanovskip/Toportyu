@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
 import java.util.*;
 
 /**
@@ -15,29 +16,32 @@ import java.util.*;
 @Scope("singleton")
 public class SessionManager {
 
-    HashMap<Long,User> sessionMap;
+    HashMap<Long, User> sessionMap;
     Random random;
 
     public SessionManager() {
-        this.sessionMap = new HashMap<Long,User>();
+        this.sessionMap = new HashMap<Long, User>();
         this.random = new Random();
     }
 
-    public List<User> getUsers(){
+    public List<User> getUsers() {
         List<User> users = new ArrayList<User>();
         users.addAll(sessionMap.values());
 
         return users;
     }
+
     public Long addUser(User user) {
         Long sessionID = random.nextLong();
-        sessionMap.put(sessionID,user);
+        sessionMap.put(sessionID, user);
         return sessionID;
     }
+
     public User getUser(Long sessionID) {
         return sessionMap.get(sessionID);
     }
-    public void removeUser(Long sessionID){
+
+    public void removeUser(Long sessionID) {
         sessionMap.remove(sessionID);
     }
 }

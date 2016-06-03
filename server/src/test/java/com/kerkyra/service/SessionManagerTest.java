@@ -39,8 +39,6 @@ public class SessionManagerTest {
         user.setName("test");
         when(random.nextLong()).thenReturn((long) 1000);
         id = sessionManager.addUser(user);
-
-
     }
 
     @Test

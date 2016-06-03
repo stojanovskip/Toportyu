@@ -13,7 +13,7 @@ import java.util.List;
  * Created by andras.timar on 6/2/2016.
  */
 @Service
-public class AuthenticationService {
+public class AuthenticationService implements IAuthenticationService {
 
     SessionManager sessionManager;
     UserRepository userRepository;
@@ -21,18 +21,19 @@ public class AuthenticationService {
     PasswordHasher hasher;
 
     @Autowired
-    public AuthenticationService(SessionManager sessionManager, UserRepository userRepository,PasswordHasher hasher) {
+    public AuthenticationService(SessionManager sessionManager, UserRepository userRepository, PasswordHasher hasher) {
         this.userRepository = userRepository;
         this.sessionManager = sessionManager;
         this.hasher = hasher;
     }
 
+    @Override
     public long login(User u) {
-       List<User> result = userRepository.findByName(u.getName());
-        if(result==null) return -1;
-        if(result.size()==1) {
+        List<User> result = userRepository.findByName(u.getName());
+        if (result == null) return -1;
+        if (result.size() == 1) {
             String hashedpass = hasher.hash(u.getPassword());
-            if(result.get(0).getPassword().equals(hashedpass)){
+            if (result.get(0).getPassword().equals(hashedpass)) {
                 u.setPassword(hashedpass);
                 return sessionManager.addUser(u);
             }
@@ -40,30 +41,34 @@ public class AuthenticationService {
         return -1;
     }
 
+    @Override
     public boolean logOut(Long sessionID) {
         try {
             sessionManager.removeUser(sessionID);
             return true;
 
-        }catch(Exception ex){
+        } catch (Exception ex) {
             return false;
         }
     }
 
+    @Override
     public List<User> getUsers() {
         return sessionManager.getUsers();
     }
 
-    public User getUser(Long sessionId){
+    @Override
+    public User getUser(Long sessionId) {
         return sessionManager.getUser(sessionId);
     }
 
-    public boolean register(User newUser){
+    @Override
+    public boolean register(User newUser) {
         List<User> result = userRepository.findByName(newUser.getName());
-        if(result.size()==0) {
+        if (result.size() == 0) {
             newUser.setPassword(hasher.hash(newUser.getPassword()));
             userRepository.save(newUser);
         }
-        return result.size()==0;
+        return result.size() == 0;
     }
 }
