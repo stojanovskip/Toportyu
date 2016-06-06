@@ -17,17 +17,17 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    @RequestMapping(value = "/orders", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/orders", method = RequestMethod.GET)
     public Iterable<Order> getAllOrders() {
         return orderService.getOrders();
     }
 
-    @RequestMapping(value = "/trips/{id}/orders", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/trips/{id}/orders", method = RequestMethod.GET)
     public List<Order> getOrdersByTrip(@PathVariable Long id) {
         return orderService.getOrdersByTrip(id);
     }
 
-    @RequestMapping(value = "/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Order insertOrder(@RequestBody Order order) {
         orderService.insertOrder(order);
         return order;

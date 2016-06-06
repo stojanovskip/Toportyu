@@ -18,14 +18,14 @@ describe('OrderService', function(){
     it('should call correctly get of $http', function(done){
         var testTrip = { id:1, name:'testTrip' };
         OrderService.ordersByTrip(testTrip).then(function(){
-            expect($httpMock.get).toHaveBeenCalledWith('/trips/' + testTrip.id.toString() + '/orders');
+            expect($httpMock.get).toHaveBeenCalledWith('/api/trips/' + testTrip.id.toString() + '/orders');
             done();
         });
     });
 
     it('should call correctly post of $http', function(done){
         OrderService.saveOrder().then(function(){
-            expect($httpMock.post).toHaveBeenCalledWith('/orders', undefined);
+            expect($httpMock.post).toHaveBeenCalledWith('/api/orders', undefined);
             done();
         });
     });
