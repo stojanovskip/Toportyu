@@ -13,7 +13,7 @@ app.use('/api', proxy(serverurl));
 
 app.use(express.static(path.resolve(__dirname, '../web')));
 
-app.listen(webport);
+app.listen(process.env.PORT || webport);
 
 var compiler = webpack(webpackConfig);
 
