@@ -1,55 +1,15 @@
 <!DOCTYPE html>
 <html ng-app="KerkyraApp">
-<head>
-    <script src="/target/bundle.js" type="text/javascript"></script>
-    <title>Toportyu</title>
-</head>
-<body ng-cloak>
-<div id="header">
-    <a href="https://www.facebook.com/kerkyra.gyros"><img id="fb" src="images/fb.png"></a>
-    <a href="http://localhost:3000/"><h1> ∙ TOPORTYU ∙ </h1></a>
-    <a href="http://kerkyra.co.hu/"><img id="image" src="images/sign.png"></a>
-</div>
-<text ng-controller="OrderController" ng-show="!showOrders" id="type">TO ADD YOUR ORDER CHOOSE A TRIP OR ADD A NEW ONE</text>
-
-<div class="midd" ng-app="Kerkyra">
-    <form id="tripAdder" ng-controller="TripController">
-        <button id="addButton" ng-click="addPressed()">ADD</button>
-        <input class="nameTrip" ng-model="newTrip.name" ng-show="showNewTrip">
-        <button id="okButton" ng-click="saveTrip()" ng-show="showNewTrip">OK</button>
-
-        <select id="selectTrip" ng-options="trip.name for trip in trips" ng-model="selectedTrip"
-                ng-change="onChangeTrip()">
-            <option value="">-- choose trip --</option>
-        </select>
-    </form>
-    <div ng-controller="OrderController" ng-show="showOrders">
-        <form name="inputForm" class ="orderInput">
-            <input name="orderText" ng-model="newOrder.content" placeholder="Add your order here" required>
-            <br/>
-            <div class="stuffToMid">
-                <input name="cost" ng-model="newOrder.cost" type="number" min="0" max="999999" class="cost"
-                       placeholder="Add the cost here">
-                <button id="sendButton" ng-click="saveOrder()" ng-disabled="inputform.$valid">
-                    Send
-                </button>
-            </div>
-        </form>
-
-            <button id="loadButton" ng-click="getOrders()">
-                Load
-            </button>
-        <ul ng-cloak class="list-group">
-            <section ng-repeat="order in orders">
-                <ul id="orderList" class="list-group">
-                    <li ng-bind="order.content" class="list-group-item"></li>
-                    <li ng-bind="order.cost+' Ft'" class="list-group-item"></li>
-                </ul>
-            </section>
-        </ul>
-    </div>
-</div>
-<p id="copyright"> © 2016 MMAP. All rights reserved.</p>
-
-</body>
+    <head>
+        <script src="/target/bundle.js" type="text/javascript"></script>
+        <title>Toportyu</title>
+    </head>
+    <body ng-cloak>
+        <div ng-include="'/views/header.html'"></div>
+        <div class="midd">
+            <div ng-include="'/views/trip.html'"></div>
+            <div ng-include="'/views/order.html'"></div>
+        </div>
+        <p id="copyright"> © 2016 MMAP. All rights reserved.</p>
+    </body>
 </html>
