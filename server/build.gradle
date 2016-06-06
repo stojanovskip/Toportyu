@@ -38,3 +38,7 @@ dependencies {
     compile("org.mockito:mockito-all:1.10.19")
 }
 
+// stage for heroku
+task stage {
+  dependsOn build
+}
