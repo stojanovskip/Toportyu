@@ -1,0 +1,20 @@
+<div ng-controller="OrderController" ng-show="showOrders">
+    <form name="inputForm" class="orderInput">
+        <input name="orderText" ng-model="newOrder.content" placeholder="Add your order here" required>
+        <br/>
+        <div class="stuffToMid">
+            <input name="cost" ng-model="newOrder.cost" type="number" min="0" max="999999" class="cost"
+                   placeholder="Add the cost here">
+            <button id="sendButton" ng-click="saveOrder()" ng-disabled="inputform.$valid">Send</button>
+        </div>
+    </form>
+    <button id="loadButton" ng-click="getOrders()">Load</button>
+    <ul ng-cloak class="list-group">
+        <section ng-repeat="order in orders">
+            <ul id="orderList" class="list-group">
+                <li ng-bind="order.content" class="list-group-item"></li>
+                <li ng-bind="order.cost+' Ft'" class="list-group-item"></li>
+            </ul>
+        </section>
+    </ul>
+</div>
