@@ -1,0 +1,6 @@
+<form ng-controller="LoginController" ng-if="loginFormVisible">
+    <input id="username" placeholder="Username" ng-model="username"/>
+    <input id="password" placeholder="Password" ng-model="password"/>
+    <button id="loginButton" ng-click="login()">LOGIN</button>
+    <button id="cancelButton" ng-click="cancel()">CANCEL</button>
+</form>
