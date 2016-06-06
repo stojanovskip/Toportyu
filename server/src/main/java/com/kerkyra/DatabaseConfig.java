@@ -1,5 +1,11 @@
 package com.kerkyra;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,9 +16,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 
-import javax.sql.DataSource;
-import java.util.Properties;
-
 @EnableJpaRepositories("com.kerkyra.repository")
 @Configuration
 public class DatabaseConfig {
@@ -21,12 +24,20 @@ public class DatabaseConfig {
     Environment environment;
 
     @Bean
-    public DataSource dataSource() {
+    public DataSource dataSource() throws URISyntaxException {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(environment.getProperty("spring.datasource.driverClassName"));
-        dataSource.setUrl(environment.getProperty("spring.datasource.url"));
-        dataSource.setUsername(environment.getProperty("spring.datasource.username"));
-        dataSource.setPassword(environment.getProperty("spring.datasource.password"));
+        String dbUrl = System.getenv("JAWSDB_MARIA_URL");
+        if (dbUrl != null) {
+            URI dbUri = new URI(dbUrl);
+            dataSource.setUrl("jdbc:mysql://" + dbUri.getHost() + dbUri.getPath());
+            dataSource.setUsername(dbUri.getUserInfo().split(":")[0]);
+            dataSource.setPassword(dbUri.getUserInfo().split(":")[1]);
+        } else {
+            dataSource.setUrl(environment.getProperty("spring.datasource.url"));
+            dataSource.setUsername(environment.getProperty("spring.datasource.username"));
+            dataSource.setPassword(environment.getProperty("spring.datasource.password"));
+        }
         return dataSource;
     }
 
