@@ -48,6 +48,7 @@ public class DatabaseConfig {
 
         Properties hibernateProperties = new Properties();
         hibernateProperties.put("hibernate.ddl-auto", environment.getProperty("spring.jpa.hibernate.ddl-auto"));
+        hibernateProperties.put("hibernate.connection.pool_size", environment.getProperty("spring.jpa.hibernate.connection.pool_size"));
 
         sessionFactoryBean.setHibernateProperties(hibernateProperties);
         sessionFactoryBean.afterPropertiesSet();

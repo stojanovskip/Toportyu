@@ -1,0 +1,14 @@
+{
+  "name": "toportyu-launcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parallelshell 'node webserver/main' 'java -jar server/build/libs/Toportyu.jar'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parallelshell": "latest"
+  }
+}
