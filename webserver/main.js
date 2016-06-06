@@ -1,8 +1,9 @@
 var express = require('express');
 var proxy = require('express-http-proxy');
 var app = express();
+var path = require('path');
 var PropertiesReader = require('properties-reader');
-var properties = PropertiesReader('./resources/port.config');
+var properties = PropertiesReader(path.resolve(__dirname, './resources/port.config'));
 var serverurl = properties.get('serverurl');
 var webport = properties.get('webport');
 var webpack = require("webpack");
@@ -10,7 +11,7 @@ var webpackConfig = require("./webpack.config.js");
 
 app.use('/api', proxy(serverurl));
 
-app.use(express.static('../web'));
+app.use(express.static(path.resolve(__dirname, '../web')));
 
 app.listen(webport);
 
