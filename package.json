@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parallelshell 'node webserver/main' 'java -jar server/build/libs/Toportyu.jar'"
+    "postinstall": "cd webserver && npm install",
+    "start": "parallelshell 'node webserver/main' 'java -jar server/build/libs/Toportyu.jar'",
+    "test": "cd webserver && npm test"
   },
   "author": "",
   "license": "ISC",
