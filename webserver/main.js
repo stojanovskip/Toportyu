@@ -8,9 +8,9 @@ var webport = properties.get('webport');
 var webpack = require("webpack");
 var webpackConfig = require("./webpack.config.js");
 
-app.use('/api', proxy(serverurl));
-
 app.use(express.static('../web'));
+
+app.use('/', proxy(serverurl));
 
 app.listen(webport);
 
