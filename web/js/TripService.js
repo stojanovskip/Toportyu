@@ -1,12 +1,12 @@
 function TripServiceFactory($http) {
     return {
         getTrips: function () {
-            return $http.get('/trips').then(function(response){
+            return $http.get('/api/trips').then(function(response){
                 return response.data;
             });
         },
         saveTrip: function (newTrip) {
-            return $http.post('/trips', newTrip).then(function(response){
+            return $http.post('/api/trips', newTrip).then(function(response){
                 return response.data;
             });
         }

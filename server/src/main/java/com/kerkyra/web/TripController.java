@@ -16,13 +16,13 @@ public class TripController {
     @Autowired
     TripService tripService;
 
-    @RequestMapping(value = "/trips", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/trips", method = RequestMethod.POST)
     public Trip insertTrip(@RequestBody Trip t) {
         tripService.insertTrip(t);
         return t;
     }
 
-    @RequestMapping(value = "/trips", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/trips", method = RequestMethod.GET)
     public Iterable<Trip> getTrips() {
         return tripService.getTrips();
     }

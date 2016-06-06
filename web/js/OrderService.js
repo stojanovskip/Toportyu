@@ -1,11 +1,11 @@
 OrderServiceFactory = function ($http) {
     return {
         ordersByTrip: function (selectedTrip) {
-            return $http.get('/trips/' + selectedTrip.id.toString() + '/orders').then(function(response)
+            return $http.get('/api/trips/' + selectedTrip.id.toString() + '/orders').then(function(response)
             {return response.data});
         },
         saveOrder: function (newOrder) {
-            return $http.post('/orders', newOrder).then(function(response){
+            return $http.post('/api/orders', newOrder).then(function(response){
                 return response.data;
             });
         }
