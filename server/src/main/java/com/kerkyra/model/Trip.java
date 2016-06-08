@@ -12,6 +12,9 @@ public class Trip {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    @ManyToOne
+    private User user;
+
     public Long getId() {
         return id;
     }
@@ -28,4 +31,11 @@ public class Trip {
         this.name = name;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
