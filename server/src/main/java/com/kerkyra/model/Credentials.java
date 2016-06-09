@@ -3,16 +3,17 @@ package com.kerkyra.model;
 /**
  * Created by Andras.Timar on 6/8/2016.
  */
-public class Credentials{
+public class Credentials {
 
     public Credentials(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public Credentials(){
+    public Credentials() {
 
     }
+
     private String username;
     private String password;
 

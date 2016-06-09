@@ -5,6 +5,8 @@ import com.kerkyra.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Andras.Timar on 6/3/2016.
  */
@@ -21,14 +23,22 @@ public class AuthenticationService {
         this.passwordHasher = passwordHasher;
     }
 
-    public long login(String username, String password) {
-        return 0;
-    }
+    public Long login(String username, String password) {
 
-    public User getUser(long sessionID) {
+        List<User> usersInRepo = userRepository.findByUsername(username);
+        if (usersInRepo.size() > 0) {
+            User user = usersInRepo.get(0);
+            if (passwordHasher.hash(password).equals(user.getHashedPassword()))
+                return sessionManager.setUser(user);
+        }
         return null;
     }
 
-    public void logout(long sessionID) {
+    public User getUser(Long sessionID) {
+        return sessionManager.getUser(sessionID);
+    }
+
+    public void logout(Long sessionID) {
+        sessionManager.removeUser(sessionID);
     }
 }
