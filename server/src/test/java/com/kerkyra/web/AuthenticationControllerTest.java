@@ -1,6 +1,8 @@
 package com.kerkyra.web;
 
 import com.kerkyra.model.Credentials;
+import com.kerkyra.model.User;
+import com.kerkyra.model.UserDto;
 import com.kerkyra.service.AuthenticationService;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,10 +32,14 @@ public class AuthenticationControllerTest {
     MockHttpServletResponse httpResponse;
 
     AuthenticationController controller;
+    User user;
     @Before
     public void init(){
+        user = new User();
+        user.setUsername("test");
         MockitoAnnotations.initMocks(this);
         when(authenticationService.login("test","test")).thenReturn(Long.valueOf(100));
+        when(authenticationService.getUser((long) 100)).thenReturn(user);
         when(authenticationService.login("nulltest","nulltest")).thenReturn(null);
 
         controller = new AuthenticationController(authenticationService);
@@ -41,7 +47,7 @@ public class AuthenticationControllerTest {
 
     @Test
     public void should_ReturnUserResponseWithNullName_AndDontAddCookie_IfLogInIsNull() {
-        AuthenticationController.UserResponse response =
+        UserDto response =
                 controller.login(new Credentials("nulltest","nulltest"),httpResponse);
         assertEquals(null,response.username);
         verify(httpResponse,times(0)).addCookie(any(Cookie.class));
@@ -49,14 +55,16 @@ public class AuthenticationControllerTest {
 
     @Test
     public void should_ReturnUserResponseWithInputName_AndAddCookie_IfLogInIsNotNull() {
-        AuthenticationController.UserResponse response =
-                controller.login(new Credentials("test","test"),httpResponse);assertEquals("test",response.username);
+        UserDto response =
+                controller.login(new Credentials("test","test"),httpResponse);
+        assertEquals("test",response.username);
         verify(httpResponse,times(1)).addCookie(any(Cookie.class));
     }
     @Test
     public void should_CallAuthServiceLogin(){
-        AuthenticationController.UserResponse response =
-                controller.login(new Credentials("test","test"),httpResponse);assertEquals("test",response.username);
+        UserDto response =
+                controller.login(new Credentials("test","test"),httpResponse);
+        assertEquals("test",response.username);
         verify(authenticationService,times(1)).login("test","test");
     }
     @Test

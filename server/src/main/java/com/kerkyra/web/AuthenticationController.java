@@ -2,6 +2,7 @@ package com.kerkyra.web;
 
 import com.kerkyra.model.Credentials;
 import com.kerkyra.model.User;
+import com.kerkyra.model.UserDto;
 import com.kerkyra.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,15 +24,15 @@ public class AuthenticationController {
     }
 
     @RequestMapping(value = "/api/users/login", method = RequestMethod.POST)
-    public UserResponse login(@RequestBody Credentials credentials, HttpServletResponse httpResponse) {
+    public UserDto login(@RequestBody Credentials credentials, HttpServletResponse httpResponse) {
         Long sessionId = authenticationService.login(credentials.getUsername(), credentials.getPassword());
         if (sessionId != null) {
             Cookie cookie = new Cookie("sessionId", sessionId.toString());
             cookie.setPath("/api");
             httpResponse.addCookie(cookie);
-            return new UserResponse(credentials.getUsername());
+            return new UserDto(authenticationService.getUser(sessionId));
         }
-        return new UserResponse(null);
+        return new UserDto(null);
     }
 
     @RequestMapping(value = "/api/users/logout", method = RequestMethod.POST)
@@ -46,23 +47,14 @@ public class AuthenticationController {
     }
 
     @RequestMapping(value = "/api/users/current", method = RequestMethod.GET)
-    public UserResponse getCurrentUser(@CookieValue(value = "sessionId", required = false) Long sessionId) {
+    public UserDto getCurrentUser(@CookieValue(value = "sessionId", required = false) Long sessionId) {
         if (sessionId != null) {
             User user = authenticationService.getUser(sessionId);
             if (user != null) {
-                return new UserResponse(user.getUsername());
+                return new UserDto(user);
             }
         }
-        return new UserResponse(null);
-    }
-
-    public static class UserResponse {
-
-        public UserResponse(String username) {
-            this.username = username;
-        }
-
-        public String username;
+        return new UserDto(null);
     }
 
 }
