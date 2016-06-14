@@ -15,9 +15,7 @@ import android.widget.Spinner;
 
 import com.kerkyra.topapp.R;
 import com.kerkyra.topapp.model.Order;
-import com.kerkyra.topapp.model.Order;
 import com.kerkyra.topapp.model.Trip;
-import com.kerkyra.topapp.model.User;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -26,7 +24,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-import java.net.HttpCookie;
 
 import static java.lang.Integer.parseInt;
 
@@ -123,25 +120,27 @@ public class MainActivity extends AppCompatActivity {
         EditText costText;
         public PostOrderTask()
         {
-            order = new Order();
-            contentText = (EditText) findViewById(R.id.contentText);
-            costText = (EditText) findViewById(R.id.costText);
-            order.setContent(contentText.getText().toString());
-            order.setCost(parseInt(costText.getText().toString()));
-            Spinner spinner = (Spinner) findViewById(R.id.tripSpinner);
-
-            order.setTrip(selectedTrip);
-
+                order = new Order();
+                contentText = (EditText) findViewById(R.id.contentText);
+                costText = (EditText) findViewById(R.id.costText);
+            if(!(costText.getText()==null||contentText.getText()==null)) {
+                order.setContent(contentText.getText().toString());
+                order.setCost(parseInt(costText.getText().toString()));}
+                Spinner spinner = (Spinner) findViewById(R.id.tripSpinner);
+                order.setTrip(selectedTrip);
         }
         @Override
         protected Order doInBackground(Void... params) {
             try {
-                RestTemplate restTemplate = new RestTemplate();
-                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                HttpEntity<Order> httpEntity = new HttpEntity<Order>(order,getHttpHeaders());
-                HttpEntity<Order> response = restTemplate.exchange(
-                        url+"orders", HttpMethod.POST, httpEntity, Order.class);
-                return response.getBody();
+                if(!(order.getContent().toString().equals(""))) {
+
+                    RestTemplate restTemplate = new RestTemplate();
+                    restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                    HttpEntity<Order> httpEntity = new HttpEntity<Order>(order, getHttpHeaders());
+                    HttpEntity<Order> response = restTemplate.exchange(
+                            url + "orders", HttpMethod.POST, httpEntity, Order.class);
+                    return response.getBody();
+                }
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);
             }

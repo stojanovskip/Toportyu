@@ -12,9 +12,12 @@ import android.widget.EditText;
 
 import com.kerkyra.topapp.R;
 import com.kerkyra.topapp.model.Credentials;
+import com.kerkyra.topapp.model.Order;
 import com.kerkyra.topapp.model.User;
 
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
@@ -26,6 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     final String url = "http://10.0.2.2:8000/api/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        new CheckLogin().execute();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -80,6 +85,40 @@ public class LoginActivity extends AppCompatActivity {
             if(user.getUsername()!=null) {
                 openNewTripWindow();
 
+            }
+        }
+    }
+    private HttpHeaders getHttpHeaders(){
+        SharedPreferences pref = getSharedPreferences("MyPref", 0); // 0 - for private mode
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Cookie","sessionId="+pref.getString("sessionId",""));
+        headers.add("Content-Type","application/json");
+        return headers;
+    }
+    private class CheckLogin extends AsyncTask<Void,Void,User>
+    {
+        Credentials cred;
+
+        @Override
+        protected User doInBackground(Void... params) {
+            try {
+                RestTemplate restTemplate = new RestTemplate();
+                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                HttpEntity<User> httpEntity = new HttpEntity<User>(getHttpHeaders());
+                HttpEntity<User> response = restTemplate.exchange(
+                        url + "users/current", HttpMethod.GET, httpEntity, User.class);
+                return response.getBody();
+
+            } catch (Exception e) {
+                Log.e("MainActivity", e.getMessage(), e);
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(User user) {
+            if(user.getUsername()!=null) {
+                openNewTripWindow();
             }
         }
     }
