@@ -1,6 +1,7 @@
 package com.kerkyra.topapp.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,16 +17,22 @@ import com.kerkyra.topapp.R;
 import com.kerkyra.topapp.model.Order;
 import com.kerkyra.topapp.model.Order;
 import com.kerkyra.topapp.model.Trip;
+import com.kerkyra.topapp.model.User;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
+
+import java.net.HttpCookie;
 
 import static java.lang.Integer.parseInt;
 
 public class MainActivity extends AppCompatActivity {
 
-    final String url = "http://10.0.2.2:8000/";
+    final String url = "http://10.0.2.2:8000/api/";
     Trip selectedTrip;
 
     @Override
@@ -72,8 +79,33 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+        View logoutButton = findViewById(R.id.logOut_button);
+        if (logoutButton != null) {
+            logoutButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    LogOut out = new LogOut();
+                    out.execute();
+                    logOut();
+                }
+            });
+        }
     }
 
+
+    private HttpHeaders getHttpHeaders(){
+        SharedPreferences pref = getSharedPreferences("MyPref", 0); // 0 - for private mode
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Cookie","sessionId="+pref.getString("sessionId",""));
+        headers.add("Content-Type","application/json");
+        return headers;
+    }
+    private void logOut(){
+        SharedPreferences pref = getSharedPreferences("MyPref", 0);
+        SharedPreferences.Editor edit = pref.edit();
+        edit.putString("sessionId","");
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
     public void openNewTripWindow(View view)
     {
         Intent intent = new Intent(this,NewTripActivity.class);
@@ -87,14 +119,17 @@ public class MainActivity extends AppCompatActivity {
     private class PostOrderTask extends  AsyncTask<Void,Void,Order>
     {
         private Order order;
+        EditText contentText;
+        EditText costText;
         public PostOrderTask()
         {
             order = new Order();
-            EditText contentText = (EditText) findViewById(R.id.contentText);
-            EditText costText = (EditText) findViewById(R.id.costText);
+            contentText = (EditText) findViewById(R.id.contentText);
+            costText = (EditText) findViewById(R.id.costText);
             order.setContent(contentText.getText().toString());
             order.setCost(parseInt(costText.getText().toString()));
             Spinner spinner = (Spinner) findViewById(R.id.tripSpinner);
+
             order.setTrip(selectedTrip);
 
         }
@@ -103,12 +138,19 @@ public class MainActivity extends AppCompatActivity {
             try {
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                restTemplate.postForObject(url+"orders",order, Order.class);
-                return order;
+                HttpEntity<Order> httpEntity = new HttpEntity<Order>(order,getHttpHeaders());
+                HttpEntity<Order> response = restTemplate.exchange(
+                        url+"orders", HttpMethod.POST, httpEntity, Order.class);
+                return response.getBody();
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);
             }
             return null;
+        }
+        @Override
+        protected void onPostExecute(Order o){
+            costText.setText("");
+            contentText.setText("");
         }
     }
     private class LoadOrders extends AsyncTask<Void,Void,Order[]>
@@ -166,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Trip[] trips) {
 
-            if(trips.length!=0) {
+            if(trips!=null) {
                 selectedTrip = trips[0];
                 LoadOrders loadOrdersTask = new LoadOrders((ListView)findViewById(R.id.orderGetView));
                 loadOrdersTask.execute();
@@ -177,6 +219,24 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+    }
+    private class LogOut extends AsyncTask<Void,Void,Void>
+    {
+        AdapterView view;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                RestTemplate restTemplate = new RestTemplate();
+                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                HttpEntity<?> httpEntity = new HttpEntity<Order>(getHttpHeaders());
+                restTemplate.exchange(url+"users/logout", HttpMethod.POST, httpEntity, Order.class);
+            } catch (Exception e) {
+                Log.e("MainActivity", e.getMessage(), e);
+            }
+            return null;
+        }
+
     }
     private class LoadTask<T> extends AsyncTask<Void,Void,T>
     {

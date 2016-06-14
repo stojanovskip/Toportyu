@@ -35,15 +35,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/contentText"
         android:layout_toLeftOf="@+id/costText"
-        android:layout_toStartOf="@+id/costText" />
+        android:layout_toStartOf="@+id/costText"/>
     <Button
         android:id="@+id/send_button"
         android:text="@string/send_button_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tripSpinner"
-        android:layout_toRightOf="@+id/content_label"
-        android:layout_toEndOf="@+id/content_label" />
+        android:layout_below="@+id/load_button"
+        android:layout_toRightOf="@+id/editText0"
+        android:layout_toEndOf="@+id/editText0" />
 
     <Button
         android:layout_width="wrap_content"
@@ -53,9 +53,8 @@
         android:id="@+id/new_trip_button"
         android:layout_below="@+id/tripSpinner"
         android:layout_alignRight="@+id/tripSpinner"
-        android:layout_alignEnd="@+id/tripSpinner" />
+        android:layout_alignEnd="@+id/tripSpinner"/>
     <EditText
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/costText"
         android:inputType="number"
@@ -65,7 +64,8 @@
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -88,10 +88,10 @@
     <Button
         android:id="@+id/load_button"
         android:text="@string/load_button_text"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_above="@+id/orderGetView"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -105,12 +105,21 @@
         android:layout_alignStart="@+id/costText" />
 
     <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/trip_label"
         android:id="@+id/textView"
         android:layout_below="@+id/costText"
         android:layout_toLeftOf="@+id/costText"
-        android:layout_toStartOf="@+id/costText" />
+        android:layout_toStartOf="@+id/costText"
+        android:layout_width="wrap_content" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log out"
+        android:id="@+id/logOut_button"
+        android:layout_above="@+id/orderGetView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
 
 </RelativeLayout>

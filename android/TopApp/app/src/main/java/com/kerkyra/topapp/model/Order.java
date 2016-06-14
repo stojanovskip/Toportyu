@@ -4,6 +4,7 @@ package com.kerkyra.topapp.model;
  * Created by Andras.Timar on 4/29/2016.
  */
 public class Order {
+    private User user;
     private Long id;
     private String content;
     private int cost;
@@ -45,5 +46,13 @@ public class Order {
 
     public void setTrip(Trip trip) {
         this.trip = trip;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

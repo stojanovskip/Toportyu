@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\andras.timar\Documents\GitHub\topandroid\android\TopApp\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Users\andras.timar\Documents\GitHub\topandroid\android\TopApp\app\src\debug\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\andras.timar\Documents\GitHub\androidtop\android\TopApp\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Users\andras.timar\Documents\GitHub\androidtop\android\TopApp\app\src\debug\jniLibs"/></dataSet></merger>
