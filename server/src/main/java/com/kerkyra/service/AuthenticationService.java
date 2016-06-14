@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Andras.Timar on 6/3/2016.
  */
 @Service
-public class AuthenticationService {
+public class AuthenticationService implements IAuthenticationService {
     private final SessionManager sessionManager;
     private final UserRepository userRepository;
     private final PasswordHasher passwordHasher;
@@ -23,6 +23,7 @@ public class AuthenticationService {
         this.passwordHasher = passwordHasher;
     }
 
+    @Override
     public Long login(String username, String password) {
 
         List<User> usersInRepo = userRepository.findByUsername(username);
@@ -34,10 +35,12 @@ public class AuthenticationService {
         return null;
     }
 
+    @Override
     public User getUser(Long sessionID) {
         return sessionManager.getUser(sessionID);
     }
 
+    @Override
     public void logout(Long sessionID) {
         sessionManager.removeUser(sessionID);
     }
