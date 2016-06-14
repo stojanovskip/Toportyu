@@ -20,6 +20,7 @@ public class TripController {
 
     private final TripService tripService;
     private final AuthenticationService authenticationService;
+
     @Autowired
     public TripController(TripService tripService, AuthenticationService authenticationService) {
         this.tripService = tripService;
@@ -40,9 +41,8 @@ public class TripController {
     @RequestMapping(value = "/api/trips", method = RequestMethod.GET)
     public List<TripDto> getTrips() {
         Iterable<Trip> trips = tripService.getTrips();
-
-        if(trips!= null) {
-            return StreamSupport.stream(trips.spliterator(),false)
+        if (trips != null) {
+            return StreamSupport.stream(trips.spliterator(), false)
                     .map(TripDto::new).collect(Collectors.toList());
         }
         return null;

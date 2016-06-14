@@ -8,6 +8,7 @@ public class OrderDto {
     public final UserDto user;
     public final int cost;
     public final String content;
+
     public OrderDto(Order order) {
         this.trip = new TripDto(order.getTrip());
         this.content = order.getContent();

@@ -27,11 +27,9 @@ public class AuthenticationServiceTest {
     PasswordHasher hasher;
 
     private User user;
-    private String username;
-    private String password;
 
     AuthenticationService authenticationService;
-    private String password1 = "password";
+    private String password = "password";
     private String notPassword = "notPassword";
     private String goodUserName = "Joe";
 
@@ -39,24 +37,20 @@ public class AuthenticationServiceTest {
     public void init() {
         MockitoAnnotations.initMocks(this);
         authenticationService = new AuthenticationService(sessionManager, userRepository, hasher);
-        username = goodUserName;
-        password = password1;
         user = new User();
         user.setUsername(goodUserName);
-        user.setHashedPassword(password1);
+        user.setHashedPassword(password);
         List<User> users = new ArrayList<User>();
         users.add(user);
         when(userRepository.findByUsername(goodUserName)).thenReturn(users);
         when(sessionManager.setUser(user)).thenReturn(Long.valueOf(100));
-        when(hasher.hash(password1)).thenReturn(password1);
+        when(hasher.hash(password)).thenReturn(password);
         when(hasher.hash(notPassword)).thenReturn(notPassword);
-
-
     }
 
     @Test
     public void logIn_shouldReturnNull_IfUserIsNotInDB() {
-        assertEquals(null, authenticationService.login("NotJoe", password1));
+        assertEquals(null, authenticationService.login("NotJoe", password));
     }
 
     @Test
@@ -66,12 +60,12 @@ public class AuthenticationServiceTest {
 
     @Test
     public void logIn_shouldReturnSessionID_IfUserIsInDB_and_PasswordIsCorrect() {
-        assertEquals(Long.valueOf(100), authenticationService.login(goodUserName, password1));
+        assertEquals(Long.valueOf(100), authenticationService.login(goodUserName, password));
     }
 
     @Test
     public void should_Call_SessionManagersAddUser_IfLoginDetailsAreCorrect() {
-        authenticationService.login(username, password);
+        authenticationService.login(goodUserName, password);
         verify(sessionManager, times(1)).setUser(user);
     }
 

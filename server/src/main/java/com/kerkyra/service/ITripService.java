@@ -7,5 +7,6 @@ import com.kerkyra.model.Trip;
  */
 public interface ITripService {
     void insertTrip(Trip t);
+
     Iterable<Trip> getTrips();
 }

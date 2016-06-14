@@ -11,7 +11,6 @@ public class Credentials {
     }
 
     public Credentials() {
-
     }
 
     private String username;

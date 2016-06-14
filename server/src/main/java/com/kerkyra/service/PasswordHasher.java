@@ -13,7 +13,7 @@ public class PasswordHasher {
     public String hash(String password) {
         try {
             MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
-            String salt = "some_random_salt";
+            String salt = "kerkyra_project_5463453453453436236254";
             String passWithSalt = password + salt;
             byte[] passBytes = passWithSalt.getBytes();
             byte[] passHash = sha256.digest(passBytes);

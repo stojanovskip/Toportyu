@@ -33,14 +33,15 @@ public class AuthenticationControllerTest {
 
     AuthenticationController controller;
     User user;
+
     @Before
-    public void init(){
+    public void init() {
         user = new User();
         user.setUsername("test");
         MockitoAnnotations.initMocks(this);
-        when(authenticationService.login("test","test")).thenReturn(Long.valueOf(100));
+        when(authenticationService.login("test", "test")).thenReturn(Long.valueOf(100));
         when(authenticationService.getUser((long) 100)).thenReturn(user);
-        when(authenticationService.login("nulltest","nulltest")).thenReturn(null);
+        when(authenticationService.login("nulltest", "nulltest")).thenReturn(null);
 
         controller = new AuthenticationController(authenticationService);
     }
@@ -48,44 +49,55 @@ public class AuthenticationControllerTest {
     @Test
     public void should_ReturnUserResponseWithNullName_AndDontAddCookie_IfLogInIsNull() {
         UserDto response =
-                controller.login(new Credentials("nulltest","nulltest"),httpResponse);
-        assertEquals(null,response.username);
-        verify(httpResponse,times(0)).addCookie(any(Cookie.class));
+                controller.login(new Credentials("nulltest", "nulltest"), httpResponse);
+        assertEquals(null, response.username);
+        verify(httpResponse, times(0)).addCookie(any(Cookie.class));
     }
 
     @Test
     public void should_ReturnUserResponseWithInputName_AndAddCookie_IfLogInIsNotNull() {
         UserDto response =
-                controller.login(new Credentials("test","test"),httpResponse);
-        assertEquals("test",response.username);
-        verify(httpResponse,times(1)).addCookie(any(Cookie.class));
+                controller.login(new Credentials("test", "test"), httpResponse);
+        assertEquals("test", response.username);
+        verify(httpResponse, times(1)).addCookie(any(Cookie.class));
     }
+
     @Test
-    public void should_CallAuthServiceLogin(){
+    public void should_CallAuthServiceLogin() {
         UserDto response =
-                controller.login(new Credentials("test","test"),httpResponse);
-        assertEquals("test",response.username);
-        verify(authenticationService,times(1)).login("test","test");
+                controller.login(new Credentials("test", "test"), httpResponse);
+        assertEquals("test", response.username);
+        verify(authenticationService, times(1)).login("test", "test");
     }
+
     @Test
-    public void should_CallAuthServiceLogout_and_SetDeleteCookie_IfSessionIdNotNull(){
+    public void should_not_CallAuthServiceLogout_and_SetDeleteCookie_IfSessionIdNull() {
+        Long testId = null;
+        controller.logout(testId, httpResponse);
+        verify(authenticationService, times(0)).logout(testId);
+        verify(httpResponse, times(0)).addCookie(any(Cookie.class));
+    }
+
+    @Test
+    public void should_CallAuthServiceLogout_and_SetDeleteCookie_IfSessionIdNotNull() {
         Long testId = Long.valueOf(100);
         controller.logout(testId, httpResponse);
-        verify(authenticationService,times(1)).logout(testId);
-        verify(httpResponse,times(1)).addCookie(any(Cookie.class));
-
+        verify(authenticationService, times(1)).logout(testId);
+        verify(httpResponse, times(1)).addCookie(any(Cookie.class));
     }
+
     @Test
-    public void should_CallAuthServiceGetUser_IfSessionIdNotNull(){
+    public void should_CallAuthServiceGetUser_IfSessionIdNotNull() {
         Long testId = Long.valueOf(100);
         controller.getCurrentUser(testId);
-        verify(authenticationService,times(1)).getUser(testId);
+        verify(authenticationService, times(1)).getUser(testId);
     }
+
     @Test
-    public void should_not_CallAuthServiceGetUser_IfSessionIdNull(){
+    public void should_not_CallAuthServiceGetUser_IfSessionIdNull() {
         Long testId = null;
         controller.getCurrentUser(testId);
-        verify(authenticationService,times(0)).getUser(testId);
+        verify(authenticationService, times(0)).getUser(testId);
     }
 
 }

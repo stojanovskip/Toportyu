@@ -5,9 +5,10 @@ package com.kerkyra.model;
  */
 public class UserDto {
     public final String username;
+
     public UserDto(User user) {
-        if(user!=null)
-        this.username = user.getUsername();
+        if (user != null)
+            this.username = user.getUsername();
         else this.username = null;
     }
 }

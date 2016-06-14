@@ -16,6 +16,9 @@ import org.springframework.mock.web.MockHttpServletResponse;
 
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -59,9 +62,9 @@ public class OrderControllerTest {
     }
 
     @Test
-    public void insert_should_Return_Trip_If_SessionIdIsValid_AndNotSetResponse() {
+    public void insert_should_Return_Order_If_SessionIdIsValid_AndNotSetResponse() {
         Long sessionId = Long.valueOf(100);
-        OrderDto o = orderController.insertOrder(sessionId, order,httpServletResponse);
+        OrderDto o = orderController.insertOrder(sessionId, order, httpServletResponse);
         assertEquals(o.content, order.getContent());
         assertNotEquals(httpServletResponse.getStatus(), HttpServletResponse.SC_UNAUTHORIZED);
     }
@@ -70,6 +73,15 @@ public class OrderControllerTest {
     public void getAllOrders_should_Call_orderService_getOrders() {
         orderController.getAllOrders();
         verify(orderService, times(1)).getOrders();
+    }
+
+    @Test
+    public void getAllOrders_should_Return_CorrectDtoResult() {
+        List<Order> orders = new ArrayList<Order>();
+        orders.add(order);
+        when(orderService.getOrders()).thenReturn(orders);
+        assertEquals("testContent",orderController.getAllOrders().get(0).content);
+
     }
 
     @Test
