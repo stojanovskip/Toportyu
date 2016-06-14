@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -90,16 +91,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     private HttpHeaders getHttpHeaders(){
-        SharedPreferences pref = getSharedPreferences("MyPref", 0); // 0 - for private mode
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Cookie","sessionId="+pref.getString("sessionId",""));
         headers.add("Content-Type","application/json");
         return headers;
     }
     private void logOut(){
-        SharedPreferences pref = getSharedPreferences("MyPref", 0);
-        SharedPreferences.Editor edit = pref.edit();
-        edit.putString("sessionId","");
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
     }

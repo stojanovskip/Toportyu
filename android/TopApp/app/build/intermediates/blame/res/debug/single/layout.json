@@ -120,12 +120,12 @@
         "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_activity_chooser_view.xml"
-    },
-    {
         "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
         "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_activity_chooser_view.xml"
     },
     {
         "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",

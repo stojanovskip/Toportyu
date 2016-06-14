@@ -7,12 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 
 import com.kerkyra.topapp.R;
 import com.kerkyra.topapp.model.Credentials;
-import com.kerkyra.topapp.model.Order;
 import com.kerkyra.topapp.model.User;
 
 import org.springframework.http.HttpEntity;
@@ -22,7 +20,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-import static java.lang.Integer.parseInt;
+import java.net.HttpCookie;
+import java.util.List;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(responseEntity.getHeaders().containsKey("set-cookie")) {
                     SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
                     SharedPreferences.Editor editor = pref.edit();
+                    List<HttpCookie> cookie = HttpCookie.parse(responseEntity.getHeaders().get("set-cookie").get(0));
                     editor.putString("sessionId", responseEntity.getHeaders().get("set-cookie").toString().split("=")[1].split(";")[0]);
                     editor.commit();
                 }
@@ -91,7 +92,6 @@ public class LoginActivity extends AppCompatActivity {
     private HttpHeaders getHttpHeaders(){
         SharedPreferences pref = getSharedPreferences("MyPref", 0); // 0 - for private mode
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Cookie","sessionId="+pref.getString("sessionId",""));
         headers.add("Content-Type","application/json");
         return headers;
     }
