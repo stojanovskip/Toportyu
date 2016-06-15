@@ -136,12 +136,12 @@
         "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
-        "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_mode_bar.xml"
-    },
-    {
         "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
         "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
         "merged": "C:\\Users\\andras.timar\\Documents\\GitHub\\androidtop\\android\\TopApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",

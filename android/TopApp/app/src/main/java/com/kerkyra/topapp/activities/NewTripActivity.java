@@ -16,6 +16,7 @@ import com.kerkyra.topapp.model.Trip;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
@@ -66,9 +67,8 @@ public class NewTripActivity extends AppCompatActivity {
             try {
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                HttpEntity<Trip> httpEntity = new HttpEntity<Trip>(trip,getHttpHeaders());
-                HttpEntity<Trip> response = restTemplate.exchange(
-                        url+"trips", HttpMethod.POST, httpEntity, Trip.class);
+                ResponseEntity<Trip> response = restTemplate.postForEntity(
+                        url + "trips",trip,Trip.class);
                 return response.getBody();
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);

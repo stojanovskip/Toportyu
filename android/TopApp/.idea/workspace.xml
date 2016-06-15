@@ -54,13 +54,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.031481482">
-              <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
+            <state vertical-scroll-proportion="-6.206897">
+              <caret line="126" column="68" selection-start-line="126" selection-start-column="66" selection-end-line="126" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewTripActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/NewTripActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.62222224">
+              <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+              <folding>
+                <element signature="e#2848#2849#0" expanded="true" />
+                <element signature="e#2895#2896#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,18 +104,8 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8461537">
-              <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Order.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/model/Order.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+              <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -110,50 +113,51 @@
       </file>
       <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
               <folding />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="activity_new_trip.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_trip.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="activity_login.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
               <folding />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9655173">
-              <caret line="95" column="86" selection-start-line="95" selection-start-column="86" selection-end-line="95" selection-end-column="86" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="110" column="13" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3368#3374#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1796,7 +1800,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/model/Order.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new_trip.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/NewTripActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/LoginActivity.java" />
@@ -1804,6 +1807,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/AsyncTasks/PostOrderTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/AsyncTasks/AsyncResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/NewTripActivity.java" />
       </list>
     </option>
   </component>
@@ -1838,18 +1842,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TopApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1922,49 +1914,25 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AsyncTasks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TopApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="topapp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="activities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="TopApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2271,7 +2239,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3359288" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3359288" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32814237" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2279,8 +2247,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25479743" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25426438" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.027185502" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2289,6 +2256,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2327,7 +2295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="7" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2360,46 +2327,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-          <folding>
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#652#653#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="116" column="43" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_trip.xml">
-      <provider selected="true" editor-type-id="android-designer">
+      <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_trip.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/NewTripActivity.java">
@@ -2407,8 +2368,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
           <folding>
-            <element signature="e#2905#2906#0" expanded="true" />
-            <element signature="e#2952#2953#0" expanded="true" />
+            <element signature="e#2848#2849#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2419,6 +2380,7 @@
           <caret line="68" column="17" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3368#3374#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2427,7 +2389,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="7" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2460,46 +2421,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-          <folding>
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#652#653#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="116" column="43" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_trip.xml">
-      <provider selected="true" editor-type-id="android-designer">
+      <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_trip.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/NewTripActivity.java">
@@ -2507,8 +2462,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
           <folding>
-            <element signature="e#2905#2906#0" expanded="true" />
-            <element signature="e#2952#2953#0" expanded="true" />
+            <element signature="e#2848#2849#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2519,6 +2474,7 @@
           <caret line="68" column="17" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3368#3374#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2527,7 +2483,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="7" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2553,12 +2508,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#652#653#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2566,9 +2515,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#328#346#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2593,8 +2540,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
           <folding>
-            <element signature="e#2905#2906#0" expanded="true" />
-            <element signature="e#2952#2953#0" expanded="true" />
+            <element signature="e#2848#2849#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2613,32 +2560,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#328#346#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_trip.xml">
-      <provider selected="true" editor-type-id="android-designer">
+      <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_trip.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/NewTripActivity.java">
@@ -2646,21 +2591,21 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2905#2906#0" expanded="true" />
-            <element signature="e#2952#2953#0" expanded="true" />
+            <element signature="e#2848#2849#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_trip.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/view/View.java">
@@ -2695,12 +2640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-          <folding>
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#652#653#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2708,18 +2647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="7" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/NewTripActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
-          <folding>
-            <element signature="e#2905#2906#0" expanded="true" />
-            <element signature="e#2952#2953#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2732,36 +2659,36 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_trip.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
@@ -2772,19 +2699,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9655173">
-          <caret line="95" column="86" selection-start-line="95" selection-start-column="86" selection-end-line="95" selection-end-column="86" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537">
+        <state vertical-scroll-proportion="0.0">
           <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="46" />
           <folding />
         </state>
@@ -2808,12 +2725,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.031481482">
-          <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="110" column="13" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3368#3374#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.206897">
+          <caret line="126" column="68" selection-start-line="126" selection-start-column="66" selection-end-line="126" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kerkyra/topapp/activities/NewTripActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62222224">
+          <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+          <folding>
+            <element signature="e#2848#2849#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
           </folding>
         </state>
       </provider>
