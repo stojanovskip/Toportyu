@@ -1,13 +1,11 @@
 package com.kerkyra.topapp.activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.webkit.CookieManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -89,12 +87,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    private HttpHeaders getHttpHeaders(){
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type","application/json");
-        return headers;
-    }
     private void logOut(){
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
@@ -119,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 order = new Order();
                 contentText = (EditText) findViewById(R.id.contentText);
                 costText = (EditText) findViewById(R.id.costText);
-            if(!(costText.getText()==null||contentText.getText()==null)) {
+            if(!(costText==null||contentText.getText()==null)) {
                 order.setContent(contentText.getText().toString());
                 order.setCost(parseInt(costText.getText().toString()));}
                 Spinner spinner = (Spinner) findViewById(R.id.tripSpinner);
@@ -128,13 +120,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Order doInBackground(Void... params) {
             try {
-                if(!(order.getContent().toString().equals(""))) {
+                if(!(order.getContent().equals(""))) {
 
                     RestTemplate restTemplate = new RestTemplate();
                     restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                    HttpEntity<Order> httpEntity = new HttpEntity<Order>(order, getHttpHeaders());
-                    HttpEntity<Order> response = restTemplate.exchange(
-                            url + "orders", HttpMethod.POST, httpEntity, Order.class);
+                    ResponseEntity<Order> response = restTemplate.postForEntity(
+                            url + "orders",order,Order.class);
                     return response.getBody();
                 }
             } catch (Exception e) {
@@ -151,8 +142,8 @@ public class MainActivity extends AppCompatActivity {
     private class LoadOrders extends AsyncTask<Void,Void,Order[]>
     {
         String path;
-        AdapterView view;
-        public LoadOrders(AdapterView view) {
+        AdapterView<android.widget.ListAdapter> view;
+        public LoadOrders(AdapterView<android.widget.ListAdapter> view) {
             this.view = view;
         }
 
@@ -181,8 +172,8 @@ public class MainActivity extends AppCompatActivity {
     private class LoadTrips extends AsyncTask<Void,Void,Trip[]>
     {
         String path;
-        AdapterView view;
-        public LoadTrips(String path,AdapterView view) {
+        AdapterView<android.widget.SpinnerAdapter> view;
+        public LoadTrips(String path, AdapterView<android.widget.SpinnerAdapter> view) {
             this.path = path;
             this.view = view;
         }
@@ -217,15 +208,15 @@ public class MainActivity extends AppCompatActivity {
     }
     private class LogOut extends AsyncTask<Void,Void,Void>
     {
-        AdapterView view;
+        AdapterView<android.widget.Adapter> view;
 
         @Override
         protected Void doInBackground(Void... params) {
             try {
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                HttpEntity<?> httpEntity = new HttpEntity<Order>(getHttpHeaders());
-                restTemplate.exchange(url+"users/logout", HttpMethod.POST, httpEntity, Order.class);
+                HttpEntity<?> httpEntity = new HttpEntity<Order>(new HttpHeaders());
+                restTemplate.postForObject(url+"users/logout",HttpMethod.POST,Object.class);
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);
             }
@@ -237,8 +228,8 @@ public class MainActivity extends AppCompatActivity {
     {
         Class<T> clazz;
         String path;
-        AdapterView view;
-        public LoadTask(Class<T> clazz, String path,AdapterView view) {
+        AdapterView<ArrayAdapter<T>> view;
+        public LoadTask(Class<T> clazz, String path, AdapterView<ArrayAdapter<T>> view) {
         this.clazz = clazz;
         this.path = path;
         this.view = view;

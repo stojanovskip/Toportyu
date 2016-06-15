@@ -20,6 +20,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.CookieHandler;
+import java.net.CookieManager;
 import java.net.HttpCookie;
 import java.util.List;
 
@@ -58,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
             EditText passwordText = (EditText) findViewById(R.id.passwordText);
             cred.setUsername(userNameText.getText().toString());
             cred.setPassword(passwordText.getText().toString());
+            if (CookieHandler.getDefault() == null) CookieHandler.setDefault(new CookieManager());
         }
 
         @Override
@@ -66,14 +69,6 @@ public class LoginActivity extends AppCompatActivity {
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
                 ResponseEntity<User> responseEntity = restTemplate.postForEntity(url+"users/login",cred, User.class);
-                if(responseEntity.getHeaders().containsKey("set-cookie")) {
-                    SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
-                    SharedPreferences.Editor editor = pref.edit();
-                    List<HttpCookie> cookie = HttpCookie.parse(responseEntity.getHeaders().get("set-cookie").get(0));
-                    editor.putString("sessionId", responseEntity.getHeaders().get("set-cookie").toString().split("=")[1].split(";")[0]);
-                    editor.commit();
-                }
-
                 return responseEntity.getBody();
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);
@@ -89,12 +84,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
-    private HttpHeaders getHttpHeaders(){
-        SharedPreferences pref = getSharedPreferences("MyPref", 0); // 0 - for private mode
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type","application/json");
-        return headers;
-    }
     private class CheckLogin extends AsyncTask<Void,Void,User>
     {
         Credentials cred;
@@ -104,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                HttpEntity<User> httpEntity = new HttpEntity<User>(getHttpHeaders());
+                HttpEntity<User> httpEntity = new HttpEntity<User>(new HttpHeaders());
                 HttpEntity<User> response = restTemplate.exchange(
                         url + "users/current", HttpMethod.GET, httpEntity, User.class);
                 return response.getBody();
