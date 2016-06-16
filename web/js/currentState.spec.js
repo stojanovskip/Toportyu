@@ -16,5 +16,5 @@ describe('CurrentState', function () {
     it('should return null initially', function () {
         expect(currentState.getCurrentTrip()).toBe(null);
     });
-
+    
 });

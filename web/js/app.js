@@ -1,7 +1,7 @@
 require('style!raw!sass!../scss/style.scss');
 
 var angular = require('angular');
-var app = angular.module('KerkyraApp',[]);
+var app = angular.module('KerkyraApp', []);
 
 require('./OrderController.js').install(app);
 require('./OrderService.js').install(app);
@@ -10,3 +10,4 @@ require('./TripService.js').install(app);
 require('./CurrentState.js').install(app);
 require('./LoginController.js').install(app);
 require('./EventHandler.js').install(app);
+require('./AuthenticationService.js').install(app);
