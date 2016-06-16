@@ -1,10 +1,8 @@
 package com.kerkyra.topapp.activities;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,13 +20,8 @@ import com.kerkyra.topapp.R;
 import com.kerkyra.topapp.model.Order;
 import com.kerkyra.topapp.model.Trip;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
 
-
-
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     final String url = "http://10.0.2.2:8000/api/";
     Trip selectedTrip;
@@ -39,12 +32,12 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loadTrips((Spinner)findViewById(R.id.tripSpinner));
+        loadTrips((Spinner) findViewById(R.id.tripSpinner));
         final View loadButton = findViewById(R.id.load_button);
         if (loadButton != null) {
             loadButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    loadOrders((ListView)findViewById(R.id.orderGetView));
+                    loadOrders((ListView) findViewById(R.id.orderGetView));
                 }
             });
         }
@@ -55,7 +48,7 @@ public class MainActivity extends AppCompatActivity{
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     selectedTrip = (Trip) tripSpinner.getSelectedItem();
-                    loadOrders((ListView)findViewById(R.id.orderGetView));
+                    loadOrders((ListView) findViewById(R.id.orderGetView));
                 }
 
                 @Override
@@ -69,10 +62,7 @@ public class MainActivity extends AppCompatActivity{
         if (sendButton != null) {
             sendButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    if(!(((EditText)findViewById(R.id.contentText)).getText().toString().equals("")
-                            &&!(((EditText)findViewById(R.id.costText)).getText().toString().equals("")))){
-                        postOrder();
-                    }
+                    postOrder();
                 }
             });
         }
@@ -87,7 +77,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void logout() {
-        LogoutTask logoutTask= new LogoutTask();
+        LogoutTask logoutTask = new LogoutTask();
         logoutTask.delegate = new AsyncResponse() {
             @Override
             public void processFinish(Object output) {
@@ -97,32 +87,43 @@ public class MainActivity extends AppCompatActivity{
         logoutTask.execute();
     }
 
+    private boolean isEmpty(EditText myeditText) {
+        return myeditText.getText().toString().trim().length() == 0;
+    }
+
     private void postOrder() {
         Order order = new Order();
+
         contentText = (EditText) findViewById(R.id.contentText);
         costText = (EditText) findViewById(R.id.costText);
-        order.setContent(contentText.getText().toString());
-        order.setCost(Integer.parseInt(costText.getText().toString()));
-        order.setTrip(selectedTrip);
-        PostOrderTask postOrderTask = new PostOrderTask();
-        postOrderTask.delegate = new AsyncResponse<Order>(){
+        if (!isEmpty(contentText) && !isEmpty(costText)) {
+            order.setContent(contentText.getText().toString());
+            order.setCost(Integer.parseInt(costText.getText().toString()));
+            order.setTrip(selectedTrip);
+            PostOrderTask postOrderTask = new PostOrderTask();
+            postOrderTask.delegate = new AsyncResponse<Order>() {
 
-            @Override
-            public void processFinish(Order output) {
-                costText.setText("");
-                contentText.setText("");
-                Toast.makeText(MainActivity.this,"JUHHU",Toast.LENGTH_LONG).show();
-            }
-        };
-        postOrderTask.start(order);
+                @Override
+                public void processFinish(Order output) {
+                    costText.setText("");
+                    contentText.setText("");
+                    Toast.makeText(MainActivity.this, "Success!", Toast.LENGTH_LONG).show();
+                }
+            };
+            postOrderTask.start(order);
+        }
+        else{
+            Toast.makeText(MainActivity.this,"Cost or content was empty", Toast.LENGTH_LONG).show();
+        }
     }
-    private void loadOrders(AdapterView<android.widget.ListAdapter> inview){
+
+    private void loadOrders(AdapterView<android.widget.ListAdapter> inview) {
         final AdapterView<android.widget.ListAdapter> view = inview;
         GetOrdersTask getOrdersTask = new GetOrdersTask();
         getOrdersTask.delegate = new AsyncResponse<Order[]>() {
             @Override
             public void processFinish(Order[] orders) {
-                if(orders!=null) {
+                if (orders != null) {
                     ArrayAdapter<Order> adapter = new ArrayAdapter<Order>(MainActivity.this, android.R.layout.simple_list_item_1, orders);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     view.setAdapter(adapter);
@@ -153,15 +154,16 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
-    private void openLoginWindow(){
-        Intent intent = new Intent(this,LoginActivity.class);
+    private void openLoginWindow() {
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
-    public void openNewTripWindow(View view)
-    {
-        Intent intent = new Intent(this,NewTripActivity.class);
+
+    public void openNewTripWindow(View view) {
+        Intent intent = new Intent(this, NewTripActivity.class);
         startActivity(intent);
     }
+
     @Override
     protected void onStart() {
         super.onStart();

@@ -44,7 +44,7 @@ public class LoginTask extends AsyncTask<Void,Void,User>{
     protected void onPostExecute(User params){
         delegate.processFinish(params);
     }
-    public AsyncResponse delegate = null;
+    public AsyncResponse<User> delegate = null;
 
     public Credentials getCred() {
         return cred;

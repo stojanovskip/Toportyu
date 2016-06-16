@@ -38,21 +38,31 @@ public class NewTripActivity extends AppCompatActivity {
     }
 
     private void postTrip() {
-        Trip trip = new Trip();
+
         EditText tripName = (EditText) findViewById(R.id.newTrip_text);
-        trip.setName(tripName.getText().toString());
+        if (!isEmpty(tripName)) {
 
-        PostTripTask postTripTask = new PostTripTask();
-        postTripTask.delegate = new AsyncResponse<Trip>() {
-            @Override
-            public void processFinish(Trip outTrip) {
-                Toast.makeText(NewTripActivity.this, "Success!", Toast.LENGTH_SHORT).show();
-                startMainActivity();
-            }
-        };
-        postTripTask.start(trip);
+
+            Trip trip = new Trip();
+            trip.setName(tripName.getText().toString());
+            PostTripTask postTripTask = new PostTripTask();
+            postTripTask.delegate = new AsyncResponse<Trip>() {
+                @Override
+                public void processFinish(Trip outTrip) {
+
+                    Toast.makeText(NewTripActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+                    startMainActivity();
+                }
+            };
+            postTripTask.start(trip);
+        }
+        else{
+            Toast.makeText(NewTripActivity.this, "Trip name was empty!", Toast.LENGTH_SHORT).show();
+        }
     }
-
+    private boolean isEmpty(EditText myeditText) {
+        return myeditText.getText().toString().trim().length() == 0;
+    }
     private void startMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

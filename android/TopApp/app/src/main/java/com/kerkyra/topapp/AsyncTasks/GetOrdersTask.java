@@ -13,12 +13,12 @@ import org.springframework.web.client.RestTemplate;
 /**
  * Created by Andras.Timar on 6/16/2016.
  */
-public class GetOrdersTask extends AsyncTask<Void,Void,Order[]> {
+public class GetOrdersTask extends AsyncTask<Void, Void, Order[]> {
     final String url = "http://10.0.2.2:8000/api/";
-    private Order order;
-    public AsyncResponse delegate;
+    public AsyncResponse<Order[]> delegate;
     private Trip selectedTrip;
-    public void start(Trip selectedTrip){
+
+    public void start(Trip selectedTrip) {
         this.selectedTrip = selectedTrip;
         this.execute();
     }
@@ -28,7 +28,7 @@ public class GetOrdersTask extends AsyncTask<Void,Void,Order[]> {
         try {
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-            if(selectedTrip!=null) {
+            if (selectedTrip != null) {
                 ResponseEntity<Order[]> responseEntity = restTemplate.getForEntity(url + "trips/" + selectedTrip.getId() + "/orders", Order[].class);
                 return responseEntity.getBody();
             }
@@ -39,7 +39,7 @@ public class GetOrdersTask extends AsyncTask<Void,Void,Order[]> {
     }
 
     @Override
-    protected void onPostExecute(Order[] orders){
+    protected void onPostExecute(Order[] orders) {
         delegate.processFinish(orders);
     }
 }

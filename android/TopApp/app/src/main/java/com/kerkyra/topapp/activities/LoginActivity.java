@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.kerkyra.topapp.AsyncTasks.AsyncResponse;
 import com.kerkyra.topapp.AsyncTasks.LoginTask;
@@ -25,26 +26,33 @@ public class LoginActivity extends AppCompatActivity implements AsyncResponse<Us
         if (loginButton != null) {
             loginButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Credentials credentials = new Credentials();
-                    if ((findViewById(R.id.userNameText)) != null) {
-                        credentials.setUsername(((EditText)findViewById(R.id.userNameText)).getText().toString());
-                    }
-                    if ((findViewById(R.id.passwordText)) != null) {
-                        credentials.setPassword(((EditText)findViewById(R.id.passwordText)).getText().toString());
-                    }
-                    LoginTask loginTask = new LoginTask();
-                    loginTask.delegate = loginActivity;
-                    loginTask.setCred(credentials);
-                    loginTask.execute();
+                    login(loginActivity);
 
                 }
             });
         }
     }
+
+    private void login(LoginActivity loginActivity) {
+        Credentials credentials = new Credentials();
+        credentials.setUsername(((EditText)findViewById(R.id.userNameText)).getText().toString());
+        credentials.setPassword(((EditText)findViewById(R.id.passwordText)).getText().toString());
+        LoginTask loginTask = new LoginTask();
+        loginTask.delegate = loginActivity;
+        loginTask.setCred(credentials);
+        loginTask.execute();
+    }
+
     @Override
     public void processFinish(User output) {
         User loginUser = output;
-        if(loginUser.getUsername()!=null) openNewTripWindow();
+        if(loginUser.getUsername()!=null) {
+            Toast.makeText(LoginActivity.this,"Login successful",Toast.LENGTH_SHORT).show();
+            openNewTripWindow();
+        }
+        else{
+            Toast.makeText(LoginActivity.this,"Invalid credentials",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void openNewTripWindow()

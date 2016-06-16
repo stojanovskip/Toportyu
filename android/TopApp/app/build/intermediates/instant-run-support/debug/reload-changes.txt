@@ -1,2 +1,6 @@
-CHANGED,C:\Users\andras.timar\Documents\GitHub\androidtop\android\TopApp\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\kerkyra\topapp\activities\NewTripActivity$1$override.class
+CHANGED,C:\Users\andras.timar\Documents\GitHub\androidtop\android\TopApp\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\kerkyra\topapp\activities\MainActivity$2$override.class
+CHANGED,C:\Users\andras.timar\Documents\GitHub\androidtop\android\TopApp\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\kerkyra\topapp\activities\MainActivity$1$override.class
+CHANGED,C:\Users\andras.timar\Documents\GitHub\androidtop\android\TopApp\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\kerkyra\topapp\activities\MainActivity$override.class
+CHANGED,C:\Users\andras.timar\Documents\GitHub\androidtop\android\TopApp\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\kerkyra\topapp\R$id$override.class
 CHANGED,C:\Users\andras.timar\Documents\GitHub\androidtop\android\TopApp\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
+CHANGED,C:\Users\andras.timar\Documents\GitHub\androidtop\android\TopApp\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\kerkyra\topapp\activities\MainActivity$8$override.class
