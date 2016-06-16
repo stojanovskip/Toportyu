@@ -1,5 +1,5 @@
-<div ng-controller="LoginController">
-    <p ng-show="logoutButtonVisible" class="header" id="greeting">Hi, {{user.username}}  </p>
+<div ng-controller="loginController">
+    <p ng-show="logoutButtonVisible" class="header" id="greeting" ng-bind="user.username"></p>
 <button class="logbuttons" ng-click="inPopup()" ng-show="loginButtonVisible">Log In</button>
 <div ng-show="popupState">
 <div id="openModal" class="modalDialog">
