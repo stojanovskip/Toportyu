@@ -1,6 +1,6 @@
 var OrderController = require('./OrderController');
 
-describe('OrderController', function () {
+describe('orderController', function () {
     var orderController;
     var $scope, orderService, currentState, authenticationService, eventHandler;
 
@@ -29,7 +29,8 @@ describe('OrderController', function () {
             }
         };
         eventHandler = {
-            on: function () {}
+            on: function () {
+            }
         };
 
         spyOn(orderService, 'ordersByTrip').and.callThrough();
@@ -40,15 +41,22 @@ describe('OrderController', function () {
         orderController = OrderController($scope, orderService, currentState, authenticationService, eventHandler);
     });
 
-    it('should listen to event after_logout' , function () {
-        expect(eventHandler.on).toHaveBeenCalledWith('after_logout', jasmine.any(Function));
-
+    it('should check initial state of showOrders', function () {
+        expect($scope.showOrders).toBe(false);
     });
 
-    it('should listen to event after_login' , function () {
+    it('should check initial state of showInputOrder', function () {
+        expect($scope.showInputOrder).toBe(false);
+    });
+
+    it('should listen to event after_logout', function () {
+        expect(eventHandler.on).toHaveBeenCalledWith('after_logout', jasmine.any(Function));
+    });
+
+    it('should listen to event after_login', function () {
         expect(eventHandler.on).toHaveBeenCalledWith('after_login', jasmine.any(Function));
     });
-    
+
     it('should call orderService.ordersByTrip', function () {
         $scope.getOrders();
         expect(orderService.ordersByTrip).toHaveBeenCalled();
