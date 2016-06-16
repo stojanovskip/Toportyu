@@ -1,6 +1,6 @@
 <div ng-controller="LoginController">
     <p ng-show="logoutButtonVisible" class="header" id="greeting">Hi, {{user.username}}  </p>
-<button class="logbuttons" ng-click="inPopup()" ng-show="loginButtonVisible">Log In</button>
+<button class="logbuttons" ng-click="inPopup()" ng-show="loginButtonVisible">LOGIN</button>
 <div ng-show="popupState">
 <div id="openModal" class="modalDialog">
     <div>
@@ -15,9 +15,9 @@
             <input id="user" ng-model="user.username" ng-keyup="$event.keyCode == 13 && login()" placeholder="Username">
             <input id="pass" ng-model="user.password" ng-keyup="$event.keyCode == 13 && login()" type="password" placeholder="Password">
         </form>
-        <button type="submit" id="submitButton" name="button"  ng-click="login()" >Log in</button>
+        <button type="submit" id="submitButton" name="button"  ng-click="login()">Log In</button>
     </div>
 </div>
 </div>
-<button id="logout" class="logbuttons" ng-click="logout()" ng-show="logoutButtonVisible">Log Out</button>
+<button id="logout" class="logbuttons" ng-click="logout()" ng-show="logoutButtonVisible">LOGOUT</button>
 </div>

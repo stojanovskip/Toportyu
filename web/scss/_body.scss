@@ -2,8 +2,14 @@
 
 body {
   font-family: $greekF;
-  background-image: url("../images/back.jpg");
+  background-image: url("../images/wood.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+#cherry{
+  margin-left: 75%;
+  margin-top: 5%;
+  margin-bottom: -5%;
+  transform: rotate(15deg);
 }
