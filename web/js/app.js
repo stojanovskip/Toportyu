@@ -8,3 +8,5 @@ require('./OrderService.js').install(app);
 require('./TripController.js').install(app);
 require('./TripService.js').install(app);
 require('./CurrentState.js').install(app);
+require('./LoginController.js').install(app);
+require('./EventHandler.js').install(app);
