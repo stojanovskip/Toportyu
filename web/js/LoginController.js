@@ -1,4 +1,4 @@
-function LoginController($scope, AuthenticationService, EventHandler) {
+function LoginController($scope, authenticationService, eventHandler) {
 
     $scope.user = {
         username: '',
@@ -13,10 +13,8 @@ function LoginController($scope, AuthenticationService, EventHandler) {
 
     $scope.login = function () {
         $scope.isLoginFailed = false;
-        return AuthenticationService.login($scope.user).then(function (res) {
-            if (res.username !== null) {
-                AuthenticationService.addOrders().then(function () {
-                });
+        return authenticationService.login($scope.user).then(function (member) {
+            if (member.username !== null) {
                 $scope.loginButtonVisible = false;
                 $scope.logoutButtonVisible = true;
                 $scope.closePopup();
@@ -28,15 +26,13 @@ function LoginController($scope, AuthenticationService, EventHandler) {
     };
 
     $scope.logout = function () {
-        return AuthenticationService.logout().then(function () {
+        return authenticationService.logout().then(function () {
             $scope.loginButtonVisible = true;
             $scope.logoutButtonVisible = false;
-            AuthenticationService.removeOrders().then(function () {
-            });
         });
     };
 
-    EventHandler.on('authentication_required', function () {
+    eventHandler.on('authentication_required', function () {
         $scope.inPopup();
     });
 
@@ -47,20 +43,19 @@ function LoginController($scope, AuthenticationService, EventHandler) {
         $scope.popupState = false;
     };
 
-    AuthenticationService.getCurrentUser().then(function (newUser) {
-        if (newUser.username !== null) {
-            $scope.user = newUser;
+    authenticationService.getCurrentUser().then(function (member) {
+        if (member.username !== null) {
+            $scope.user = member;
             $scope.loginButtonVisible = false;
             $scope.logoutButtonVisible = true;
-        }
-        else {
+        } else {
             $scope.loginButtonVisible = true;
             $scope.logoutButtonVisible = false;
         }
     });
-    
+
 }
 LoginController.install = function (app) {
-    app.controller('LoginController', LoginController);
+    app.controller('loginController', LoginController);
 };
 module.exports = LoginController;
