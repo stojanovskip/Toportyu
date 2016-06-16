@@ -10,6 +10,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:name="com.android.tools.fd.runtime.BootstrapApplication"
         android:allowBackup="true"
@@ -31,6 +36,9 @@
             android:parentActivityName=".activities.LoginActivity"
             android:windowSoftInputMode="stateHidden"
         </activity>
+        <activity
+            android:name="com.kerkyra.topapp.LoginActivity3"
+            android:label="@string/title_activity_login3" />
     </application>
 
 </manifest>

@@ -3,6 +3,9 @@ package com.kerkyra.topapp.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -33,14 +36,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadTrips((Spinner) findViewById(R.id.tripSpinner));
-        final View loadButton = findViewById(R.id.load_button);
-        if (loadButton != null) {
-            loadButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    loadOrders((ListView) findViewById(R.id.orderGetView));
-                }
-            });
-        }
 
         final Spinner tripSpinner = (Spinner) findViewById(R.id.tripSpinner);
         if (tripSpinner != null) {
@@ -66,13 +61,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-        final View logoutButton = findViewById(R.id.logOut_button);
-        if (logoutButton != null) {
-            logoutButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    logout();
-                }
-            });
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_refresh:
+                loadOrders((ListView) findViewById(R.id.orderGetView));
+                return true;
+            case R.id.action_logout:
+                logout();
+            default: return false;
         }
     }
 
