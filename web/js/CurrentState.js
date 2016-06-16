@@ -11,7 +11,7 @@ CurrentStateFactory = function () {
 };
 
 CurrentStateFactory.install = function (app) {
-    app.factory('CurrentState', CurrentStateFactory);
+    app.factory('currentState', CurrentStateFactory);
 };
 
 module.exports = CurrentStateFactory;

@@ -10,6 +10,6 @@ EventHandlerFactory = function ($rootScope) {
 };
 
 EventHandlerFactory.install = function (app) {
-    app.factory('EventHandler', EventHandlerFactory);
+    app.factory('eventHandler', EventHandlerFactory);
 };
 module.exports = EventHandlerFactory;

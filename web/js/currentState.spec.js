@@ -1,6 +1,6 @@
 var currentStateFactory = require('./CurrentState');
 
-describe('CurrentState', function () {
+describe('currentState', function () {
 
     var currentState;
 
@@ -16,5 +16,5 @@ describe('CurrentState', function () {
     it('should return null initially', function () {
         expect(currentState.getCurrentTrip()).toBe(null);
     });
-    
+
 });

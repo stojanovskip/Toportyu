@@ -1,6 +1,6 @@
 var LoginController = require('./LoginController');
 
-describe('LoginController', function () {
+describe('loginController', function () {
     var loginController;
     var $scope, authenticationService, eventHandler;
 
@@ -11,7 +11,7 @@ describe('LoginController', function () {
         };
         authenticationService = {
             login: function () {
-                return Promise.resolve({ username: 'name' });
+                return Promise.resolve({username: 'name'});
             },
             logout: function () {
                 return Promise.resolve();
@@ -24,7 +24,8 @@ describe('LoginController', function () {
             }
         };
         eventHandler = {
-            on: function () {}
+            on: function () {
+            }
         };
 
         spyOn(authenticationService, 'login').and.callThrough();
@@ -39,7 +40,7 @@ describe('LoginController', function () {
     it('should check initial state of isLoginFailed', function () {
         expect($scope.isLoginFailed).toBe(false);
     });
-    
+
     it('should check initial state of popupState', function () {
         expect($scope.popupState).toBe(false);
     });
@@ -52,7 +53,7 @@ describe('LoginController', function () {
         expect($scope.logoutButtonVisible).toBe(false);
     });
 
-    it('should listen to event authentication_required' , function () {
+    it('should listen to event authentication_required', function () {
         expect(eventHandler.on).toHaveBeenCalledWith('authentication_required', jasmine.any(Function));
     });
     it('should call AuthenticationService.getCurrentUser() on initialization', function () {
@@ -62,8 +63,8 @@ describe('LoginController', function () {
     it('should call authenticationService.login correctly', function (done) {
         $scope.login().then(function () {
             expect(authenticationService.login).toHaveBeenCalledWith({
-                username:'',
-                password:''
+                username: '',
+                password: ''
             });
             done();
         });
