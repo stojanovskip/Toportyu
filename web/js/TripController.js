@@ -1,4 +1,4 @@
-function TripController($scope, TripService, CurrentState) {
+function TripController($scope, TripService, CurrentState, AuthenticationService) {
     $scope.trips = [];
     $scope.newTrip = {
         name: null,
@@ -8,7 +8,7 @@ function TripController($scope, TripService, CurrentState) {
     $scope.showNewTrip = false;
 
     $scope.loadTrips = function () {
-        TripService.getTrips().then(function (trips) {
+        return TripService.getTrips().then(function (trips) {
             $scope.trips = trips;
             if ($scope.selectedTrip !== null) {
                 $scope.selectedTrip = $scope.trips[$scope.trips.length - 1];
@@ -16,22 +16,27 @@ function TripController($scope, TripService, CurrentState) {
         });
     };
     $scope.saveTrip = function () {
-        if ($scope.newTrip.name !== null) {
-            TripService.saveTrip($scope.newTrip).then(function (savedTrip) {
-                $scope.trips.push(savedTrip);
-                $scope.selectedTrip = savedTrip;
-                $scope.newTrip = {};
-                $scope.onChangeTrip();
-            });
-        }
+        return AuthenticationService.ensureUser().then(function (res) {
+            if ($scope.newTrip.name !== null) {
+                TripService.saveTrip($scope.newTrip).then(function (savedTrip) {
+                    $scope.trips.push(savedTrip);
+                    $scope.selectedTrip = savedTrip;
+                    $scope.newTrip = {};
+                    $scope.onChangeTrip();
+                });
+            }
+        });
     };
+
     $scope.onChangeTrip = function () {
         CurrentState.setCurrentTrip($scope.selectedTrip);
     };
     $scope.loadTrips();
 
     $scope.addPressed = function () {
-        $scope.showNewTrip = true;
+        AuthenticationService.ensureUser().then(function () {
+            $scope.showNewTrip = true;
+        });
     };
 }
 
