@@ -1,11 +1,4 @@
-function AuthenticationServiceFactory($http, $q, EventHandler) {
-    var Promise = $q;
-
-    function getUser() {
-        return $http.get('/api/users/current').then(function (res) {
-            return res.data;
-        });
-    }
+function AuthenticationServiceFactory($http, eventHandler) {
 
     return {
         login: function (user) {
@@ -13,41 +6,34 @@ function AuthenticationServiceFactory($http, $q, EventHandler) {
                 username: user.username,
                 password: user.password
             }).then(function (res) {
+                eventHandler.broadcast('after_login');
                 return res.data;
             });
         },
         logout: function () {
             return $http.post('/api/users/logout').then(function () {
+                eventHandler.broadcast('after_logout');
             });
         },
         getCurrentUser: function () {
-            return getUser();
+            return $http.get('/api/users/current').then(function (res) {
+                return res.data;
+            });
         },
         ensureUser: function () {
-            return getUser().then(function (user) {
+            return this.getCurrentUser().then(function (user) {
                 if (user.username !== null) {
                     return user;
                 }
                 else {
-                    return new Promise(function () {
-                        EventHandler.broadcast('authentication_required');
-                    });
+                    eventHandler.broadcast('authentication_required');
+                    return null;
                 }
-            });
-        },
-        removeOrders: function () {
-            return new Promise(function () {
-                EventHandler.broadcast('after_logout');
-            });
-        },
-        addOrders: function () {
-            return new Promise(function () {
-                EventHandler.broadcast('after_login');
             });
         }
     };
 }
 AuthenticationServiceFactory.install = function (app) {
-    app.factory('AuthenticationService', AuthenticationServiceFactory);
+    app.factory('authenticationService', AuthenticationServiceFactory);
 };
 module.exports = AuthenticationServiceFactory;
