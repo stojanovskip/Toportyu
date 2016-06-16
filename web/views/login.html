@@ -1,6 +1,23 @@
-<form ng-controller="LoginController" ng-if="loginFormVisible">
-    <input id="username" placeholder="Username" ng-model="username"/>
-    <input id="password" placeholder="Password" ng-model="password"/>
-    <button id="loginButton" ng-click="login()">LOGIN</button>
-    <button id="cancelButton" ng-click="cancel()">CANCEL</button>
-</form>
+<div ng-controller="LoginController">
+    <p ng-show="logoutButtonVisible" class="header" id="greeting">Hi, {{user.username}}  </p>
+<button class="logbuttons" ng-click="inPopup()" ng-show="loginButtonVisible">Log In</button>
+<div ng-show="popupState">
+<div id="openModal" class="modalDialog">
+    <div>
+        <h1 id="titlelogin">Log In</h1>
+        <hr width="100%">
+        <a  title="Close" ng-click="closePopup()" class="close">X</a>
+        <form name="someForm" ng-keyup="">
+            <img  id="fat" src="/images/fat.png"/>
+            <br>
+            <img ng-show="isLoginFailed" id="failedicon" src="/images/failed.ico"/>
+            <p id="failed" ng-show="isLoginFailed"><b>Login Failed</b></p>
+            <input id="user" ng-model="user.username" ng-keyup="$event.keyCode == 13 && login()" placeholder="Username">
+            <input id="pass" ng-model="user.password" ng-keyup="$event.keyCode == 13 && login()" type="password" placeholder="Password">
+        </form>
+        <button type="submit" id="submitButton" name="button"  ng-click="login()" >Log in</button>
+    </div>
+</div>
+</div>
+<button id="logout" class="logbuttons" ng-click="logout()" ng-show="logoutButtonVisible">Log Out</button>
+</div>

@@ -2,8 +2,7 @@
     <button id="addButton" ng-click="addPressed()">ADD</button>
     <input class="nameTrip" ng-model="newTrip.name" ng-show="showNewTrip">
     <button id="okButton" ng-click="saveTrip()" ng-show="showNewTrip">OK</button>
-    <select id="selectTrip" ng-options="trip.name for trip in trips" ng-model="selectedTrip"
-            ng-change="onChangeTrip()">
-        <option value="">-- choose trip --</option>
+    <select id="selectTrip" ng-options="trip.name for trip in trips" ng-model="selectedTrip" ng-change="onChangeTrip()">
+        <option value="" disabled>-- choose trip --</option>
     </select>
 </form>
