@@ -1,4 +1,5 @@
-<div ng-controller="OrderController" ng-show="showOrders">
+<div ng-controller="orderController">
+   <div ng-show="showInputOrder" ng-show="showInputOrder">
     <form name="inputForm" class="orderInput">
         <input name="orderText" ng-model="newOrder.content" placeholder="Add your order here" required>
         <br/>
@@ -8,8 +9,9 @@
             <button id="sendButton" ng-click="saveOrder()" ng-disabled="inputform.$valid">Send</button>
         </div>
     </form>
-    <button id="loadButton" ng-click="getOrders()">Load</button>
-    <ul ng-cloak class="list-group">
+    <button id="loadButton" ng-click="getOrders()">Refresh</button>
+    </div>
+    <ul ng-cloak class="list-group" ng-show="showOrders">
         <section ng-repeat="order in orders">
             <ul id="orderList" class="list-group">
                 <li ng-bind="order.content" class="list-group-item"></li>
