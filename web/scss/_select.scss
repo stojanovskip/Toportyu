@@ -1,8 +1,8 @@
 @import 'fontsColors';
 
 select {
-  color: $primaryC;
-  background-color: $navyC;
+  color: black;
+  background-color: $opacityC;
   font-size: $normalS;
   font-family: $greekF;
   line-height: 1.1;
@@ -11,7 +11,8 @@ select {
   margin-bottom: 14px;
   border-radius: 10px;
   -webkit-appearance: none;
-  box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.6);
+  border: hidden;
+
 }
 select:focus{
   outline: none;

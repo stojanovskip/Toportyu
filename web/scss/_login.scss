@@ -7,15 +7,10 @@
   margin-left: 10%;
   margin-top:0.5vw;
   width:70%;
+  outline:none ;
 }
-#submitButton{ background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
-  background:-moz-linear-gradient(top, $navyC 5%, #337AB7 100%);
-  background:-webkit-linear-gradient(top, $navyC 5%, #337AB7 100%);
-  background:-o-linear-gradient(top, $navyC 5%, #337AB7 100%);
-  background:-ms-linear-gradient(top, $navyC 5%, #337AB7 100%);
-  background:linear-gradient(to bottom, $navyC 5%, #337AB7 100%);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
-  background-color:#599bb3;
+#submitButton{ 
+  background-color: $opacityC;
   -moz-border-radius:8px;
   -webkit-border-radius:8px;
   border-radius:8px;
@@ -88,40 +83,27 @@
 }
 
 .logbuttons {
-  box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.6);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
-  background:-moz-linear-gradient(top, $navyC 5%, #337AB7 100%);
-  background:-webkit-linear-gradient(top, $navyC 5%, #337AB7 100%);
-  background:-o-linear-gradient(top, $navyC 5%, #337AB7 100%);
-  background:-ms-linear-gradient(top, $navyC 5%, #337AB7 100%);
-  background:linear-gradient(to bottom, $navyC 5%, #337AB7 100%);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
-  background-color:#599bb3;
+  background-color:rgba(255, 255, 255, .28);
   -moz-border-radius:8px;
   -webkit-border-radius:8px;
   border-radius:8px;
   display:inline-block;
   position:absolute;
   cursor:pointer;
-  color:#ffffff;
-  font-family: Arial, serif;
-  font-size:20px;
-  font-weight:bold;
-  margin-left:80%;
+  color:black;
+  font-family: $greekF;
+  font-size:1vw;
+  margin-left:91%;
+  margin-top:-0.7%;
+  height: 6%;
+  border:hidden;
   top: 5%;
   padding:1vw 2vw;
   text-decoration:none;
-  text-shadow:0 1px 0 #3d768a;
+  outline: none;
 }
 .logbuttons:hover {
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
-  background:-moz-linear-gradient(top, #337AB7 100%, $navyC 5%);
-  background:-webkit-linear-gradient(top, #337AB7 100%, $navyC 5%);
-  background:-o-linear-gradient(top, #337AB7 100%, $navyC 5%);
-  background:-ms-linear-gradient(top, #337AB7 100%, $navyC 5%);
-  background:linear-gradient(to bottom, #337AB7 100%, $navyC 5%);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
-  background-color:#408c99;
+  background-color:rgba(255, 255, 255, .5);;
 }
 #failed {
   color:red;
@@ -136,4 +118,7 @@
 #fat{
   width:62%;
   margin-left:18%;
+}
+#titlelogin{
+  color: darkgrey;
 }
