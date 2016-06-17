@@ -11,9 +11,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by Andras.Timar on 4/26/2016.
@@ -52,11 +50,12 @@ public class OrderServiceTest {
         orderService.insertOrder(newOrder);
         verify(orderRepository).save(newOrder);
     }
+
     @Test
-    public void getOrderByTrip_should_call_orderRepository_findByTrip_Id(){
+    public void getOrderByTrip_should_call_orderRepository_findByTrip_Id() {
         Long tripId = Long.valueOf(100);
         orderService.getOrdersByTrip(tripId);
-        verify(orderRepository,times(1)).findByTrip_id(tripId);
+        verify(orderRepository, times(1)).findByTrip_id(tripId);
 
     }
 }

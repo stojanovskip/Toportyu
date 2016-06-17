@@ -6,7 +6,6 @@ import com.kerkyra.model.Trip;
 import com.kerkyra.model.User;
 import com.kerkyra.service.AuthenticationService;
 import com.kerkyra.service.OrderService;
-import com.sun.net.httpserver.HttpServer;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -15,14 +14,11 @@ import org.mockito.Spy;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import javax.servlet.http.HttpServletResponse;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by Andras.Timar on 6/10/2016.
@@ -80,7 +76,7 @@ public class OrderControllerTest {
         List<Order> orders = new ArrayList<Order>();
         orders.add(order);
         when(orderService.getOrders()).thenReturn(orders);
-        assertEquals("testContent",orderController.getAllOrders().get(0).content);
+        assertEquals("testContent", orderController.getAllOrders().get(0).content);
 
     }
 

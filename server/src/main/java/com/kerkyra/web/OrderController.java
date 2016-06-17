@@ -5,13 +5,11 @@ import com.kerkyra.model.OrderDto;
 import com.kerkyra.service.AuthenticationService;
 import com.kerkyra.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 /**
@@ -32,9 +30,9 @@ public class OrderController {
     @RequestMapping(value = "/api/orders", method = RequestMethod.GET)
     public List<OrderDto> getAllOrders() {
         Iterable<Order> orders = orderService.getOrders();
-        if(orders!= null)
-        return StreamSupport.stream(orders.spliterator(),false)
-                .map(OrderDto::new).collect(Collectors.toList());
+        if (orders != null)
+            return StreamSupport.stream(orders.spliterator(), false)
+                    .map(OrderDto::new).collect(Collectors.toList());
         return null;
     }
 
@@ -44,7 +42,7 @@ public class OrderController {
                 .map(OrderDto::new).collect(Collectors.toList());
     }
 
-    @RequestMapping(value = "/api/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/orders", method = RequestMethod.POST)
     public OrderDto insertOrder(@CookieValue(value = "sessionId", required = false) Long sessionId, @RequestBody Order order, HttpServletResponse response) {
         if (sessionId != null && authenticationService.getUser(sessionId) != null) {
             order.setUser(authenticationService.getUser(sessionId));

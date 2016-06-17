@@ -16,7 +16,7 @@ public class OrderService implements IOrderService {
     private final OrderRepository orderRepository;
 
     @Autowired
-    public OrderService (OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
 

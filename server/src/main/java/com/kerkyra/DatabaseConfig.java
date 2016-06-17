@@ -1,11 +1,5 @@
 package com.kerkyra;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +9,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+
+import javax.sql.DataSource;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Properties;
 
 @EnableJpaRepositories("com.kerkyra.repository")
 @Configuration

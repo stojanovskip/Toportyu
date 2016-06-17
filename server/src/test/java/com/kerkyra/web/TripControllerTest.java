@@ -13,14 +13,11 @@ import org.mockito.Spy;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import javax.servlet.http.HttpServletResponse;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by Andras.Timar on 6/10/2016.
@@ -73,19 +70,19 @@ public class TripControllerTest {
     }
 
     @Test
-    public void getTrips_should_call_tripService_getAllTrips(){
+    public void getTrips_should_call_tripService_getAllTrips() {
         tripController.getTrips();
-        verify(tripService,times(1)).getTrips();
+        verify(tripService, times(1)).getTrips();
     }
 
     @Test
-    public void getTrips_should_returnNull_if_noTripsFound(){
+    public void getTrips_should_returnNull_if_noTripsFound() {
         List<TripDto> trips = tripController.getTrips();
         assertNull(trips);
     }
 
     @Test
-    public void getTrips_should_returnCorrectTripDtos_if_TripsFound(){
+    public void getTrips_should_returnCorrectTripDtos_if_TripsFound() {
         Iterable<Trip> trips = new ArrayList<Trip>();
         when(tripService.getTrips()).thenReturn(trips);
         List<TripDto> tripsResult = tripController.getTrips();

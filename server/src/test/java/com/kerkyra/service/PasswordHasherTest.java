@@ -3,7 +3,8 @@ package com.kerkyra.service;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 /**
  * Created by Andras.Timar on 6/6/2016.
